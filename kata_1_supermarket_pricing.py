@@ -172,3 +172,7 @@ class BuyNGetMFree:
     ``int(quantity)``. Pricing is based on how many items in each promotion
     group must be paid for.
     """
+
+    buy: int
+    get_free: int
+    unit_price: Money
