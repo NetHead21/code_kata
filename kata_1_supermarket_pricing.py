@@ -190,3 +190,14 @@ class BuyNGetMFree:
     def describe(self) -> str:
         """Describe the promotion in receipt output."""
         return f"Buy {self.buy} get {self.get_free} free @ {self.unit_price} each"
+
+
+@dataclass
+class PercentageDiscount:
+    """Apply a percentage discount to another pricing strategy.
+
+    This is a decorator-style strategy: it delegates to ``base_strategy`` to
+    compute the undiscounted amount and then subtracts the configured percent.
+    Because it wraps another strategy, it can discount unit, weighted, bulk, or
+    other composite pricing rules uniformly.
+    """
