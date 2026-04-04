@@ -160,3 +160,15 @@ class BulkPrice:
     def describe(self) -> str:
         """Describe the offer and its fallback unit price."""
         return f"{self.count} for {self.bulk_price} (otherwise {self.unit_price} each)"
+
+
+@dataclass
+class BuyNGetMFree:
+    """Represent a buy-N-get-M-free promotion.
+
+    Example: buy 2, get 1 free.
+
+    The quantity is interpreted as a discrete item count and truncated with
+    ``int(quantity)``. Pricing is based on how many items in each promotion
+    group must be paid for.
+    """
