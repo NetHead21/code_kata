@@ -129,3 +129,7 @@ class WeightedPrice:
     def calculate(self, quantity: Decimal) -> Money:
         """Price ``quantity`` pounds at the configured rate."""
         return self.price_per_lb * quantity
+
+    def describe(self) -> str:
+        """Describe the strategy in receipt output."""
+        return f"{self.price_per_lb}/lb"
