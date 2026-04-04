@@ -214,3 +214,13 @@ class PercentageDiscount:
     def describe(self) -> str:
         """Describe the discount and the wrapped base strategy."""
         return f"{self.discount_pct}% off → {self.base_strategy.describe()}"
+
+
+# ---------------------------------------------------------------------------
+# Product & Cart
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class Product:
+    """Sellable product with a name, pricing rule, and display unit."""
