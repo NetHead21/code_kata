@@ -110,3 +110,7 @@ class UnitPrice:
     def calculate(self, quantity: Decimal) -> Money:
         """Price ``quantity`` items at the configured per-item rate."""
         return self.price * quantity
+
+    def describe(self) -> str:
+        """Describe the strategy in receipt output."""
+        return f"{self.price} each"
