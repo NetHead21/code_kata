@@ -85,3 +85,7 @@ class PricingStrategy(Protocol):
     A strategy computes the cost for a requested quantity and can describe
     itself in receipt-friendly text.
     """
+
+    def calculate(self, quantity: Decimal) -> Money:
+        """Return the cost for ``quantity`` of a product."""
+        ...
