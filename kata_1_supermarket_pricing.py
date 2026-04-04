@@ -89,3 +89,7 @@ class PricingStrategy(Protocol):
     def calculate(self, quantity: Decimal) -> Money:
         """Return the cost for ``quantity`` of a product."""
         ...
+
+    def describe(self) -> str:
+        """Return a human-readable description of the pricing rule."""
+        ...
