@@ -104,3 +104,9 @@ class UnitPrice:
     quantity pricing, even when the product unit name is not literally
     ``"unit"``.
     """
+
+    price: Money
+
+    def calculate(self, quantity: Decimal) -> Money:
+        """Price ``quantity`` items at the configured per-item rate."""
+        return self.price * quantity
