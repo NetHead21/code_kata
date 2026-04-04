@@ -24,3 +24,8 @@ Important behavior notes:
 Running the module directly prints a sample receipt that exercises each pricing
 strategy.
 """
+
+from __future__ import annotations
+from dataclasses import dataclass, field
+from decimal import Decimal, ROUND_HALF_UP
+from typing import Protocol
