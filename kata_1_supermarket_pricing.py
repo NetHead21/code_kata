@@ -47,3 +47,9 @@ class Money:
     ``Money`` intentionally exposes only the operations needed by this kata:
     addition, scalar multiplication, and user-friendly string representations.
     """
+
+    amount: Decimal
+
+    def __init__(self, amount: int | float | str | Decimal):
+        """Create a money value from an int, float, string, or ``Decimal``."""
+        object.__setattr__(self, "amount", Decimal(str(amount)))
