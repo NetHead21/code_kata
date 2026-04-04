@@ -123,3 +123,9 @@ class WeightedPrice:
     The quantity is expected to represent a weight measurement, so fractional
     values are normal and preserved.
     """
+
+    price_per_lb: Money
+
+    def calculate(self, quantity: Decimal) -> Money:
+        """Price ``quantity`` pounds at the configured rate."""
+        return self.price_per_lb * quantity
