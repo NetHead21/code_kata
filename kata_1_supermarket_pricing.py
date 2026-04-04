@@ -65,3 +65,7 @@ class Money:
     def __str__(self) -> str:
         """Format the value as dollars rounded to two decimal places."""
         return f"${self.amount.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)}"
+
+    def __repr__(self) -> str:
+        """Return a debug-oriented representation preserving raw precision."""
+        return f"Money({self.amount})"
