@@ -29,3 +29,21 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from decimal import Decimal, ROUND_HALF_UP
 from typing import Protocol
+
+# ---------------------------------------------------------------------------
+# Money — immutable, decimal-safe
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class Money:
+    """Immutable wrapper around ``Decimal`` for monetary arithmetic.
+
+    The constructor accepts several common numeric representations and converts
+    them through ``str`` before creating a ``Decimal``. This avoids many of the
+    surprising binary floating-point artifacts that would appear if floats were
+    passed directly to ``Decimal``.
+
+    ``Money`` intentionally exposes only the operations needed by this kata:
+    addition, scalar multiplication, and user-friendly string representations.
+    """
