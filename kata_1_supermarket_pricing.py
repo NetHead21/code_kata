@@ -176,3 +176,13 @@ class BuyNGetMFree:
     buy: int
     get_free: int
     unit_price: Money
+
+    def calculate(self, quantity: Decimal) -> Money:
+        """Charge only for the paid items implied by the promotion."""
+        qty = int(quantity)
+        group_size = self.buy + self.get_free
+        full_groups = qty // group_size
+        remainder = qty % group_size
+        paid_in_remainder = min(remainder, self.buy)
+        total_paid = full_groups * self.buy + paid_in_remainder
+        return self.unit_price * total_paid
