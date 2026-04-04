@@ -244,3 +244,8 @@ class CartItem:
 
     product: Product
     quantity: Decimal
+
+    @property
+    def subtotal(self) -> Money:
+        """Return the price of this line item."""
+        return self.product.price_for(self.quantity)
