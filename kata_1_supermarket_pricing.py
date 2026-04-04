@@ -210,3 +210,7 @@ class PercentageDiscount:
         base = self.base_strategy.calculate(quantity)
         discount = base * (self.discount_pct / 100)
         return base + Money(-discount.amount)
+
+    def describe(self) -> str:
+        """Describe the discount and the wrapped base strategy."""
+        return f"{self.discount_pct}% off → {self.base_strategy.describe()}"
