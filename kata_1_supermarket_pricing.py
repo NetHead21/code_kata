@@ -73,3 +73,15 @@ class Money:
 
 ZERO = Money(0)
 """Convenience constant representing a zero monetary amount."""
+
+# ---------------------------------------------------------------------------
+# Pricing strategies (Protocol + implementations)
+# ---------------------------------------------------------------------------
+
+
+class PricingStrategy(Protocol):
+    """Interface for objects that can price a product quantity.
+
+    A strategy computes the cost for a requested quantity and can describe
+    itself in receipt-friendly text.
+    """
