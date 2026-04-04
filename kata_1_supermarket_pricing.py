@@ -69,3 +69,7 @@ class Money:
     def __repr__(self) -> str:
         """Return a debug-oriented representation preserving raw precision."""
         return f"Money({self.amount})"
+
+
+ZERO = Money(0)
+"""Convenience constant representing a zero monetary amount."""
