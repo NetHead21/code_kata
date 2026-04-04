@@ -204,3 +204,9 @@ class PercentageDiscount:
 
     base_strategy: PricingStrategy
     discount_pct: Decimal
+
+    def calculate(self, quantity: Decimal) -> Money:
+        """Return the discounted price for ``quantity``."""
+        base = self.base_strategy.calculate(quantity)
+        discount = base * (self.discount_pct / 100)
+        return base + Money(-discount.amount)
