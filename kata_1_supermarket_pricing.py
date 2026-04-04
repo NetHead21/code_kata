@@ -114,3 +114,12 @@ class UnitPrice:
     def describe(self) -> str:
         """Describe the strategy in receipt output."""
         return f"{self.price} each"
+
+
+@dataclass
+class WeightedPrice:
+    """Price a product by weight, typically pounds.
+
+    The quantity is expected to represent a weight measurement, so fractional
+    values are normal and preserved.
+    """
