@@ -241,3 +241,6 @@ class CartItem:
     A cart item couples a ``Product`` with a requested quantity and exposes a
     computed subtotal for receipt rendering and total calculation.
     """
+
+    product: Product
+    quantity: Decimal
