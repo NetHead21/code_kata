@@ -61,3 +61,7 @@ class Money:
     def __mul__(self, factor: int | float | Decimal) -> Money:
         """Return a new ``Money`` scaled by a numeric factor."""
         return Money(self.amount * Decimal(str(factor)))
+
+    def __str__(self) -> str:
+        """Format the value as dollars rounded to two decimal places."""
+        return f"${self.amount.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)}"
