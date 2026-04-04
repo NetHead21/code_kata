@@ -53,3 +53,7 @@ class Money:
     def __init__(self, amount: int | float | str | Decimal):
         """Create a money value from an int, float, string, or ``Decimal``."""
         object.__setattr__(self, "amount", Decimal(str(amount)))
+
+    def __add__(self, other: Money) -> Money:
+        """Return a new ``Money`` representing the sum of two amounts."""
+        return Money(self.amount + other.amount)
