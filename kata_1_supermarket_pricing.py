@@ -224,3 +224,11 @@ class PercentageDiscount:
 @dataclass
 class Product:
     """Sellable product with a name, pricing rule, and display unit."""
+
+    name: str
+    pricing: PricingStrategy
+    unit: str = "unit"  # "unit", "lb", etc.
+
+    def price_for(self, quantity: Decimal) -> Money:
+        """Delegate quantity pricing to the configured strategy."""
+        return self.pricing.calculate(quantity)
