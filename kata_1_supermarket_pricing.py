@@ -149,3 +149,10 @@ class BulkPrice:
     count: int
     bulk_price: Money
     unit_price: Money  # fallback price for items outside the bulk deal
+
+    def calculate(self, quantity: Decimal) -> Money:
+        """Apply bulk pricing to full groups and unit pricing to the remainder."""
+        qty = int(quantity)
+        bulk_groups = qty // self.count
+        remainder = qty % self.count
+        return self.bulk_price * bulk_groups + self.unit_price * remainder
