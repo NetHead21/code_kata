@@ -145,3 +145,7 @@ class BulkPrice:
     fractional quantity is truncated with ``int(quantity)`` before pricing,
     because partial items do not participate in a bulk offer.
     """
+
+    count: int
+    bulk_price: Money
+    unit_price: Money  # fallback price for items outside the bulk deal
