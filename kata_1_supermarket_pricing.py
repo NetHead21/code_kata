@@ -133,3 +133,15 @@ class WeightedPrice:
     def describe(self) -> str:
         """Describe the strategy in receipt output."""
         return f"{self.price_per_lb}/lb"
+
+
+@dataclass
+class BulkPrice:
+    """Offer a flat price for groups of ``count`` items.
+
+    Example: ``3 for $1.00, otherwise $0.45 each``.
+
+    This strategy treats the quantity as a count of discrete items. Any
+    fractional quantity is truncated with ``int(quantity)`` before pricing,
+    because partial items do not participate in a bulk offer.
+    """
