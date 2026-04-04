@@ -232,3 +232,12 @@ class Product:
     def price_for(self, quantity: Decimal) -> Money:
         """Delegate quantity pricing to the configured strategy."""
         return self.pricing.calculate(quantity)
+
+
+@dataclass
+class CartItem:
+    """Line item in a shopping cart.
+
+    A cart item couples a ``Product`` with a requested quantity and exposes a
+    computed subtotal for receipt rendering and total calculation.
+    """
