@@ -201,3 +201,6 @@ class PercentageDiscount:
     Because it wraps another strategy, it can discount unit, weighted, bulk, or
     other composite pricing rules uniformly.
     """
+
+    base_strategy: PricingStrategy
+    discount_pct: Decimal
