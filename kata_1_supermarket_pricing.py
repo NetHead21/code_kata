@@ -186,3 +186,7 @@ class BuyNGetMFree:
         paid_in_remainder = min(remainder, self.buy)
         total_paid = full_groups * self.buy + paid_in_remainder
         return self.unit_price * total_paid
+
+    def describe(self) -> str:
+        """Describe the promotion in receipt output."""
+        return f"Buy {self.buy} get {self.get_free} free @ {self.unit_price} each"
