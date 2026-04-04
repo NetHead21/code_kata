@@ -156,3 +156,7 @@ class BulkPrice:
         bulk_groups = qty // self.count
         remainder = qty % self.count
         return self.bulk_price * bulk_groups + self.unit_price * remainder
+
+    def describe(self) -> str:
+        """Describe the offer and its fallback unit price."""
+        return f"{self.count} for {self.bulk_price} (otherwise {self.unit_price} each)"
