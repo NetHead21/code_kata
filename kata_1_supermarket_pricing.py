@@ -93,3 +93,14 @@ class PricingStrategy(Protocol):
     def describe(self) -> str:
         """Return a human-readable description of the pricing rule."""
         ...
+
+
+@dataclass
+class UnitPrice:
+    """Simple per-unit price such as ``$0.65 each``.
+
+    This strategy multiplies the unit price by the requested quantity directly,
+    so fractional quantities are allowed. That makes it usable for generic
+    quantity pricing, even when the product unit name is not literally
+    ``"unit"``.
+    """
