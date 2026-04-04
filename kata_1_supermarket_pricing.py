@@ -57,3 +57,7 @@ class Money:
     def __add__(self, other: Money) -> Money:
         """Return a new ``Money`` representing the sum of two amounts."""
         return Money(self.amount + other.amount)
+
+    def __mul__(self, factor: int | float | Decimal) -> Money:
+        """Return a new ``Money`` scaled by a numeric factor."""
+        return Money(self.amount * Decimal(str(factor)))
