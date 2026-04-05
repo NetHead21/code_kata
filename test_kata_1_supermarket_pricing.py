@@ -33,3 +33,6 @@ class TestMoney:
 
     def test_construct_from_decimal(self):
         assert Money(Decimal("3.14")).amount == Decimal("3.14")
+
+    def test_add(self):
+        assert (Money("1.00") + Money("2.50")).amount == Decimal("3.50")
