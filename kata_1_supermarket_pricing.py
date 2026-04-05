@@ -289,9 +289,20 @@ class Cart:
         lines.append("=" * 70)
         return "\n".join(lines)
 
+
 # ---------------------------------------------------------------------------
 # Demo
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
     # Sample catalog with one product for each pricing strategy.
+
+    beans = Product("Canned Beans", UnitPrice(Money("0.65")), unit="unit")
+    steak = Product("Ribeye Steak", WeightedPrice(Money("12.99")), unit="lb")
+    soda = Product("Soda Cans", BulkPrice(3, Money("1.00"), Money("0.45")), unit="unit")
+    yogurt = Product("Yogurt", BuyNGetMFree(2, 1, Money("1.50")), unit="unit")
+    coffee = Product(
+        "Coffee Beans",
+        PercentageDiscount(WeightedPrice(Money("8.00")), Decimal("10")),
+        unit="lb",
+    )
