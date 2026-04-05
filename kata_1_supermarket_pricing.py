@@ -249,3 +249,12 @@ class CartItem:
     def subtotal(self) -> Money:
         """Return the price of this line item."""
         return self.product.price_for(self.quantity)
+
+    def __str__(self) -> str:
+        """Render the item as a single formatted receipt line."""
+        qty_str = f"{self.quantity} {self.product.unit}"
+        return (
+            f"  {self.product.name:<25} "
+            f"qty: {qty_str:<12} "
+            f"[{self.product.pricing.describe()}]  →  {self.subtotal}"
+        )
