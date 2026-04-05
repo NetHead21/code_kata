@@ -54,3 +54,6 @@ class TestMoney:
 
     def test_str_formats_with_dollar_sign(self):
         assert str(Money("2.60")) == "$2.60"
+
+    def test_str_pads_to_two_decimal_places(self):
+        assert str(Money("3")) == "$3.00"
