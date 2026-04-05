@@ -51,3 +51,6 @@ class TestMoney:
 
     def test_str_rounds_down(self):
         assert str(Money("1.004")) == "$1.00"
+
+    def test_str_formats_with_dollar_sign(self):
+        assert str(Money("2.60")) == "$2.60"
