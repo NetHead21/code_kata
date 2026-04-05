@@ -288,3 +288,10 @@ class Cart:
         lines.append(f"  {'TOTAL':<50} {self.total}")
         lines.append("=" * 70)
         return "\n".join(lines)
+
+# ---------------------------------------------------------------------------
+# Demo
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    # Sample catalog with one product for each pricing strategy.
