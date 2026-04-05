@@ -265,3 +265,8 @@ class Cart:
     """Mutable shopping cart that accumulates items and prints receipts."""
 
     items: list[CartItem] = field(default_factory=list)
+
+    def add(self, product: Product, quantity: int | float | str | Decimal) -> Cart:
+        """Append a new item to the cart and return ``self`` for chaining."""
+        self.items.append(CartItem(product, Decimal(str(quantity))))
+        return self
