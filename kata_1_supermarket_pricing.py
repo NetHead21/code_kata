@@ -278,3 +278,13 @@ class Cart:
         for item in self.items:
             result = result + item.subtotal
         return result
+
+    def receipt(self) -> str:
+        """Render a plain-text receipt containing all items and the total."""
+        lines = ["=" * 70, "  RECEIPT", "=" * 70]
+        for item in self.items:
+            lines.append(str(item))
+        lines.append("-" * 70)
+        lines.append(f"  {'TOTAL':<50} {self.total}")
+        lines.append("=" * 70)
+        return "\n".join(lines)
