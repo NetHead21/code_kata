@@ -48,3 +48,6 @@ class TestMoney:
 
     def test_str_rounds_to_two_decimal_places(self):
         assert str(Money("1.005")) == "$1.01"  # ROUND_HALF_UP
+
+    def test_str_rounds_down(self):
+        assert str(Money("1.004")) == "$1.00"
