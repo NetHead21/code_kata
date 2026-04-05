@@ -258,3 +258,8 @@ class CartItem:
             f"qty: {qty_str:<12} "
             f"[{self.product.pricing.describe()}]  →  {self.subtotal}"
         )
+
+
+@dataclass
+class Cart:
+    """Mutable shopping cart that accumulates items and prints receipts."""
