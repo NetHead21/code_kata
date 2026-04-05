@@ -39,3 +39,6 @@ class TestMoney:
 
     def test_mul_by_int(self):
         assert (Money("0.65") * 4).amount == Decimal("2.60")
+
+    def test_mul_by_float(self):
+        assert (Money("12.99") * 0.75).amount == Decimal("9.7425")
