@@ -263,3 +263,5 @@ class CartItem:
 @dataclass
 class Cart:
     """Mutable shopping cart that accumulates items and prints receipts."""
+
+    items: list[CartItem] = field(default_factory=list)
