@@ -48,6 +48,20 @@ The exercises range from algorithmic drills to design explorations. Several modu
 | 16 | `kata_16_business_rules.py` | Payment-handling rules modelled as independent Rule objects driven by a composable RuleEngine (Open/Closed design) |
 | 17 | `kata_17_more_business_rules.py` | Full order-processing lifecycle modelled as a Finite State Machine: states, events, guard conditions, and actions expressed as a plain data-driven transition table |
 
+### Graphs, word puzzles, and games
+
+| # | Module | Description |
+|---|--------|-------------|
+| 18 | `kata_18_transitive_dependencies.py` | Transitive closure of a dependency graph; lazy DFS with memoisation vs. eager BFS recomputation |
+| 19 | `kata_19_word_chains.py` | Shortest word chain between two words (each step changes one letter); unidirectional and bidirectional BFS with a pattern-key neighbour index |
+| 20 | `kata_20_klondike.py` | Klondike solitaire engine: full move enumeration, auto-flip, win detection, and four pluggable strategy classes with win-rate simulation |
+
+### Data structures
+
+| # | Module | Description |
+|---|--------|-------------|
+| 21 | `kata_21_simple_lists.py` | Three list implementations (singly linked, doubly linked, array cursor) all sharing the same interface; sentinel-node technique used to eliminate boundary conditions |
+
 ### Additional exercise
 
 | Module | Description |
@@ -64,10 +78,14 @@ code_kata/
 ├── kata_2_karate_chop.py
 ├── ...
 ├── kata_17_more_business_rules.py
+├── kata_18_transitive_dependencies.py
+├── kata_19_word_chains.py
+├── kata_20_klondike.py
+├── kata_21_simple_lists.py
 ├── number_to_string_converter.py
 ├── test_kata_1_supermarket_pricing.py
 ├── ...
-├── test_kata_17_more_business_rules.py
+├── test_kata_21_simple_lists.py
 ├── test_number_to_string_converter.py
 ├── data/
 │   ├── football.dat        ← used by kata 4
@@ -141,6 +159,9 @@ python kata_14_trigrams.py
 python kata_15_diversion.py
 python kata_16_business_rules.py
 python kata_17_more_business_rules.py
+python kata_18_transitive_dependencies.py
+python kata_19_word_chains.py
+python kata_20_klondike.py
 ```
 
 ---
@@ -163,7 +184,7 @@ python kata_17_more_business_rules.py
 4. Modify or extend the implementation, then re-run the full suite.
 
 ```bash
-# Example: explore kata 17
-python -m pytest -q test_kata_17_more_business_rules.py
-python kata_17_more_business_rules.py
+# Example: explore kata 20
+python -m pytest -q test_kata_20_klondike.py
+python kata_20_klondike.py
 ```
