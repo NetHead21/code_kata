@@ -306,3 +306,10 @@ if __name__ == "__main__":
         PercentageDiscount(WeightedPrice(Money("8.00")), Decimal("10")),
         unit="lb",
     )
+
+    cart = Cart()
+    cart.add(beans, 4)  # 4 cans at $0.65 each
+    cart.add(steak, "0.75")  # 0.75 lb at $12.99/lb
+    cart.add(soda, 5)  # 5 cans: 3 for $1.00 plus 2 at $0.45
+    cart.add(yogurt, 7)  # buy 2 get 1 free: pay for 5 out of 7
+    cart.add(coffee, "0.5")  # 0.5 lb at $8.00/lb with 10% off
