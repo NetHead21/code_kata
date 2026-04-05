@@ -45,3 +45,6 @@ class TestMoney:
 
     def test_mul_by_decimal(self):
         assert (Money("8.00") * Decimal("0.5")).amount == Decimal("4.00")
+
+    def test_str_rounds_to_two_decimal_places(self):
+        assert str(Money("1.005")) == "$1.01"  # ROUND_HALF_UP
