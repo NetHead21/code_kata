@@ -20,4 +20,7 @@ from kata_1_supermarket_pricing import (
 # Money
 # ===========================================================================
 
+
 class TestMoney:
+    def test_construct_from_int(self):
+        assert Money(1).amount == Decimal("1")
