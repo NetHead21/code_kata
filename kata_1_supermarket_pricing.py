@@ -270,3 +270,11 @@ class Cart:
         """Append a new item to the cart and return ``self`` for chaining."""
         self.items.append(CartItem(product, Decimal(str(quantity))))
         return self
+
+    @property
+    def total(self) -> Money:
+        """Return the sum of all line-item subtotals."""
+        result = ZERO
+        for item in self.items:
+            result = result + item.subtotal
+        return result
