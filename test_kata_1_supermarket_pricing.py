@@ -27,3 +27,6 @@ class TestMoney:
 
     def test_construct_from_float(self):
         assert Money(0.65).amount == Decimal("0.65")
+
+    def test_construct_from_str(self):
+        assert Money("1.99").amount == Decimal("1.99")
