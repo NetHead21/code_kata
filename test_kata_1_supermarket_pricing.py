@@ -89,3 +89,6 @@ class TestUnitPrice:
     @pytest.fixture
     def strategy(self):
         return UnitPrice(Money("0.65"))
+
+    def test_calculate_multiple_units(self, strategy):
+        assert strategy.calculate(Decimal("4")).amount == Decimal("2.60")
