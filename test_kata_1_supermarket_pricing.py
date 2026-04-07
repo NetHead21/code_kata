@@ -105,3 +105,14 @@ class TestUnitPrice:
 
     def test_describe(self, strategy):
         assert strategy.describe() == "$0.65 each"
+
+
+# ===========================================================================
+# WeightedPrice
+# ===========================================================================
+
+
+class TestWeightedPrice:
+    @pytest.fixture
+    def strategy(self):
+        return WeightedPrice(Money("12.99"))
