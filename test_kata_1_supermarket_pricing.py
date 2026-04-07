@@ -152,3 +152,7 @@ class TestBulkPrice:
     def test_bulk_group_with_remainder(self, strategy):
         # 5 items → 1 group × $1.00 + 2 × $0.45 = $1.90
         assert strategy.calculate(Decimal("5")).amount == Decimal("1.90")
+
+    def test_all_remainder_no_bulk(self, strategy):
+        # 2 items → 0 groups + 2 × $0.45 = $0.90
+        assert strategy.calculate(Decimal("2")).amount == Decimal("0.90")
