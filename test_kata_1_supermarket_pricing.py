@@ -144,3 +144,7 @@ class TestBulkPrice:
     def test_exact_bulk_group(self, strategy):
         # 3 items → 1 group × $1.00 + 0 remainder
         assert strategy.calculate(Decimal("3")).amount == Decimal("1.00")
+
+    def test_multiple_bulk_groups(self, strategy):
+        # 6 items → 2 groups × $1.00
+        assert strategy.calculate(Decimal("6")).amount == Decimal("2.00")
