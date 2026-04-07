@@ -72,3 +72,6 @@ class TestMoney:
     def test_add_zero_is_identity(self):
         m = Money("5.00")
         assert (m + ZERO).amount == m.amount
+
+    def test_equality(self):
+        assert Money("1.50") == Money("1.50")
