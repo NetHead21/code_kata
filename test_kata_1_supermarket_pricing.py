@@ -60,3 +60,8 @@ class TestMoney:
 
     def test_repr(self):
         assert repr(Money("1.50")) == "Money(1.50)"
+
+    def test_immutable(self):
+        m = Money("1.00")
+        with pytest.raises(Exception):  # FrozenInstanceError or AttributeError
+            m.amount = Decimal("2.00")  # type: ignore[misc]
