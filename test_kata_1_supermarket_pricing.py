@@ -68,3 +68,7 @@ class TestMoney:
 
     def test_zero_constant(self):
         assert ZERO.amount == Decimal("0")
+
+    def test_add_zero_is_identity(self):
+        m = Money("5.00")
+        assert (m + ZERO).amount == m.amount
