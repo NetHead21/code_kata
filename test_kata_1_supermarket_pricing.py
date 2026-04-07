@@ -57,3 +57,6 @@ class TestMoney:
 
     def test_str_pads_to_two_decimal_places(self):
         assert str(Money("3")) == "$3.00"
+
+    def test_repr(self):
+        assert repr(Money("1.50")) == "Money(1.50)"
