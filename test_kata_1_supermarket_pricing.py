@@ -125,3 +125,6 @@ class TestWeightedPrice:
 
     def test_calculate_zero_lb(self, strategy):
         assert strategy.calculate(Decimal("0")).amount == Decimal("0")
+
+    def test_describe(self, strategy):
+        assert strategy.describe() == "$12.99/lb"
