@@ -116,3 +116,6 @@ class TestWeightedPrice:
     @pytest.fixture
     def strategy(self):
         return WeightedPrice(Money("12.99"))
+
+    def test_calculate_fractional_lb(self, strategy):
+        assert strategy.calculate(Decimal("0.75")).amount == Decimal("9.7425")
