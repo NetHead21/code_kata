@@ -119,3 +119,6 @@ class TestWeightedPrice:
 
     def test_calculate_fractional_lb(self, strategy):
         assert strategy.calculate(Decimal("0.75")).amount == Decimal("9.7425")
+
+    def test_calculate_whole_lb(self, strategy):
+        assert strategy.calculate(Decimal("1")).amount == Decimal("12.99")
