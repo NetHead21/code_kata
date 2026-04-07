@@ -92,3 +92,6 @@ class TestUnitPrice:
 
     def test_calculate_multiple_units(self, strategy):
         assert strategy.calculate(Decimal("4")).amount == Decimal("2.60")
+
+    def test_calculate_one_unit(self, strategy):
+        assert strategy.calculate(Decimal("1")).amount == Decimal("0.65")
