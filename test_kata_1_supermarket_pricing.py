@@ -122,3 +122,6 @@ class TestWeightedPrice:
 
     def test_calculate_whole_lb(self, strategy):
         assert strategy.calculate(Decimal("1")).amount == Decimal("12.99")
+
+    def test_calculate_zero_lb(self, strategy):
+        assert strategy.calculate(Decimal("0")).amount == Decimal("0")
