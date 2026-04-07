@@ -128,3 +128,15 @@ class TestWeightedPrice:
 
     def test_describe(self, strategy):
         assert strategy.describe() == "$12.99/lb"
+
+
+# ===========================================================================
+# BulkPrice
+# ===========================================================================
+
+
+class TestBulkPrice:
+    # 3 for $1.00, otherwise $0.45 each
+    @pytest.fixture
+    def strategy(self):
+        return BulkPrice(3, Money("1.00"), Money("0.45"))
