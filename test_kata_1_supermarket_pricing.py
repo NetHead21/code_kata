@@ -140,3 +140,7 @@ class TestBulkPrice:
     @pytest.fixture
     def strategy(self):
         return BulkPrice(3, Money("1.00"), Money("0.45"))
+
+    def test_exact_bulk_group(self, strategy):
+        # 3 items → 1 group × $1.00 + 0 remainder
+        assert strategy.calculate(Decimal("3")).amount == Decimal("1.00")
