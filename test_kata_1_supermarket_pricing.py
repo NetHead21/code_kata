@@ -102,3 +102,6 @@ class TestUnitPrice:
     def test_calculate_fractional_quantity(self):
         s = UnitPrice(Money("1.00"))
         assert s.calculate(Decimal("0.5")).amount == Decimal("0.5")
+
+    def test_describe(self, strategy):
+        assert strategy.describe() == "$0.65 each"
