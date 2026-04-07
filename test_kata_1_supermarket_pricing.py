@@ -78,3 +78,14 @@ class TestMoney:
 
     def test_inequality(self):
         assert Money("1.00") != Money("2.00")
+
+
+# ===========================================================================
+# UnitPrice
+# ===========================================================================
+
+
+class TestUnitPrice:
+    @pytest.fixture
+    def strategy(self):
+        return UnitPrice(Money("0.65"))
