@@ -75,3 +75,6 @@ class TestMoney:
 
     def test_equality(self):
         assert Money("1.50") == Money("1.50")
+
+    def test_inequality(self):
+        assert Money("1.00") != Money("2.00")
