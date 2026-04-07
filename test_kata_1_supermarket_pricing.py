@@ -65,3 +65,6 @@ class TestMoney:
         m = Money("1.00")
         with pytest.raises(Exception):  # FrozenInstanceError or AttributeError
             m.amount = Decimal("2.00")  # type: ignore[misc]
+
+    def test_zero_constant(self):
+        assert ZERO.amount == Decimal("0")
