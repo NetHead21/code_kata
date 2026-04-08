@@ -169,3 +169,15 @@ class TestBulkPrice:
 
     def test_describe(self, strategy):
         assert strategy.describe() == "3 for $1.00 (otherwise $0.45 each)"
+
+
+# ===========================================================================
+# BuyNGetMFree
+# ===========================================================================
+
+
+class TestBuyNGetMFree:
+    # Buy 2 get 1 free @ $1.50 each  (group_size = 3)
+    @pytest.fixture
+    def strategy(self):
+        return BuyNGetMFree(2, 1, Money("1.50"))
