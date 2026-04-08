@@ -166,3 +166,6 @@ class TestBulkPrice:
     def test_remainder_is_count_minus_one(self, strategy):
         # 8 items → 2 groups × $1.00 + 2 × $0.45 = $2.90
         assert strategy.calculate(Decimal("8")).amount == Decimal("2.90")
+
+    def test_describe(self, strategy):
+        assert strategy.describe() == "3 for $1.00 (otherwise $0.45 each)"
