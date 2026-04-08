@@ -196,3 +196,7 @@ class TestBuyNGetMFree:
     def test_exact_one_full_group(self, strategy):
         # qty=3 → 1 group, pay 2
         assert strategy.calculate(Decimal("3")).amount == Decimal("3.00")
+
+    def test_multiple_full_groups(self, strategy):
+        # qty=6 → 2 groups, pay 4
+        assert strategy.calculate(Decimal("6")).amount == Decimal("6.00")
