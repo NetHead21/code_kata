@@ -248,3 +248,9 @@ class TestPercentageDiscount:
         base = UnitPrice(Money("2.00"))
         s = PercentageDiscount(base, Decimal("50"))
         assert s.calculate(Decimal("4")).amount == Decimal("4.00")
+
+    def test_wraps_bulk_price(self):
+        # 10% off "3 for $1.00" applied to 3 items → $0.90
+        base = BulkPrice(3, Money("1.00"), Money("0.45"))
+        s = PercentageDiscount(base, Decimal("10"))
+        assert s.calculate(Decimal("3")).amount == Decimal("0.90")
