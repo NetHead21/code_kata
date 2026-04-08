@@ -184,3 +184,7 @@ class TestBuyNGetMFree:
 
     def test_zero_quantity(self, strategy):
         assert strategy.calculate(Decimal("0")).amount == Decimal("0")
+
+    def test_one_item_less_than_group(self, strategy):
+        # qty=1 → no free triggered, pay 1
+        assert strategy.calculate(Decimal("1")).amount == Decimal("1.50")
