@@ -243,3 +243,8 @@ class TestPercentageDiscount:
         base = UnitPrice(Money("5.00"))
         s = PercentageDiscount(base, Decimal("100"))
         assert s.calculate(Decimal("2")).amount == Decimal("0")
+
+    def test_50_percent_off(self):
+        base = UnitPrice(Money("2.00"))
+        s = PercentageDiscount(base, Decimal("50"))
+        assert s.calculate(Decimal("4")).amount == Decimal("4.00")
