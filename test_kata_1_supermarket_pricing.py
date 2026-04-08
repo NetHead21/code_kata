@@ -181,3 +181,6 @@ class TestBuyNGetMFree:
     @pytest.fixture
     def strategy(self):
         return BuyNGetMFree(2, 1, Money("1.50"))
+
+    def test_zero_quantity(self, strategy):
+        assert strategy.calculate(Decimal("0")).amount == Decimal("0")
