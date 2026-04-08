@@ -221,3 +221,15 @@ class TestBuyNGetMFree:
 
     def test_describe(self, strategy):
         assert strategy.describe() == "Buy 2 get 1 free @ $1.50 each"
+
+
+# ===========================================================================
+# PercentageDiscount
+# ===========================================================================
+
+
+class TestPercentageDiscount:
+    def test_10_percent_off_weighted_price(self):
+        # 0.5 lb × $8.00 = $4.00 base, 10% off → $3.60  [demo case]
+        s = PercentageDiscount(WeightedPrice(Money("8.00")), Decimal("10"))
+        assert s.calculate(Decimal("0.5")).amount == Decimal("3.60")
