@@ -233,3 +233,8 @@ class TestPercentageDiscount:
         # 0.5 lb × $8.00 = $4.00 base, 10% off → $3.60  [demo case]
         s = PercentageDiscount(WeightedPrice(Money("8.00")), Decimal("10"))
         assert s.calculate(Decimal("0.5")).amount == Decimal("3.60")
+
+    def test_0_percent_off_equals_base(self):
+        base = UnitPrice(Money("1.00"))
+        s = PercentageDiscount(base, Decimal("0"))
+        assert s.calculate(Decimal("3")).amount == Decimal("3.00")
