@@ -159,3 +159,6 @@ class TestBulkPrice:
 
     def test_one_item(self, strategy):
         assert strategy.calculate(Decimal("1")).amount == Decimal("0.45")
+
+    def test_zero_quantity(self, strategy):
+        assert strategy.calculate(Decimal("0")).amount == Decimal("0")
