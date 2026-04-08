@@ -192,3 +192,7 @@ class TestBuyNGetMFree:
     def test_exactly_buy_count(self, strategy):
         # qty=2 → no free triggered yet, pay 2
         assert strategy.calculate(Decimal("2")).amount == Decimal("3.00")
+
+    def test_exact_one_full_group(self, strategy):
+        # qty=3 → 1 group, pay 2
+        assert strategy.calculate(Decimal("3")).amount == Decimal("3.00")
