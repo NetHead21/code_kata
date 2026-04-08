@@ -212,3 +212,9 @@ class TestBuyNGetMFree:
     def test_remainder_exceeds_buy_count(self, strategy):
         # qty=5 → 1 group (pay 2) + 2 remainder (pay 2) = pay 4
         assert strategy.calculate(Decimal("5")).amount == Decimal("6.00")
+
+    def test_buy_1_get_1_free(self):
+        # Every other item is free
+        s = BuyNGetMFree(1, 1, Money("2.00"))
+        assert s.calculate(Decimal("4")).amount == Decimal("4.00")  # pay 2 of 4
+        assert s.calculate(Decimal("5")).amount == Decimal("6.00")  # pay 3 of 5
