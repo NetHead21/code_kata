@@ -254,3 +254,7 @@ class TestPercentageDiscount:
         base = BulkPrice(3, Money("1.00"), Money("0.45"))
         s = PercentageDiscount(base, Decimal("10"))
         assert s.calculate(Decimal("3")).amount == Decimal("0.90")
+
+    def test_describe(self):
+        s = PercentageDiscount(WeightedPrice(Money("8.00")), Decimal("10"))
+        assert s.describe() == "10% off → $8.00/lb"
