@@ -218,3 +218,6 @@ class TestBuyNGetMFree:
         s = BuyNGetMFree(1, 1, Money("2.00"))
         assert s.calculate(Decimal("4")).amount == Decimal("4.00")  # pay 2 of 4
         assert s.calculate(Decimal("5")).amount == Decimal("6.00")  # pay 3 of 5
+
+    def test_describe(self, strategy):
+        assert strategy.describe() == "Buy 2 get 1 free @ $1.50 each"
