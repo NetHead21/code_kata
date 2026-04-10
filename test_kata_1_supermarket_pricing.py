@@ -368,3 +368,13 @@ class TestCart:
             PercentageDiscount(WeightedPrice(Money("8.00")), Decimal("10")),
             unit="lb",
         )
+
+        cart = (
+            Cart()
+            .add(beans, 4)
+            .add(steak, "0.75")
+            .add(soda, 5)
+            .add(yogurt, 7)
+            .add(coffee, "0.5")
+        )
+        assert str(cart.total) == "$25.34"
