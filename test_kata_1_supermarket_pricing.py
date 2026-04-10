@@ -289,3 +289,6 @@ class TestCartItem:
     def item(self):
         product = Product("Canned Beans", UnitPrice(Money("0.65")), unit="unit")
         return CartItem(product, Decimal("4"))
+
+    def test_subtotal(self, item):
+        assert item.subtotal.amount == Decimal("2.60")
