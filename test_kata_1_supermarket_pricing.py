@@ -317,3 +317,9 @@ class TestCartItem:
 class TestCart:
     def test_empty_cart_total_is_zero(self):
         assert Cart().total.amount == Decimal("0")
+
+    def test_add_returns_self_for_chaining(self):
+        product = Product("Beans", UnitPrice(Money("0.65")))
+        cart = Cart()
+        result = cart.add(product, 1)
+        assert result is cart
