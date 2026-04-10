@@ -383,3 +383,6 @@ class TestCart:
 
     def test_receipt_contains_receipt_header(self):
         assert "RECEIPT" in Cart().receipt()
+
+    def test_receipt_contains_total_label(self):
+        assert "TOTAL" in Cart().receipt()
