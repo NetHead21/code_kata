@@ -304,3 +304,6 @@ class TestCartItem:
 
     def test_str_contains_pricing_description(self, item):
         assert "$0.65 each" in str(item)
+
+    def test_str_contains_unit(self, item):
+        assert "unit" in str(item)
