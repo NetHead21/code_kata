@@ -269,3 +269,7 @@ class TestProduct:
     def test_price_for_delegates_to_strategy(self):
         p = Product("Beans", UnitPrice(Money("0.65")))
         assert p.price_for(Decimal("4")).amount == Decimal("2.60")
+
+    def test_default_unit_is_unit(self):
+        p = Product("Beans", UnitPrice(Money("0.65")))
+        assert p.unit == "unit"
