@@ -378,3 +378,8 @@ class TestCart:
             .add(coffee, "0.5")
         )
         assert str(cart.total) == "$25.34"
+
+    # --- receipt() ---
+
+    def test_receipt_contains_receipt_header(self):
+        assert "RECEIPT" in Cart().receipt()
