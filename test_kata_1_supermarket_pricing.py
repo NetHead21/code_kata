@@ -333,3 +333,8 @@ class TestCart:
         product = Product("Steak", WeightedPrice(Money("10.00")), unit="lb")
         cart = Cart().add(product, 0.5)
         assert cart.total.amount == Decimal("5.00")
+
+    def test_add_accepts_str(self):
+        product = Product("Steak", WeightedPrice(Money("12.99")), unit="lb")
+        cart = Cart().add(product, "0.75")
+        assert cart.total.amount == Decimal("9.7425")
