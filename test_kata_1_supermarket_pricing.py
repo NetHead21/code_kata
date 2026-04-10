@@ -295,3 +295,6 @@ class TestCartItem:
 
     def test_str_contains_product_name(self, item):
         assert "Canned Beans" in str(item)
+
+    def test_str_contains_quantity(self, item):
+        assert "4" in str(item)
