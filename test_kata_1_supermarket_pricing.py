@@ -298,3 +298,6 @@ class TestCartItem:
 
     def test_str_contains_quantity(self, item):
         assert "4" in str(item)
+
+    def test_str_contains_subtotal(self, item):
+        assert "$2.60" in str(item)
