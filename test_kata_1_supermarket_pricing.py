@@ -277,3 +277,15 @@ class TestProduct:
     def test_custom_unit(self):
         p = Product("Steak", WeightedPrice(Money("12.99")), unit="lb")
         assert p.unit == "lb"
+
+
+# ===========================================================================
+# CartItem
+# ===========================================================================
+
+
+class TestCartItem:
+    @pytest.fixture
+    def item(self):
+        product = Product("Canned Beans", UnitPrice(Money("0.65")), unit="unit")
+        return CartItem(product, Decimal("4"))
