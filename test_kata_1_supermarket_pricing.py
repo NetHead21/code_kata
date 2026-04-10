@@ -258,3 +258,14 @@ class TestPercentageDiscount:
     def test_describe(self):
         s = PercentageDiscount(WeightedPrice(Money("8.00")), Decimal("10"))
         assert s.describe() == "10% off → $8.00/lb"
+
+
+# ===========================================================================
+# Product
+# ===========================================================================
+
+
+class TestProduct:
+    def test_price_for_delegates_to_strategy(self):
+        p = Product("Beans", UnitPrice(Money("0.65")))
+        assert p.price_for(Decimal("4")).amount == Decimal("2.60")
