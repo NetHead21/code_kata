@@ -273,3 +273,7 @@ class TestProduct:
     def test_default_unit_is_unit(self):
         p = Product("Beans", UnitPrice(Money("0.65")))
         assert p.unit == "unit"
+
+    def test_custom_unit(self):
+        p = Product("Steak", WeightedPrice(Money("12.99")), unit="lb")
+        assert p.unit == "lb"
