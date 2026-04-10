@@ -355,3 +355,16 @@ class TestCart:
         product = Product("Item", UnitPrice(Money("1.00")))
         cart = Cart().add(product, 1).add(product, 2).add(product, 3)
         assert cart.total.amount == Decimal("6.00")
+
+    def test_full_demo_total(self):
+        beans = Product("Canned Beans", UnitPrice(Money("0.65")), unit="unit")
+        steak = Product("Ribeye Steak", WeightedPrice(Money("12.99")), unit="lb")
+        soda = Product(
+            "Soda Cans", BulkPrice(3, Money("1.00"), Money("0.45")), unit="unit"
+        )
+        yogurt = Product("Yogurt", BuyNGetMFree(2, 1, Money("1.50")), unit="unit")
+        coffee = Product(
+            "Coffee Beans",
+            PercentageDiscount(WeightedPrice(Money("8.00")), Decimal("10")),
+            unit="lb",
+        )
