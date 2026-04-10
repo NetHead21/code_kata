@@ -307,3 +307,13 @@ class TestCartItem:
 
     def test_str_contains_unit(self, item):
         assert "unit" in str(item)
+
+
+# ===========================================================================
+# Cart
+# ===========================================================================
+
+
+class TestCart:
+    def test_empty_cart_total_is_zero(self):
+        assert Cart().total.amount == Decimal("0")
