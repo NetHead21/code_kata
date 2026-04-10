@@ -350,3 +350,8 @@ class TestCart:
         cart = Cart().add(beans, 2).add(coffee, "0.5")
         # 2 × $0.65 + 0.5 × $8.00 = $1.30 + $4.00 = $5.30
         assert cart.total.amount == Decimal("5.30")
+
+    def test_chained_adds(self):
+        product = Product("Item", UnitPrice(Money("1.00")))
+        cart = Cart().add(product, 1).add(product, 2).add(product, 3)
+        assert cart.total.amount == Decimal("6.00")
