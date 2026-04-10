@@ -343,3 +343,10 @@ class TestCart:
         product = Product("Coffee", WeightedPrice(Money("8.00")), unit="lb")
         cart = Cart().add(product, Decimal("0.5"))
         assert cart.total.amount == Decimal("4.00")
+
+    def test_total_sums_multiple_items(self):
+        beans = Product("Beans", UnitPrice(Money("0.65")))
+        coffee = Product("Coffee", WeightedPrice(Money("8.00")), unit="lb")
+        cart = Cart().add(beans, 2).add(coffee, "0.5")
+        # 2 × $0.65 + 0.5 × $8.00 = $1.30 + $4.00 = $5.30
+        assert cart.total.amount == Decimal("5.30")
