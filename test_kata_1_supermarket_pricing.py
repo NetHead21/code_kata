@@ -323,3 +323,8 @@ class TestCart:
         cart = Cart()
         result = cart.add(product, 1)
         assert result is cart
+
+    def test_add_accepts_int(self):
+        product = Product("Beans", UnitPrice(Money("1.00")))
+        cart = Cart().add(product, 3)
+        assert cart.total.amount == Decimal("3.00")
