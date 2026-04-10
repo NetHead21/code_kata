@@ -301,3 +301,6 @@ class TestCartItem:
 
     def test_str_contains_subtotal(self, item):
         assert "$2.60" in str(item)
+
+    def test_str_contains_pricing_description(self, item):
+        assert "$0.65 each" in str(item)
