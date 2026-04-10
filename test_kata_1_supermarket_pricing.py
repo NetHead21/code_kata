@@ -292,3 +292,6 @@ class TestCartItem:
 
     def test_subtotal(self, item):
         assert item.subtotal.amount == Decimal("2.60")
+
+    def test_str_contains_product_name(self, item):
+        assert "Canned Beans" in str(item)
