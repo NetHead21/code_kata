@@ -394,3 +394,9 @@ class TestCart:
 
     def test_receipt_contains_separator_line(self):
         assert "-" * 70 in Cart().receipt()
+
+    def test_receipt_contains_item_details(self):
+        product = Product("Beans", UnitPrice(Money("0.65")), unit="unit")
+        receipt = Cart().add(product, 4).receipt()
+        assert "Beans" in receipt
+        assert "$2.60" in receipt
