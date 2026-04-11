@@ -172,3 +172,19 @@ def chop_functional(target, array):
 
     if not array:
         return -1
+
+    def narrow(bounds, _):
+        """Return the next candidate bounds after one binary-search step."""
+        lo, hi = bounds
+        if lo > hi:
+            return (lo, hi)
+        mid = (lo + hi) // 2
+        if array[mid] < target:
+            return (mid + 1, hi)
+        else:
+            return (lo, mid)
+
+    lo, hi = reduce(narrow, range(int(len(array)).bit_length()), (0, len(array) - 1))
+    if lo <= hi and array[lo] == target:
+        return lo
+    return -1
