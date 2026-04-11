@@ -386,3 +386,8 @@ class TestCart:
 
     def test_receipt_contains_total_label(self):
         assert "TOTAL" in Cart().receipt()
+
+    def test_receipt_starts_and_ends_with_equals(self):
+        lines = Cart().receipt().splitlines()
+        assert lines[0].startswith("=")
+        assert lines[-1].startswith("=")
