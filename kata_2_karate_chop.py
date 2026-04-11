@@ -91,3 +91,24 @@ def chop_recursive(target, array):
             return _search(lo, mid - 1)
 
     return _search(0, len(array) - 1)
+
+
+# --- Implementation 3: Recursive (slicing subarray) ---
+
+
+def chop_slice(target, array, offset=0):
+    """Search recursively by slicing subarrays.
+
+    This implementation is intentionally more declarative than efficient. Each
+    recursive step passes only the relevant half of the array forward and uses
+    ``offset`` to translate a match back to the index in the original input.
+
+    Args:
+        target: Value to locate.
+        array: Sorted sequence of comparable values or a sorted sub-slice.
+        offset: Index offset of ``array`` relative to the original input.
+
+    Returns:
+        The index of ``target`` in the original array if present, otherwise
+        ``-1``.
+    """
