@@ -122,3 +122,22 @@ def chop_slice(target, array, offset=0):
         return chop_slice(target, array[mid + 1 :], offset + mid + 1)
     else:
         return chop_slice(target, array[:mid], offset)
+
+
+# --- Implementation 4: Using bisect ---
+
+
+def chop_bisect(target, array):
+    """Search ``array`` with ``bisect_left`` from Python's standard library.
+
+    ``bisect_left`` returns the insertion point where ``target`` should appear
+    to keep the array sorted. A second check verifies whether the insertion
+    point actually contains the target.
+
+    Args:
+        target: Value to locate.
+        array: Sorted sequence of comparable values.
+
+    Returns:
+        The index of ``target`` if present, otherwise ``-1``.
+    """
