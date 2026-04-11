@@ -146,3 +146,26 @@ def chop_bisect(target, array):
     if idx < len(array) and array[idx] == target:
         return idx
     return -1
+
+
+# --- Implementation 5: Functional (reduce) ---
+
+
+def chop_functional(target, array):
+    """Search ``array`` using a functional-style reduction.
+
+    Rather than writing an explicit loop, this version models binary search as a
+    repeated narrowing of the current ``(lo, hi)`` bounds. ``reduce`` applies
+    that narrowing step enough times to converge on the candidate position.
+
+    The implementation is more interesting as a kata exercise than as a
+    production approach; it is less direct than the iterative form while
+    preserving the same observable behavior.
+
+    Args:
+        target: Value to locate.
+        array: Sorted sequence of comparable values.
+
+    Returns:
+        The index of ``target`` if present, otherwise ``-1``.
+    """
