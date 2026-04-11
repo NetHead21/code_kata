@@ -391,3 +391,6 @@ class TestCart:
         lines = Cart().receipt().splitlines()
         assert lines[0].startswith("=")
         assert lines[-1].startswith("=")
+
+    def test_receipt_contains_separator_line(self):
+        assert "-" * 70 in Cart().receipt()
