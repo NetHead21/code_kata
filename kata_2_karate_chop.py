@@ -58,3 +58,22 @@ def chop_iterative(target, array):
         else:
             hi = mid - 1
     return -1
+
+
+# --- Implementation 2: Recursive (shrinking bounds) ---
+
+
+def chop_recursive(target, array):
+    """Search ``array`` recursively by shrinking index bounds.
+
+    This version keeps the original array intact and passes only the current
+    lower and upper bounds through recursive calls. That preserves the original
+    indices naturally and avoids allocating sliced sublists.
+
+    Args:
+        target: Value to locate.
+        array: Sorted sequence of comparable values.
+
+    Returns:
+        The index of ``target`` if present, otherwise ``-1``.
+    """
