@@ -77,3 +77,17 @@ def chop_recursive(target, array):
     Returns:
         The index of ``target`` if present, otherwise ``-1``.
     """
+
+    def _search(lo, hi):
+        """Recursively search within the inclusive ``[lo, hi]`` interval."""
+        if lo > hi:
+            return -1
+        mid = (lo + hi) // 2
+        if array[mid] == target:
+            return mid
+        elif array[mid] < target:
+            return _search(mid + 1, hi)
+        else:
+            return _search(lo, mid - 1)
+
+    return _search(0, len(array) - 1)
