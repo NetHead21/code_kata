@@ -169,3 +169,6 @@ def chop_functional(target, array):
     Returns:
         The index of ``target`` if present, otherwise ``-1``.
     """
+
+    if not array:
+        return -1
