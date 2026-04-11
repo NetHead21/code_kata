@@ -400,3 +400,8 @@ class TestCart:
         receipt = Cart().add(product, 4).receipt()
         assert "Beans" in receipt
         assert "$2.60" in receipt
+
+    def test_receipt_total_matches_cart_total(self):
+        product = Product("Beans", UnitPrice(Money("0.65")))
+        cart = Cart().add(product, 4)
+        assert str(cart.total) in cart.receipt()
