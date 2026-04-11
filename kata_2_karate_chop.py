@@ -29,3 +29,21 @@ last occurrence.
 
 import bisect
 from functools import reduce
+
+# --- Implementation 1: Iterative ---
+
+
+def chop_iterative(target, array):
+    """Search ``array`` iteratively using explicit low/high bounds.
+
+    This is the canonical binary-search formulation. It repeatedly inspects the
+    midpoint of the active interval and discards the half that cannot contain
+    ``target``.
+
+    Args:
+        target: Value to locate.
+        array: Sorted sequence of comparable values.
+
+    Returns:
+        The index of ``target`` if present, otherwise ``-1``.
+    """
