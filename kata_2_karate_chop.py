@@ -188,3 +188,7 @@ def chop_functional(target, array):
     if lo <= hi and array[lo] == target:
         return lo
     return -1
+
+
+# Default implementation
+chop = chop_iterative
