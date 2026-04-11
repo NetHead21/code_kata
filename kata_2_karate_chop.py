@@ -112,3 +112,13 @@ def chop_slice(target, array, offset=0):
         The index of ``target`` in the original array if present, otherwise
         ``-1``.
     """
+
+    if not array:
+        return -1
+    mid = len(array) // 2
+    if array[mid] == target:
+        return offset + mid
+    elif array[mid] < target:
+        return chop_slice(target, array[mid + 1 :], offset + mid + 1)
+    else:
+        return chop_slice(target, array[:mid], offset)
