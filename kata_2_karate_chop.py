@@ -141,3 +141,8 @@ def chop_bisect(target, array):
     Returns:
         The index of ``target`` if present, otherwise ``-1``.
     """
+
+    idx = bisect.bisect_left(array, target)
+    if idx < len(array) and array[idx] == target:
+        return idx
+    return -1
