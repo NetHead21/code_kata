@@ -9,3 +9,11 @@ from kata_2_karate_chop import (
     chop_recursive,
     chop_slice,
 )
+
+IMPLEMENTATIONS = [
+    chop_iterative,
+    chop_recursive,
+    chop_slice,
+    chop_bisect,
+    chop_functional,
+]
