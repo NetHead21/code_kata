@@ -47,3 +47,14 @@ def chop_iterative(target, array):
     Returns:
         The index of ``target`` if present, otherwise ``-1``.
     """
+
+    lo, hi = 0, len(array) - 1
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if array[mid] == target:
+            return mid
+        elif array[mid] < target:
+            lo = mid + 1
+        else:
+            hi = mid - 1
+    return -1
