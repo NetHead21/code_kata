@@ -26,3 +26,6 @@ When duplicate values are present, binary search only guarantees that the
 returned index refers to *a* matching element, not necessarily the first or
 last occurrence.
 """
+
+import bisect
+from functools import reduce
