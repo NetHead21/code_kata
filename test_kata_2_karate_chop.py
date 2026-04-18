@@ -44,3 +44,9 @@ CANONICAL_CASES = [
     (4, [1, 3, 5, 7], -1),
     (8, [1, 3, 5, 7], -1),
 ]
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+@pytest.mark.parametrize("target, array, expected", CANONICAL_CASES)
+def test_canonical(chop, target, array, expected):
+    assert chop(target, array) == expected
