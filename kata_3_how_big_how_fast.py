@@ -72,3 +72,9 @@ def bytes_to_store_text(
 
     chars_per_page = words_per_page * (chars_per_word + 1)  # +1 for space
     return num_pages * chars_per_page
+
+
+# --- Named storage estimates (all in bytes) ---
+
+# A typical English novel: ~400 pages, 250 words/page, avg 5 chars/word
+NOVEL_BYTES = bytes_to_store_text(num_pages=400)
