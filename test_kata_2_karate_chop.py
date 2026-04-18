@@ -92,3 +92,15 @@ def test_single_element_not_found_below(chop):
 @pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
 def test_single_element_not_found_above(chop):
     assert chop(43, [42]) == -1
+
+
+# ---------------------------------------------------------------------------
+# Two-element array
+# ---------------------------------------------------------------------------
+
+TWO_ELEMENT_CASES = [
+    (1, [1, 2], 0),
+    (2, [1, 2], 1),
+    (0, [1, 2], -1),
+    (3, [1, 2], -1),
+]
