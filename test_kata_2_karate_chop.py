@@ -210,3 +210,9 @@ POW2_ARRAY = list(range(1, 17))  # [1..16], length 16
 @pytest.mark.parametrize("target", POW2_ARRAY)
 def test_power_of_two_size_all_hits(chop, target):
     assert chop(target, POW2_ARRAY) == target - 1
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+def test_power_of_two_size_miss(chop):
+    assert chop(0, POW2_ARRAY) == -1
+    assert chop(17, POW2_ARRAY) == -1
