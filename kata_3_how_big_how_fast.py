@@ -100,3 +100,6 @@ def bytes_for_rgb_image(width_px: int, height_px: int) -> int:
     """
 
     return width_px * height_px * 3
+
+
+MEGAPIXEL_IMAGE_BYTES = bytes_for_rgb_image(1000, 1000)  # ~3 MB
