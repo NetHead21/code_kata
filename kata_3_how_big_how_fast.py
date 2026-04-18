@@ -119,3 +119,19 @@ FLOATS_IN_RAM = EXAMPLE_RAM_BYTES // 8  # 64-bit double = 8 bytes
 FLOATS_ON_DISK = EXAMPLE_DISK_BYTES // 8
 
 BOOKS_ON_DISK = EXAMPLE_DISK_BYTES // NOVEL_BYTES
+
+
+def human_readable(n_bytes: int) -> str:
+    """Format a byte count using binary storage units.
+
+    Units are chosen from bytes, kilobytes, megabytes, gigabytes, and
+    terabytes using powers of 1024. Values at KB and above are rounded to one
+    decimal place for compact display.
+
+    Args:
+        n_bytes: Byte count to format.
+
+    Returns:
+        A short human-readable representation such as ``"512 B"`` or
+        ``"3.0 MB"``.
+    """
