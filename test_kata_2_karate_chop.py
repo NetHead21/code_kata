@@ -72,3 +72,13 @@ BOUNDARY_CASES = [
 @pytest.mark.parametrize("target, array, expected", BOUNDARY_CASES)
 def test_boundary(chop, target, array, expected):
     assert chop(target, array) == expected
+
+
+# ---------------------------------------------------------------------------
+# Single-element array
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+def test_single_element_found(chop):
+    assert chop(42, [42]) == 0
