@@ -98,3 +98,5 @@ def bytes_for_rgb_image(width_px: int, height_px: int) -> int:
     Returns:
         Raw image size in bytes.
     """
+
+    return width_px * height_px * 3
