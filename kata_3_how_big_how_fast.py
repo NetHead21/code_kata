@@ -18,3 +18,6 @@ best suited for ballpark comparisons instead of stable performance claims.
 The script entry point prints a small report showing both the size estimates and
 sample timings.
 """
+
+import random
+import time
