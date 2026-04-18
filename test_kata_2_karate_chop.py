@@ -197,3 +197,16 @@ def test_all_same_elements_found(chop):
 @pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
 def test_all_same_elements_not_found(chop):
     assert chop(8, [7, 7, 7, 7, 7]) == -1
+
+
+# ---------------------------------------------------------------------------
+# Power-of-two sized arrays — exercise binary search halving paths
+# ---------------------------------------------------------------------------
+
+POW2_ARRAY = list(range(1, 17))  # [1..16], length 16
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+@pytest.mark.parametrize("target", POW2_ARRAY)
+def test_power_of_two_size_all_hits(chop, target):
+    assert chop(target, POW2_ARRAY) == target - 1
