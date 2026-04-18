@@ -192,3 +192,8 @@ def test_all_same_elements_found(chop):
     idx = chop(7, array)
     assert idx != -1
     assert array[idx] == 7
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+def test_all_same_elements_not_found(chop):
+    assert chop(8, [7, 7, 7, 7, 7]) == -1
