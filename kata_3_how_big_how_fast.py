@@ -21,3 +21,22 @@ sample timings.
 
 import random
 import time
+
+# ---------------------------------------------------------------------------
+# Part 1: How Big?
+# ---------------------------------------------------------------------------
+
+
+def bits_to_represent(n: int) -> int:
+    """Return the minimum number of bits needed to encode ``n``.
+
+    The function assumes ``n`` is a non-negative integer. Zero is treated as a
+    special case requiring one bit, which matches the expectations in the kata's
+    tests and keeps the result intuitive for rough estimation exercises.
+
+    Args:
+        n: Non-negative integer to represent.
+
+    Returns:
+        The minimum number of binary digits required to store ``n``.
+    """
