@@ -145,3 +145,8 @@ LARGE = list(range(0, 10_000, 2))  # [0, 2, 4, ..., 9998], 5000 elements
 @pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
 def test_large_array_hit_first(chop):
     assert chop(0, LARGE) == 0
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+def test_large_array_hit_last(chop):
+    assert chop(9998, LARGE) == 4999
