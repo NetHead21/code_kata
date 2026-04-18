@@ -104,3 +104,9 @@ TWO_ELEMENT_CASES = [
     (0, [1, 2], -1),
     (3, [1, 2], -1),
 ]
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+@pytest.mark.parametrize("target, array, expected", TWO_ELEMENT_CASES)
+def test_two_element_array(chop, target, array, expected):
+    assert chop(target, array) == expected
