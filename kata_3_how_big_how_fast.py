@@ -82,3 +82,19 @@ NOVEL_BYTES = bytes_to_store_text(num_pages=400)
 # US Library of Congress: ~17 million books
 LIBRARY_OF_CONGRESS_BOOKS = 17_000_000
 LIBRARY_OF_CONGRESS_BYTES = LIBRARY_OF_CONGRESS_BOOKS * NOVEL_BYTES
+
+
+# RGB image storage: 3 bytes per pixel (one byte each R, G, B)
+def bytes_for_rgb_image(width_px: int, height_px: int) -> int:
+    """Estimate the raw storage for an RGB image.
+
+    The calculation assumes an uncompressed image with one byte each for red,
+    green, and blue per pixel, for a total of three bytes per pixel.
+
+    Args:
+        width_px: Image width in pixels.
+        height_px: Image height in pixels.
+
+    Returns:
+        Raw image size in bytes.
+    """
