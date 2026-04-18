@@ -135,3 +135,8 @@ def human_readable(n_bytes: int) -> str:
         A short human-readable representation such as ``"512 B"`` or
         ``"3.0 MB"``.
     """
+
+    for unit, threshold in [("TB", TB), ("GB", GB), ("MB", 1_024**2), ("KB", 1_024)]:
+        if n_bytes >= threshold:
+            return f"{n_bytes / threshold:.1f} {unit}"
+    return f"{n_bytes} B"
