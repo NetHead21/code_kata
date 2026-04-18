@@ -165,3 +165,8 @@ def test_large_array_miss(chop):
 @pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
 def test_large_array_below_range(chop):
     assert chop(-1, LARGE) == -1
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+def test_large_array_above_range(chop):
+    assert chop(10000, LARGE) == -1
