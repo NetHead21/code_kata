@@ -40,3 +40,7 @@ def bits_to_represent(n: int) -> int:
     Returns:
         The minimum number of binary digits required to store ``n``.
     """
+
+    if n == 0:
+        return 1
+    return n.bit_length()
