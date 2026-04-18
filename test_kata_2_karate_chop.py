@@ -155,3 +155,8 @@ def test_large_array_hit_last(chop):
 @pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
 def test_large_array_hit_middle(chop):
     assert chop(5000, LARGE) == 2500
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+def test_large_array_miss(chop):
+    assert chop(9999, LARGE) == -1
