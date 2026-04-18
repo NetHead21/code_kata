@@ -44,3 +44,28 @@ def bits_to_represent(n: int) -> int:
     if n == 0:
         return 1
     return n.bit_length()
+
+
+def bytes_to_store_text(
+    num_pages: int, words_per_page: int = 250, chars_per_word: int = 5
+) -> int:
+    """Estimate the storage needed for plain-text prose.
+
+    The estimate uses a deliberately simple model:
+
+    - each word contains ``chars_per_word`` characters on average
+    - each word is followed by one separating space
+    - each character occupies one byte
+
+    This ignores punctuation, paragraph breaks, markup, compression, and any
+    non-ASCII encoding overhead. That simplification is intentional because the
+    kata focuses on order-of-magnitude reasoning.
+
+    Args:
+        num_pages: Number of pages in the text.
+        words_per_page: Average words per page.
+        chars_per_word: Average characters per word.
+
+    Returns:
+        Estimated size in bytes.
+    """
