@@ -133,3 +133,10 @@ NEGATIVE_CASES = [
 @pytest.mark.parametrize("target, array, expected", NEGATIVE_CASES)
 def test_negative_numbers(chop, target, array, expected):
     assert chop(target, array) == expected
+
+
+# ---------------------------------------------------------------------------
+# Large array — stress test correctness at scale
+# ---------------------------------------------------------------------------
+
+LARGE = list(range(0, 10_000, 2))  # [0, 2, 4, ..., 9998], 5000 elements
