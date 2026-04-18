@@ -110,3 +110,20 @@ TWO_ELEMENT_CASES = [
 @pytest.mark.parametrize("target, array, expected", TWO_ELEMENT_CASES)
 def test_two_element_array(chop, target, array, expected):
     assert chop(target, array) == expected
+
+
+# ---------------------------------------------------------------------------
+# Negative numbers
+# ---------------------------------------------------------------------------
+
+NEGATIVE_CASES = [
+    (-5, [-5, -3, -1, 0, 2], 0),  # negative first
+    (-1, [-5, -3, -1, 0, 2], 2),  # negative mid
+    (0, [-5, -3, -1, 0, 2], 3),  # zero in mixed array
+    (2, [-5, -3, -1, 0, 2], 4),  # positive last
+    (-4, [-5, -3, -1, 0, 2], -1),  # between negatives, not found
+    (-6, [-5, -3, -1, 0, 2], -1),  # below all negatives
+    (3, [-5, -3, -1, 0, 2], -1),  # above all
+    (-3, [-3], 0),  # single negative, found
+    (-2, [-3], -1),  # single negative, not found
+]
