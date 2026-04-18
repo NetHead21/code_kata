@@ -82,3 +82,8 @@ def test_boundary(chop, target, array, expected):
 @pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
 def test_single_element_found(chop):
     assert chop(42, [42]) == 0
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+def test_single_element_not_found_below(chop):
+    assert chop(41, [42]) == -1
