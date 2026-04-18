@@ -50,3 +50,19 @@ CANONICAL_CASES = [
 @pytest.mark.parametrize("target, array, expected", CANONICAL_CASES)
 def test_canonical(chop, target, array, expected):
     assert chop(target, array) == expected
+
+
+# ---------------------------------------------------------------------------
+# Boundary / first-last element
+# ---------------------------------------------------------------------------
+
+BOUNDARY_CASES = [
+    # first and last element of various lengths
+    (1, [1, 2, 3, 4, 5], 0),  # first of odd-length
+    (5, [1, 2, 3, 4, 5], 4),  # last of odd-length
+    (1, [1, 2, 3, 4], 0),  # first of even-length
+    (4, [1, 2, 3, 4], 3),  # last of even-length
+    (3, [1, 2, 3, 4, 5], 2),  # exact midpoint
+    (0, [1, 2, 3, 4, 5], -1),  # just below minimum
+    (6, [1, 2, 3, 4, 5], -1),  # just above maximum
+]
