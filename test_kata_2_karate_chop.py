@@ -66,3 +66,9 @@ BOUNDARY_CASES = [
     (0, [1, 2, 3, 4, 5], -1),  # just below minimum
     (6, [1, 2, 3, 4, 5], -1),  # just above maximum
 ]
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+@pytest.mark.parametrize("target, array, expected", BOUNDARY_CASES)
+def test_boundary(chop, target, array, expected):
+    assert chop(target, array) == expected
