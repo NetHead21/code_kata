@@ -127,3 +127,9 @@ NEGATIVE_CASES = [
     (-3, [-3], 0),  # single negative, found
     (-2, [-3], -1),  # single negative, not found
 ]
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+@pytest.mark.parametrize("target, array, expected", NEGATIVE_CASES)
+def test_negative_numbers(chop, target, array, expected):
+    assert chop(target, array) == expected
