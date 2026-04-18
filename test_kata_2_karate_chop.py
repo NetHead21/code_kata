@@ -184,3 +184,11 @@ def test_duplicates_returns_valid_index(chop):
     idx = chop(2, array)
     assert idx != -1
     assert array[idx] == 2
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+def test_all_same_elements_found(chop):
+    array = [7, 7, 7, 7, 7]
+    idx = chop(7, array)
+    assert idx != -1
+    assert array[idx] == 7
