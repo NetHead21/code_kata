@@ -87,3 +87,8 @@ def test_single_element_found(chop):
 @pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
 def test_single_element_not_found_below(chop):
     assert chop(41, [42]) == -1
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+def test_single_element_not_found_above(chop):
+    assert chop(43, [42]) == -1
