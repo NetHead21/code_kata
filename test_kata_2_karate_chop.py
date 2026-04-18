@@ -140,3 +140,8 @@ def test_negative_numbers(chop, target, array, expected):
 # ---------------------------------------------------------------------------
 
 LARGE = list(range(0, 10_000, 2))  # [0, 2, 4, ..., 9998], 5000 elements
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+def test_large_array_hit_first(chop):
+    assert chop(0, LARGE) == 0
