@@ -103,3 +103,7 @@ def bytes_for_rgb_image(width_px: int, height_px: int) -> int:
 
 
 MEGAPIXEL_IMAGE_BYTES = bytes_for_rgb_image(1000, 1000)  # ~3 MB
+
+# Our galaxy: ~300 billion stars, each stored as a 64-bit float (8 bytes)
+GALAXY_STARS = 300_000_000_000
+GALAXY_STAR_CATALOG_BYTES = GALAXY_STARS * 8
