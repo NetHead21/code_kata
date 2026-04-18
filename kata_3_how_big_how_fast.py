@@ -78,3 +78,7 @@ def bytes_to_store_text(
 
 # A typical English novel: ~400 pages, 250 words/page, avg 5 chars/word
 NOVEL_BYTES = bytes_to_store_text(num_pages=400)
+
+# US Library of Congress: ~17 million books
+LIBRARY_OF_CONGRESS_BOOKS = 17_000_000
+LIBRARY_OF_CONGRESS_BYTES = LIBRARY_OF_CONGRESS_BOOKS * NOVEL_BYTES
