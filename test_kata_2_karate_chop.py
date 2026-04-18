@@ -170,3 +170,17 @@ def test_large_array_below_range(chop):
 @pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
 def test_large_array_above_range(chop):
     assert chop(10000, LARGE) == -1
+
+
+# ---------------------------------------------------------------------------
+# Duplicate values — binary search only guarantees *an* index, not which one.
+# We verify the returned index actually holds the target value.
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize("chop", IMPLEMENTATIONS, ids=lambda f: f.__name__)
+def test_duplicates_returns_valid_index(chop):
+    array = [1, 2, 2, 2, 3]
+    idx = chop(2, array)
+    assert idx != -1
+    assert array[idx] == 2
