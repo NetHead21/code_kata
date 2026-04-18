@@ -69,3 +69,6 @@ def bytes_to_store_text(
     Returns:
         Estimated size in bytes.
     """
+
+    chars_per_page = words_per_page * (chars_per_word + 1)  # +1 for space
+    return num_pages * chars_per_page
