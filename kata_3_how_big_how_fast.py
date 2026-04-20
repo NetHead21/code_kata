@@ -168,3 +168,17 @@ def benchmark(func, *args, **kwargs) -> tuple:
     result = func(*args, **kwargs)
     elapsed = time.perf_counter() - start
     return result, elapsed
+
+
+def time_iteration(n: int) -> float:
+    """Measure the time needed to sum ``range(n)``.
+
+    Summing the sequence ensures the interpreter actually visits each element,
+    making the benchmark a simple proxy for linear iteration cost.
+
+    Args:
+        n: Number of integers to iterate over.
+
+    Returns:
+        Elapsed wall-clock time in seconds.
+    """
