@@ -140,3 +140,26 @@ def human_readable(n_bytes: int) -> str:
         if n_bytes >= threshold:
             return f"{n_bytes / threshold:.1f} {unit}"
     return f"{n_bytes} B"
+
+
+# ---------------------------------------------------------------------------
+# Part 2: How Fast?
+# ---------------------------------------------------------------------------
+
+
+def benchmark(func, *args, **kwargs) -> tuple:
+    """Execute ``func`` and measure its wall-clock runtime.
+
+    This helper wraps a single call with ``time.perf_counter()`` and returns
+    both the function result and the elapsed time. It is intentionally minimal:
+    no warm-up, repetition, statistical smoothing, or isolation from system
+    noise is performed.
+
+    Args:
+        func: Callable to execute.
+        *args: Positional arguments forwarded to ``func``.
+        **kwargs: Keyword arguments forwarded to ``func``.
+
+    Returns:
+        A ``(result, elapsed_seconds)`` tuple.
+    """
