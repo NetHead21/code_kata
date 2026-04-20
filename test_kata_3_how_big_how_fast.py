@@ -125,3 +125,10 @@ class TestLibraryOfCongress:
     def test_total_size_is_below_100_petabytes(self):
         PB = 1_024**5
         assert LIBRARY_OF_CONGRESS_BYTES <= 100 * PB
+
+    def test_library_fits_within_two_orders_of_magnitude_of_10tb(self):
+        ten_tb = 10 * TB
+        ratio = max(LIBRARY_OF_CONGRESS_BYTES, ten_tb) / min(
+            LIBRARY_OF_CONGRESS_BYTES, ten_tb
+        )
+        assert ratio <= 100
