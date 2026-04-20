@@ -41,3 +41,6 @@ class TestBitsToRepresent:
 
     def test_one_needs_one_bit(self):
         assert bits_to_represent(1) == 1
+
+    def test_two_needs_two_bits(self):
+        assert bits_to_represent(2) == 2
