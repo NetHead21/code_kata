@@ -94,3 +94,6 @@ class TestBytesToStoreText:
     def test_single_page_default_params(self):
         # 250 words × 6 chars (5 + 1 space) = 1500 bytes
         assert bytes_to_store_text(1) == 1_500
+
+    def test_scales_linearly_with_pages(self):
+        assert bytes_to_store_text(10) == 10 * bytes_to_store_text(1)
