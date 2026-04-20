@@ -260,3 +260,13 @@ def time_dict_lookup(n: int, lookups: int = 1_000) -> float:
     Returns:
         Elapsed wall-clock time in seconds for the lookup batch.
     """
+
+    d = {i: i for i in range(n)}
+    keys = [random.randint(0, n - 1) for _ in range(lookups)]
+
+    def do_lookups():
+        """Perform the prepared lookup batch and collect the retrieved values."""
+        return [d[k] for k in keys]
+
+    _, elapsed = benchmark(do_lookups)
+    return elapsed
