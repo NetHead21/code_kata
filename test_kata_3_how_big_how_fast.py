@@ -142,3 +142,6 @@ class TestLibraryOfCongress:
 class TestRGBImageStorage:
     def test_single_pixel_is_3_bytes(self):
         assert bytes_for_rgb_image(1, 1) == 3
+
+    def test_10x10_is_300_bytes(self):
+        assert bytes_for_rgb_image(10, 10) == 300
