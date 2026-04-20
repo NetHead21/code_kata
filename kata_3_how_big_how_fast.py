@@ -225,3 +225,18 @@ def time_binary_search(n: int) -> float:
     target = random.randint(0, n - 1)
     _, elapsed = benchmark(bisect.bisect_left, data, target)
     return elapsed
+
+
+def time_string_concat(n: int) -> float:
+    """Measure the time to join ``n`` short words into one string.
+
+    The benchmark uses ``" ".join(...)`` rather than repeated ``+``
+    concatenation because the kata is comparing broad operation costs, not
+    demonstrating an intentionally inefficient string-building technique.
+
+    Args:
+        n: Number of words to join.
+
+    Returns:
+        Elapsed wall-clock time in seconds.
+    """
