@@ -113,3 +113,8 @@ class TestNovelSize:
 
     def test_novel_is_roughly_half_a_megabyte(self):
         assert abs(math.log10(NOVEL_BYTES) - math.log10(500_000)) < 0.5
+
+
+class TestLibraryOfCongress:
+    def test_book_count_is_tens_of_millions(self):
+        assert 10_000_000 <= LIBRARY_OF_CONGRESS_BOOKS <= 50_000_000
