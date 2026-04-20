@@ -100,3 +100,7 @@ class TestBytesToStoreText:
 
     def test_custom_words_per_page(self):
         assert bytes_to_store_text(1, words_per_page=100) == 600
+
+    def test_custom_chars_per_word(self):
+        # 250 words × (10 + 1) chars = 2750
+        assert bytes_to_store_text(1, chars_per_word=10) == 2_750
