@@ -50,3 +50,7 @@ class TestBitsToRepresent:
 
     def test_four_needs_three_bits(self):
         assert bits_to_represent(4) == 3
+
+    def test_1000_fits_in_10_bits(self):
+        # 2^9 = 512 < 1000 <= 1024 = 2^10
+        assert bits_to_represent(1_000) == 10
