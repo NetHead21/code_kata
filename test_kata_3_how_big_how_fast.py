@@ -28,3 +28,13 @@ from kata_3_how_big_how_fast import (
     time_sort,
     time_string_concat,
 )
+
+
+# ---------------------------------------------------------------------------
+# Part 1: How Big? — bits_to_represent
+# ---------------------------------------------------------------------------
+
+
+class TestBitsToRepresent:
+    def test_zero_needs_one_bit(self):
+        assert bits_to_represent(0) == 1
