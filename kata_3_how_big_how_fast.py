@@ -203,3 +203,18 @@ def time_sort(n: int) -> float:
     data = random.sample(range(n * 10), n)
     _, elapsed = benchmark(sorted, data)
     return elapsed
+
+
+def time_binary_search(n: int) -> float:
+    """Measure the time for one binary search in a sorted list of size ``n``.
+
+    A sorted list ``[0, 1, ..., n - 1]`` is built, a random target is chosen,
+    and ``bisect_left`` is timed for a single search. The list-construction cost
+    is excluded from the measured interval.
+
+    Args:
+        n: Size of the sorted search space.
+
+    Returns:
+        Elapsed wall-clock time in seconds for the search operation alone.
+    """
