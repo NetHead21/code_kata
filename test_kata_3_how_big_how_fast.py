@@ -65,3 +65,8 @@ class TestBitsToRepresent:
     def test_2_pow_64_needs_65_bits(self):
         # 2^64 requires 65 bits (the leading 1 plus 64 zeros)
         assert bits_to_represent(2**64) == 65
+
+    def test_powers_of_two_boundary(self):
+        for exp in range(1, 20):
+            assert bits_to_represent(2**exp) == exp + 1
+            assert bits_to_represent(2**exp - 1) == exp
