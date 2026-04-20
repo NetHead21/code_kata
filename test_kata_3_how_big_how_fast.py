@@ -118,3 +118,6 @@ class TestNovelSize:
 class TestLibraryOfCongress:
     def test_book_count_is_tens_of_millions(self):
         assert 10_000_000 <= LIBRARY_OF_CONGRESS_BOOKS <= 50_000_000
+
+    def test_total_size_is_in_terabytes(self):
+        assert LIBRARY_OF_CONGRESS_BYTES >= TB
