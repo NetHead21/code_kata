@@ -270,3 +270,21 @@ def time_dict_lookup(n: int, lookups: int = 1_000) -> float:
 
     _, elapsed = benchmark(do_lookups)
     return elapsed
+
+
+# ---------------------------------------------------------------------------
+# Summary report (run as script)
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    print("=== How Big? ===")
+    print(f"Bits for 1,000              : {bits_to_represent(1_000)}")
+    print(f"Bits for 2,000,000,000      : {bits_to_represent(2_000_000_000)}")
+    print(f"Bits for 2^64               : {bits_to_represent(2**64)}")
+    print(f"Novel                       : {human_readable(NOVEL_BYTES)}")
+    print(f"Library of Congress         : {human_readable(LIBRARY_OF_CONGRESS_BYTES)}")
+    print(f"1 Megapixel RGB image       : {human_readable(MEGAPIXEL_IMAGE_BYTES)}")
+    print(f"Galaxy star catalogue       : {human_readable(GALAXY_STAR_CATALOG_BYTES)}")
+    print(f"Floats in 4 GB RAM          : {FLOATS_IN_RAM:,}")
+    print(f"Floats on 500 GB disk       : {FLOATS_ON_DISK:,}")
+    print(f"Novels on 500 GB disk       : {BOOKS_ON_DISK:,}")
