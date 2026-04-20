@@ -38,3 +38,6 @@ from kata_3_how_big_how_fast import (
 class TestBitsToRepresent:
     def test_zero_needs_one_bit(self):
         assert bits_to_represent(0) == 1
+
+    def test_one_needs_one_bit(self):
+        assert bits_to_represent(1) == 1
