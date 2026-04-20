@@ -288,3 +288,12 @@ if __name__ == "__main__":
     print(f"Floats in 4 GB RAM          : {FLOATS_IN_RAM:,}")
     print(f"Floats on 500 GB disk       : {FLOATS_ON_DISK:,}")
     print(f"Novels on 500 GB disk       : {BOOKS_ON_DISK:,}")
+
+    print()
+    print("=== How Fast? (n = 1,000,000) ===")
+    n = 1_000_000
+    print(f"Iteration                   : {time_iteration(n) * 1000:.1f} ms")
+    print(f"Sort                        : {time_sort(n) * 1000:.1f} ms")
+    print(f"Binary search               : {time_binary_search(n) * 1_000_000:.2f} µs")
+    print(f"String join (1M words)      : {time_string_concat(n) * 1000:.1f} ms")
+    print(f"Dict lookups (1k in 1M)     : {time_dict_lookup(n) * 1000:.2f} ms")
