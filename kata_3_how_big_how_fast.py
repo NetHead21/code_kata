@@ -218,3 +218,10 @@ def time_binary_search(n: int) -> float:
     Returns:
         Elapsed wall-clock time in seconds for the search operation alone.
     """
+
+    import bisect
+
+    data = list(range(n))
+    target = random.randint(0, n - 1)
+    _, elapsed = benchmark(bisect.bisect_left, data, target)
+    return elapsed
