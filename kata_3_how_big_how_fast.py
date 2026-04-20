@@ -199,3 +199,7 @@ def time_sort(n: int) -> float:
     Returns:
         Elapsed wall-clock time in seconds.
     """
+
+    data = random.sample(range(n * 10), n)
+    _, elapsed = benchmark(sorted, data)
+    return elapsed
