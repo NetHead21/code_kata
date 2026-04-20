@@ -152,3 +152,7 @@ class TestRGBImageStorage:
     def test_full_hd_1920x1080(self):
         full_hd = bytes_for_rgb_image(1920, 1080)
         assert full_hd == 1920 * 1080 * 3  # 6,220,800
+
+    def test_4k_image_under_50mb(self):
+        four_k = bytes_for_rgb_image(3840, 2160)
+        assert four_k < 50_000_000
