@@ -132,3 +132,13 @@ class TestLibraryOfCongress:
             LIBRARY_OF_CONGRESS_BYTES, ten_tb
         )
         assert ratio <= 100
+
+
+# ---------------------------------------------------------------------------
+# Part 1: How Big? — image storage
+# ---------------------------------------------------------------------------
+
+
+class TestRGBImageStorage:
+    def test_single_pixel_is_3_bytes(self):
+        assert bytes_for_rgb_image(1, 1) == 3
