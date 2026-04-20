@@ -97,3 +97,6 @@ class TestBytesToStoreText:
 
     def test_scales_linearly_with_pages(self):
         assert bytes_to_store_text(10) == 10 * bytes_to_store_text(1)
+
+    def test_custom_words_per_page(self):
+        assert bytes_to_store_text(1, words_per_page=100) == 600
