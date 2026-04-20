@@ -104,3 +104,9 @@ class TestBytesToStoreText:
     def test_custom_chars_per_word(self):
         # 250 words × (10 + 1) chars = 2750
         assert bytes_to_store_text(1, chars_per_word=10) == 2_750
+
+
+class TestNovelSize:
+    def test_novel_is_between_200kb_and_2mb(self):
+        # A novel should be in a plausible ballpark
+        assert 200_000 <= NOVEL_BYTES <= 2_000_000
