@@ -185,3 +185,17 @@ def time_iteration(n: int) -> float:
 
     _, elapsed = benchmark(sum, range(n))
     return elapsed
+
+
+def time_sort(n: int) -> float:
+    """Measure the time needed to sort ``n`` random integers.
+
+    The input data is generated with ``random.sample`` so the list contains
+    unique integers in random order.
+
+    Args:
+        n: Number of elements to sort.
+
+    Returns:
+        Elapsed wall-clock time in seconds.
+    """
