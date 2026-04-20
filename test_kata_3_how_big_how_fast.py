@@ -70,3 +70,16 @@ class TestBitsToRepresent:
         for exp in range(1, 20):
             assert bits_to_represent(2**exp) == exp + 1
             assert bits_to_represent(2**exp - 1) == exp
+
+    @pytest.mark.parametrize(
+        "n, expected_bits",
+        [
+            (255, 8),
+            (256, 9),
+            (1_024, 11),
+            (65_535, 16),
+            (65_536, 17),
+        ],
+    )
+    def test_known_values(self, n, expected_bits):
+        assert bits_to_represent(n) == expected_bits
