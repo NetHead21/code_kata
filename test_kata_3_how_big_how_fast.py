@@ -145,3 +145,6 @@ class TestRGBImageStorage:
 
     def test_10x10_is_300_bytes(self):
         assert bytes_for_rgb_image(10, 10) == 300
+
+    def test_megapixel_is_about_3mb(self):
+        assert abs(math.log10(MEGAPIXEL_IMAGE_BYTES) - math.log10(3_000_000)) < 0.1
