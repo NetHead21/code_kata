@@ -47,3 +47,6 @@ class TestBitsToRepresent:
 
     def test_three_needs_two_bits(self):
         assert bits_to_represent(3) == 2
+
+    def test_four_needs_three_bits(self):
+        assert bits_to_represent(4) == 3
