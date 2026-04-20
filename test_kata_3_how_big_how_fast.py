@@ -110,3 +110,6 @@ class TestNovelSize:
     def test_novel_is_between_200kb_and_2mb(self):
         # A novel should be in a plausible ballpark
         assert 200_000 <= NOVEL_BYTES <= 2_000_000
+
+    def test_novel_is_roughly_half_a_megabyte(self):
+        assert abs(math.log10(NOVEL_BYTES) - math.log10(500_000)) < 0.5
