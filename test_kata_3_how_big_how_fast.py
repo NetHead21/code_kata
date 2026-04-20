@@ -54,3 +54,7 @@ class TestBitsToRepresent:
     def test_1000_fits_in_10_bits(self):
         # 2^9 = 512 < 1000 <= 1024 = 2^10
         assert bits_to_represent(1_000) == 10
+
+    def test_one_billion_fits_in_30_bits(self):
+        # 2^29 = 536M < 1B <= 1073M = 2^30
+        assert bits_to_represent(1_000_000_000) == 30
