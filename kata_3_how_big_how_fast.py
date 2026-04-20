@@ -163,3 +163,8 @@ def benchmark(func, *args, **kwargs) -> tuple:
     Returns:
         A ``(result, elapsed_seconds)`` tuple.
     """
+
+    start = time.perf_counter()
+    result = func(*args, **kwargs)
+    elapsed = time.perf_counter() - start
+    return result, elapsed
