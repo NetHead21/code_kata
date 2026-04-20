@@ -156,3 +156,6 @@ class TestRGBImageStorage:
     def test_4k_image_under_50mb(self):
         four_k = bytes_for_rgb_image(3840, 2160)
         assert four_k < 50_000_000
+
+    def test_scales_with_pixels(self):
+        assert bytes_for_rgb_image(200, 100) == 2 * bytes_for_rgb_image(100, 100)
