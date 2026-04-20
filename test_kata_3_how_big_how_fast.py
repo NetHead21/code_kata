@@ -61,3 +61,7 @@ class TestBitsToRepresent:
 
     def test_two_billion_fits_in_31_bits(self):
         assert bits_to_represent(2_000_000_000) == 31
+
+    def test_2_pow_64_needs_65_bits(self):
+        # 2^64 requires 65 bits (the leading 1 plus 64 zeros)
+        assert bits_to_represent(2**64) == 65
