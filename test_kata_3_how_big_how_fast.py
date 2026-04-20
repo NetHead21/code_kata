@@ -148,3 +148,7 @@ class TestRGBImageStorage:
 
     def test_megapixel_is_about_3mb(self):
         assert abs(math.log10(MEGAPIXEL_IMAGE_BYTES) - math.log10(3_000_000)) < 0.1
+
+    def test_full_hd_1920x1080(self):
+        full_hd = bytes_for_rgb_image(1920, 1080)
+        assert full_hd == 1920 * 1080 * 3  # 6,220,800
