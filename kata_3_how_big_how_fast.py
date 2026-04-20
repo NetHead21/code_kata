@@ -182,3 +182,6 @@ def time_iteration(n: int) -> float:
     Returns:
         Elapsed wall-clock time in seconds.
     """
+
+    _, elapsed = benchmark(sum, range(n))
+    return elapsed
