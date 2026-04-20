@@ -240,3 +240,7 @@ def time_string_concat(n: int) -> float:
     Returns:
         Elapsed wall-clock time in seconds.
     """
+
+    words = ["hello"] * n
+    _, elapsed = benchmark(" ".join, words)
+    return elapsed
