@@ -121,3 +121,7 @@ class TestLibraryOfCongress:
 
     def test_total_size_is_in_terabytes(self):
         assert LIBRARY_OF_CONGRESS_BYTES >= TB
+
+    def test_total_size_is_below_100_petabytes(self):
+        PB = 1_024**5
+        assert LIBRARY_OF_CONGRESS_BYTES <= 100 * PB
