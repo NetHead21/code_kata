@@ -58,3 +58,6 @@ class TestBitsToRepresent:
     def test_one_billion_fits_in_30_bits(self):
         # 2^29 = 536M < 1B <= 1073M = 2^30
         assert bits_to_represent(1_000_000_000) == 30
+
+    def test_two_billion_fits_in_31_bits(self):
+        assert bits_to_represent(2_000_000_000) == 31
