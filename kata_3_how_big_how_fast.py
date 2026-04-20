@@ -244,3 +244,19 @@ def time_string_concat(n: int) -> float:
     words = ["hello"] * n
     _, elapsed = benchmark(" ".join, words)
     return elapsed
+
+
+def time_dict_lookup(n: int, lookups: int = 1_000) -> float:
+    """Measure repeated dictionary lookups against a mapping of size ``n``.
+
+    The dictionary is populated with integer keys and values. A batch of random
+    keys is generated first, then the measured portion performs the requested
+    number of lookups and materializes the results in a list.
+
+    Args:
+        n: Number of entries in the dictionary.
+        lookups: Number of key accesses to perform.
+
+    Returns:
+        Elapsed wall-clock time in seconds for the lookup batch.
+    """
