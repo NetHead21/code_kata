@@ -207,3 +207,7 @@ class TestCapacityEstimates:
 class TestHumanReadable:
     def test_bytes(self):
         assert human_readable(512) == "512 B"
+
+    def test_kilobytes(self):
+        result = human_readable(2048)
+        assert "KB" in result
