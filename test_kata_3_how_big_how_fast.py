@@ -238,3 +238,6 @@ class TestTimeIteration:
     """Iteration over 1M items should complete within a generous wall-clock bound."""
 
     N = 1_000_000
+
+    def test_returns_a_float(self):
+        assert isinstance(time_iteration(self.N), float)
