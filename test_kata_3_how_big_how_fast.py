@@ -285,3 +285,6 @@ class TestTimeSort:
 
 class TestTimeBinarySearch:
     N = 1_000_000
+
+    def test_returns_a_float(self):
+        assert isinstance(time_binary_search(self.N), float)
