@@ -244,3 +244,6 @@ class TestTimeIteration:
 
     def test_completes_in_under_5_seconds(self):
         assert time_iteration(self.N) < 5.0
+
+    def test_is_positive(self):
+        assert time_iteration(self.N) > 0
