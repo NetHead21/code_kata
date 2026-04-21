@@ -265,3 +265,6 @@ class TestTimeSort:
 
     def test_returns_a_float(self):
         assert isinstance(time_sort(self.N), float)
+
+    def test_completes_in_under_10_seconds(self):
+        assert time_sort(self.N) < 10.0
