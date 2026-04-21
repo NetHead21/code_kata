@@ -262,3 +262,6 @@ class TestTimeIteration:
 
 class TestTimeSort:
     N = 100_000  # sort is O(n log n), keep N smaller to stay fast in CI
+
+    def test_returns_a_float(self):
+        assert isinstance(time_sort(self.N), float)
