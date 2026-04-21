@@ -188,3 +188,6 @@ class TestCapacityEstimates:
 
     def test_disk_is_500gb(self):
         assert EXAMPLE_DISK_BYTES == 500 * GB
+
+    def test_floats_in_ram_is_hundreds_of_millions(self):
+        assert 400_000_000 <= FLOATS_IN_RAM <= 600_000_000
