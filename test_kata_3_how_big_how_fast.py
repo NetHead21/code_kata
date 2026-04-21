@@ -211,3 +211,7 @@ class TestHumanReadable:
     def test_kilobytes(self):
         result = human_readable(2048)
         assert "KB" in result
+
+    def test_megabytes(self):
+        result = human_readable(5 * 1024**2)
+        assert "MB" in result
