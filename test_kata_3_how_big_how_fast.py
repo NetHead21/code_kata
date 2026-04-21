@@ -172,3 +172,6 @@ class TestGalaxyStarCatalogue:
 
     def test_catalogue_is_in_terabyte_range(self):
         assert TB <= GALAXY_STAR_CATALOG_BYTES <= 10 * TB
+
+    def test_catalogue_uses_8_bytes_per_star(self):
+        assert GALAXY_STAR_CATALOG_BYTES == GALAXY_STARS * 8
