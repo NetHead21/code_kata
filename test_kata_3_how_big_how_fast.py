@@ -223,3 +223,7 @@ class TestHumanReadable:
     def test_terabytes(self):
         result = human_readable(2 * TB)
         assert "TB" in result
+
+    def test_novel_reported_in_kb_or_mb(self):
+        result = human_readable(NOVEL_BYTES)
+        assert "KB" in result or "MB" in result
