@@ -253,3 +253,12 @@ class TestTimeIteration:
         large = time_iteration(self.N)
         # Allow some noise but expect at least a 10× difference
         assert large > small * 5
+
+
+# ---------------------------------------------------------------------------
+# Part 2: How Fast? — sorting
+# ---------------------------------------------------------------------------
+
+
+class TestTimeSort:
+    N = 100_000  # sort is O(n log n), keep N smaller to stay fast in CI
