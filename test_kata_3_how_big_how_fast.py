@@ -227,3 +227,14 @@ class TestHumanReadable:
     def test_novel_reported_in_kb_or_mb(self):
         result = human_readable(NOVEL_BYTES)
         assert "KB" in result or "MB" in result
+
+
+# ---------------------------------------------------------------------------
+# Part 2: How Fast? — iteration
+# ---------------------------------------------------------------------------
+
+
+class TestTimeIteration:
+    """Iteration over 1M items should complete within a generous wall-clock bound."""
+
+    N = 1_000_000
