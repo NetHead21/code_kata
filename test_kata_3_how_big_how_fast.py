@@ -191,3 +191,6 @@ class TestCapacityEstimates:
 
     def test_floats_in_ram_is_hundreds_of_millions(self):
         assert 400_000_000 <= FLOATS_IN_RAM <= 600_000_000
+
+    def test_floats_on_disk_is_tens_of_billions(self):
+        assert 50_000_000_000 <= FLOATS_ON_DISK <= 70_000_000_000
