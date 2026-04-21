@@ -271,3 +271,8 @@ class TestTimeSort:
 
     def test_is_positive(self):
         assert time_sort(self.N) > 0
+
+    def test_sorting_more_items_takes_longer(self):
+        t_small = time_sort(1_000)
+        t_large = time_sort(self.N)
+        assert t_large > t_small
