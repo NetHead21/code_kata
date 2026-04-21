@@ -247,3 +247,9 @@ class TestTimeIteration:
 
     def test_is_positive(self):
         assert time_iteration(self.N) > 0
+
+    def test_larger_n_takes_longer_than_smaller_n(self):
+        small = time_iteration(1_000)
+        large = time_iteration(self.N)
+        # Allow some noise but expect at least a 10× difference
+        assert large > small * 5
