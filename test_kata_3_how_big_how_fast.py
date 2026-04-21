@@ -276,3 +276,12 @@ class TestTimeSort:
         t_small = time_sort(1_000)
         t_large = time_sort(self.N)
         assert t_large > t_small
+
+
+# ---------------------------------------------------------------------------
+# Part 2: How Fast? — binary search
+# ---------------------------------------------------------------------------
+
+
+class TestTimeBinarySearch:
+    N = 1_000_000
