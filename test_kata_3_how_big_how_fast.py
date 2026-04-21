@@ -219,3 +219,7 @@ class TestHumanReadable:
     def test_gigabytes(self):
         result = human_readable(3 * GB)
         assert "GB" in result
+
+    def test_terabytes(self):
+        result = human_readable(2 * TB)
+        assert "TB" in result
