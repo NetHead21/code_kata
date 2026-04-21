@@ -175,3 +175,13 @@ class TestGalaxyStarCatalogue:
 
     def test_catalogue_uses_8_bytes_per_star(self):
         assert GALAXY_STAR_CATALOG_BYTES == GALAXY_STARS * 8
+
+
+# ---------------------------------------------------------------------------
+# Part 1: How Big? — RAM / disk capacity
+# ---------------------------------------------------------------------------
+
+
+class TestCapacityEstimates:
+    def test_ram_is_4gb(self):
+        assert EXAMPLE_RAM_BYTES == 4 * GB
