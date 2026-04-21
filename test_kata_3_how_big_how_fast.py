@@ -185,3 +185,6 @@ class TestGalaxyStarCatalogue:
 class TestCapacityEstimates:
     def test_ram_is_4gb(self):
         assert EXAMPLE_RAM_BYTES == 4 * GB
+
+    def test_disk_is_500gb(self):
+        assert EXAMPLE_DISK_BYTES == 500 * GB
