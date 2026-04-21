@@ -159,3 +159,13 @@ class TestRGBImageStorage:
 
     def test_scales_with_pixels(self):
         assert bytes_for_rgb_image(200, 100) == 2 * bytes_for_rgb_image(100, 100)
+
+
+# ---------------------------------------------------------------------------
+# Part 1: How Big? — galaxy star catalogue
+# ---------------------------------------------------------------------------
+
+
+class TestGalaxyStarCatalogue:
+    def test_star_count_is_hundreds_of_billions(self):
+        assert 100_000_000_000 <= GALAXY_STARS <= 1_000_000_000_000
