@@ -197,3 +197,13 @@ class TestCapacityEstimates:
 
     def test_books_on_disk_is_in_hundreds_of_thousands(self):
         assert 100_000 <= BOOKS_ON_DISK <= 2_000_000
+
+
+# ---------------------------------------------------------------------------
+# Part 1: How Big? — human_readable formatting
+# ---------------------------------------------------------------------------
+
+
+class TestHumanReadable:
+    def test_bytes(self):
+        assert human_readable(512) == "512 B"
