@@ -268,3 +268,6 @@ class TestTimeSort:
 
     def test_completes_in_under_10_seconds(self):
         assert time_sort(self.N) < 10.0
+
+    def test_is_positive(self):
+        assert time_sort(self.N) > 0
