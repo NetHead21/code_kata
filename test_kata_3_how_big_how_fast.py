@@ -169,3 +169,6 @@ class TestRGBImageStorage:
 class TestGalaxyStarCatalogue:
     def test_star_count_is_hundreds_of_billions(self):
         assert 100_000_000_000 <= GALAXY_STARS <= 1_000_000_000_000
+
+    def test_catalogue_is_in_terabyte_range(self):
+        assert TB <= GALAXY_STAR_CATALOG_BYTES <= 10 * TB
