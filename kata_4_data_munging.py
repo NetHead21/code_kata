@@ -39,3 +39,14 @@ Public API
 
 import re
 from pathlib import Path
+
+# ---------------------------------------------------------------------------
+# Part 3: DRY — shared core
+# ---------------------------------------------------------------------------
+
+
+def find_min_spread(records):
+    """
+    Given an iterable of (label, a, b) tuples, return the label of the record
+    where abs(a - b) is smallest.
+    """
