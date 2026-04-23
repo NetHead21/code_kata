@@ -336,3 +336,8 @@ class TestTimeDictLookup:
 
     def test_is_positive(self):
         assert time_dict_lookup(self.N) > 0
+
+    def test_dict_lookup_faster_than_iteration(self):
+        lookup_time = time_dict_lookup(self.N, lookups=1_000)
+        iteration_time = time_iteration(self.N)
+        assert lookup_time < iteration_time
