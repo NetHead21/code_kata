@@ -294,3 +294,9 @@ class TestTimeBinarySearch:
 
     def test_is_positive(self):
         assert time_binary_search(self.N) > 0
+
+    def test_vastly_faster_than_sort(self):
+        # One binary search should be orders of magnitude faster than sorting
+        search_time = time_binary_search(self.N)
+        sort_time = time_sort(self.N)
+        assert search_time < sort_time
