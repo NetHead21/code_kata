@@ -312,3 +312,6 @@ class TestTimeStringConcat:
 
     def test_returns_a_float(self):
         assert isinstance(time_string_concat(self.N), float)
+
+    def test_completes_in_under_5_seconds(self):
+        assert time_string_concat(self.N) < 5.0
