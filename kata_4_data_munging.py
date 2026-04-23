@@ -91,3 +91,17 @@ def weather_min_spread(text):
 def weather_min_spread_from_file(path):
     """Read weather.dat from *path* and return the day with the smallest spread."""
     return weather_min_spread(Path(path).read_text())
+
+
+# ---------------------------------------------------------------------------
+# Part 2: Soccer League Table
+# ---------------------------------------------------------------------------
+
+
+def parse_football(text):
+    """
+    Parse football.dat text into (team, goals_for, goals_against) tuples.
+
+    Expected line format:
+        <rank>. <Team>  <P> <W> <L> <D> <F> - <A> <Pts>
+    """
