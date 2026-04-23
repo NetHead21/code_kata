@@ -65,3 +65,19 @@ def parse_weather(text):
     - Skips the header and monthly-summary lines.
     - Strips trailing '*' from temperature values (record-day markers).
     """
+    records = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        if not stripped or not stripped[0].isdigit():
+            continue
+        parts = stripped.split()
+        if len(parts) < 3:
+            continue
+        try:
+            day = int(parts[0])
+            max_temp = float(parts[1].rstrip("*"))
+            min_temp = float(parts[2].rstrip("*"))
+        except ValueError:
+            continue
+        records.append((day, max_temp, min_temp))
+    return records
