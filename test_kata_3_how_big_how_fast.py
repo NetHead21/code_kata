@@ -288,3 +288,6 @@ class TestTimeBinarySearch:
 
     def test_returns_a_float(self):
         assert isinstance(time_binary_search(self.N), float)
+
+    def test_completes_in_under_1_second(self):
+        assert time_binary_search(self.N) < 1.0
