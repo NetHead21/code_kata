@@ -327,3 +327,6 @@ class TestTimeStringConcat:
 
 class TestTimeDictLookup:
     N = 1_000_000
+
+    def test_returns_a_float(self):
+        assert isinstance(time_dict_lookup(self.N), float)
