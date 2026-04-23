@@ -333,3 +333,6 @@ class TestTimeDictLookup:
 
     def test_completes_in_under_1_second(self):
         assert time_dict_lookup(self.N) < 1.0
+
+    def test_is_positive(self):
+        assert time_dict_lookup(self.N) > 0
