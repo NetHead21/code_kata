@@ -300,3 +300,12 @@ class TestTimeBinarySearch:
         search_time = time_binary_search(self.N)
         sort_time = time_sort(self.N)
         assert search_time < sort_time
+
+
+# ---------------------------------------------------------------------------
+# Part 2: How Fast? — string operations
+# ---------------------------------------------------------------------------
+
+
+class TestTimeStringConcat:
+    N = 1_000_000
