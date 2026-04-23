@@ -315,3 +315,6 @@ class TestTimeStringConcat:
 
     def test_completes_in_under_5_seconds(self):
         assert time_string_concat(self.N) < 5.0
+
+    def test_is_positive(self):
+        assert time_string_concat(self.N) > 0
