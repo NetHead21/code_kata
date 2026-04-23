@@ -86,3 +86,8 @@ def parse_weather(text):
 def weather_min_spread(text):
     """Return the day number (int) with the smallest temperature spread."""
     return find_min_spread(parse_weather(text))
+
+
+def weather_min_spread_from_file(path):
+    """Read weather.dat from *path* and return the day with the smallest spread."""
+    return weather_min_spread(Path(path).read_text())
