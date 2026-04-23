@@ -51,3 +51,17 @@ def find_min_spread(records):
     where abs(a - b) is smallest.
     """
     return min(records, key=lambda r: abs(r[1] - r[2]))[0]
+
+
+# ---------------------------------------------------------------------------
+# Part 1: Weather Data
+# ---------------------------------------------------------------------------
+
+
+def parse_weather(text):
+    """
+    Parse weather.dat text into (day, max_temp, min_temp) tuples.
+
+    - Skips the header and monthly-summary lines.
+    - Strips trailing '*' from temperature values (record-day markers).
+    """
