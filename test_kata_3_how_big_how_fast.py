@@ -309,3 +309,6 @@ class TestTimeBinarySearch:
 
 class TestTimeStringConcat:
     N = 1_000_000
+
+    def test_returns_a_float(self):
+        assert isinstance(time_string_concat(self.N), float)
