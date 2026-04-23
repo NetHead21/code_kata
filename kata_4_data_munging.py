@@ -81,3 +81,8 @@ def parse_weather(text):
             continue
         records.append((day, max_temp, min_temp))
     return records
+
+
+def weather_min_spread(text):
+    """Return the day number (int) with the smallest temperature spread."""
+    return find_min_spread(parse_weather(text))
