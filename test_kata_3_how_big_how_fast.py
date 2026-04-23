@@ -318,3 +318,12 @@ class TestTimeStringConcat:
 
     def test_is_positive(self):
         assert time_string_concat(self.N) > 0
+
+
+# ---------------------------------------------------------------------------
+# Part 2: How Fast? — dict lookups
+# ---------------------------------------------------------------------------
+
+
+class TestTimeDictLookup:
+    N = 1_000_000
