@@ -36,3 +36,6 @@ Public API
   football_min_spread(text)            → team name (str)
   football_min_spread_from_file(path)  → team name (str)
 """
+
+import re
+from pathlib import Path
