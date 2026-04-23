@@ -330,3 +330,6 @@ class TestTimeDictLookup:
 
     def test_returns_a_float(self):
         assert isinstance(time_dict_lookup(self.N), float)
+
+    def test_completes_in_under_1_second(self):
+        assert time_dict_lookup(self.N) < 1.0
