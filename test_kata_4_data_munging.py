@@ -36,3 +36,7 @@ class TestFindMinSpread:
         records = [("A", -10, -8), ("B", 100, 99)]
         # |−10 − −8| = 2,  |100 − 99| = 1  → B
         assert find_min_spread(records) == "B"
+
+    def test_zero_spread_wins(self):
+        records = [("A", 5, 3), ("B", 7, 7), ("C", 9, 2)]
+        assert find_min_spread(records) == "B"  # |7-7|=0
