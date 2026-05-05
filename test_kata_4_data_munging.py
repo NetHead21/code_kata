@@ -44,3 +44,9 @@ class TestFindMinSpread:
     def test_integer_labels(self):
         records = [(1, 90, 50), (2, 60, 59), (3, 80, 30)]
         assert find_min_spread(records) == 2  # |60-59|=1
+
+    def test_order_of_columns_does_not_matter(self):
+        # (label, a, b) vs (label, b, a) should give same answer
+        fwd = [("A", 10, 7), ("B", 5, 3)]
+        rev = [("A", 7, 10), ("B", 3, 5)]
+        assert find_min_spread(fwd) == find_min_spread(rev)
