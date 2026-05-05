@@ -31,3 +31,8 @@ class TestFindMinSpread:
     def test_picks_smallest_absolute_difference(self):
         records = [("X", 10, 1), ("Y", 5, 4), ("Z", 20, 0)]
         assert find_min_spread(records) == "Y"  # |5-4|=1
+
+    def test_negative_values_use_absolute_difference(self):
+        records = [("A", -10, -8), ("B", 100, 99)]
+        # |−10 − −8| = 2,  |100 − 99| = 1  → B
+        assert find_min_spread(records) == "B"
