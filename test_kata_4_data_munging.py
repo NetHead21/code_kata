@@ -55,3 +55,18 @@ class TestFindMinSpread:
         records = [("First", 10, 8), ("Second", 20, 18)]
         # Both have spread 2; min() returns the first one
         assert find_min_spread(records) == "First"
+
+
+# ---------------------------------------------------------------------------
+# Part 1: Weather — parse_weather
+# ---------------------------------------------------------------------------
+
+WEATHER_SAMPLE = """\
+   Dy MxT   MnT   AvT   HDDay  AvDP
+
+   1  88    59    74          53.8
+   2  79    63    71          46.5
+   9  86    32*   59          61.5
+  26  97*   64    81    0     76.7
+mo  82.9  60.5  71.7         58.8
+"""
