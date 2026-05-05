@@ -40,3 +40,7 @@ class TestFindMinSpread:
     def test_zero_spread_wins(self):
         records = [("A", 5, 3), ("B", 7, 7), ("C", 9, 2)]
         assert find_min_spread(records) == "B"  # |7-7|=0
+
+    def test_integer_labels(self):
+        records = [(1, 90, 50), (2, 60, 59), (3, 80, 30)]
+        assert find_min_spread(records) == 2  # |60-59|=1
