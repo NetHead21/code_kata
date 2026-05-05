@@ -50,3 +50,8 @@ class TestFindMinSpread:
         fwd = [("A", 10, 7), ("B", 5, 3)]
         rev = [("A", 7, 10), ("B", 3, 5)]
         assert find_min_spread(fwd) == find_min_spread(rev)
+
+    def test_ties_resolved_by_first_occurrence(self):
+        records = [("First", 10, 8), ("Second", 20, 18)]
+        # Both have spread 2; min() returns the first one
+        assert find_min_spread(records) == "First"
