@@ -27,3 +27,7 @@ FOOTBALL_FILE = DATA_DIR / "football.dat"
 class TestFindMinSpread:
     def test_single_record_returns_its_label(self):
         assert find_min_spread([("A", 10, 5)]) == "A"
+
+    def test_picks_smallest_absolute_difference(self):
+        records = [("X", 10, 1), ("Y", 5, 4), ("Z", 20, 0)]
+        assert find_min_spread(records) == "Y"  # |5-4|=1
