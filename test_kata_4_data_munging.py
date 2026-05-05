@@ -13,3 +13,7 @@ from kata_4_data_munging import (
     weather_min_spread,
     weather_min_spread_from_file,
 )
+
+DATA_DIR = Path(__file__).parent / "data"
+WEATHER_FILE = DATA_DIR / "weather.dat"
+FOOTBALL_FILE = DATA_DIR / "football.dat"
