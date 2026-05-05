@@ -70,3 +70,10 @@ WEATHER_SAMPLE = """\
   26  97*   64    81    0     76.7
 mo  82.9  60.5  71.7         58.8
 """
+
+
+class TestParseWeather:
+    def test_returns_list_of_tuples(self):
+        rows = parse_weather(WEATHER_SAMPLE)
+        assert isinstance(rows, list)
+        assert all(len(r) == 3 for r in rows)
