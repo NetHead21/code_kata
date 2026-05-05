@@ -17,3 +17,13 @@ from kata_4_data_munging import (
 DATA_DIR = Path(__file__).parent / "data"
 WEATHER_FILE = DATA_DIR / "weather.dat"
 FOOTBALL_FILE = DATA_DIR / "football.dat"
+
+
+# ---------------------------------------------------------------------------
+# Part 3: DRY — find_min_spread
+# ---------------------------------------------------------------------------
+
+
+class TestFindMinSpread:
+    def test_single_record_returns_its_label(self):
+        assert find_min_spread([("A", 10, 5)]) == "A"
