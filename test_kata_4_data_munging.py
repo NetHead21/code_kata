@@ -115,3 +115,6 @@ class TestParseWeather:
 
     def test_empty_input_returns_empty_list(self):
         assert parse_weather("") == []
+
+    def test_only_header_returns_empty_list(self):
+        assert parse_weather("   Dy MxT   MnT\n") == []
