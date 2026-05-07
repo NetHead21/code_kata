@@ -101,3 +101,9 @@ class TestParseWeather:
     def test_day_numbers_are_ints(self):
         rows = parse_weather(WEATHER_SAMPLE)
         assert all(isinstance(r[0], int) for r in rows)
+
+    def test_temperatures_are_floats(self):
+        rows = parse_weather(WEATHER_SAMPLE)
+        for _, mx, mn in rows:
+            assert isinstance(mx, float)
+            assert isinstance(mn, float)
