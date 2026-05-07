@@ -166,3 +166,7 @@ class TestWeatherFile:
     def test_answer_is_day_14(self):
         # Day 14: MxT=61, MnT=59 → spread=2 (unique minimum in the dataset)
         assert weather_min_spread_from_file(WEATHER_FILE) == 14
+
+    def test_all_30_days_parsed(self):
+        rows = parse_weather(WEATHER_FILE.read_text())
+        assert len(rows) == 30
