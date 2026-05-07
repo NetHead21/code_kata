@@ -145,3 +145,10 @@ class TestWeatherMinSpread:
     def test_single_day(self):
         text = "  5  70  60\n"
         assert weather_min_spread(text) == 5
+
+    def test_record_high_day_not_picked_just_because_of_asterisk(self):
+        # Day 26 has max=97*, min=64 → spread 33; should NOT win
+        rows = parse_weather(WEATHER_SAMPLE)
+        result = weather_min_spread(WEATHER_SAMPLE)
+        winning = next(r for r in rows if r[0] == result)
+        assert abs(winning[1] - winning[2]) <= min(abs(r[1] - r[2]) for r in rows)
