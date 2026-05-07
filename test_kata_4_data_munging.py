@@ -152,3 +152,13 @@ class TestWeatherMinSpread:
         result = weather_min_spread(WEATHER_SAMPLE)
         winning = next(r for r in rows if r[0] == result)
         assert abs(winning[1] - winning[2]) <= min(abs(r[1] - r[2]) for r in rows)
+
+
+# ---------------------------------------------------------------------------
+# Part 1: Weather — integration test against actual file
+# ---------------------------------------------------------------------------
+
+
+class TestWeatherFile:
+    def test_file_exists(self):
+        assert WEATHER_FILE.exists()
