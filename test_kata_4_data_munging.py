@@ -112,3 +112,6 @@ class TestParseWeather:
         rows = parse_weather(WEATHER_SAMPLE)
         day1 = next(r for r in rows if r[0] == 1)
         assert day1 == (1, 88.0, 59.0)
+
+    def test_empty_input_returns_empty_list(self):
+        assert parse_weather("") == []
