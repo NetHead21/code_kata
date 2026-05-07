@@ -77,3 +77,8 @@ class TestParseWeather:
         rows = parse_weather(WEATHER_SAMPLE)
         assert isinstance(rows, list)
         assert all(len(r) == 3 for r in rows)
+
+    def test_skips_header_line(self):
+        rows = parse_weather(WEATHER_SAMPLE)
+        days = [r[0] for r in rows]
+        assert "Dy" not in days
