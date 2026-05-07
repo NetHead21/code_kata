@@ -118,3 +118,7 @@ class TestParseWeather:
 
     def test_only_header_returns_empty_list(self):
         assert parse_weather("   Dy MxT   MnT\n") == []
+
+    def test_row_count_matches_data_lines(self):
+        # Sample has 4 data lines (days 1, 2, 9, 26); header and summary skipped
+        assert len(parse_weather(WEATHER_SAMPLE)) == 4
