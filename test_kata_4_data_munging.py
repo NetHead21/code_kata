@@ -162,3 +162,7 @@ class TestWeatherMinSpread:
 class TestWeatherFile:
     def test_file_exists(self):
         assert WEATHER_FILE.exists()
+
+    def test_answer_is_day_14(self):
+        # Day 14: MxT=61, MnT=59 → spread=2 (unique minimum in the dataset)
+        assert weather_min_spread_from_file(WEATHER_FILE) == 14
