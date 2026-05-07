@@ -92,3 +92,8 @@ class TestParseWeather:
         rows = parse_weather(WEATHER_SAMPLE)
         day9 = next(r for r in rows if r[0] == 9)
         assert day9[2] == 32.0
+
+    def test_strips_asterisk_from_max_temp(self):
+        rows = parse_weather(WEATHER_SAMPLE)
+        day26 = next(r for r in rows if r[0] == 26)
+        assert day26[1] == 97.0
