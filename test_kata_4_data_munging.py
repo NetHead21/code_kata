@@ -107,3 +107,8 @@ class TestParseWeather:
         for _, mx, mn in rows:
             assert isinstance(mx, float)
             assert isinstance(mn, float)
+
+    def test_correct_values_for_day_1(self):
+        rows = parse_weather(WEATHER_SAMPLE)
+        day1 = next(r for r in rows if r[0] == 1)
+        assert day1 == (1, 88.0, 59.0)
