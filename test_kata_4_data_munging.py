@@ -132,3 +132,7 @@ class TestParseWeather:
 class TestWeatherMinSpread:
     def test_returns_an_int(self):
         assert isinstance(weather_min_spread(WEATHER_SAMPLE), int)
+
+    def test_simple_two_day_data(self):
+        text = "  1  80  70\n  2  80  79\n"
+        assert weather_min_spread(text) == 2  # spread 1 < 10
