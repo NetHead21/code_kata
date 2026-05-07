@@ -141,3 +141,7 @@ class TestWeatherMinSpread:
         text = "  1  90  50\n  2  86  32*\n  3  61  59\n"
         # spreads: 40, 54, 2 → day 3
         assert weather_min_spread(text) == 3
+
+    def test_single_day(self):
+        text = "  5  70  60\n"
+        assert weather_min_spread(text) == 5
