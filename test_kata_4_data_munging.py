@@ -87,3 +87,8 @@ class TestParseWeather:
         rows = parse_weather(WEATHER_SAMPLE)
         days = [r[0] for r in rows]
         assert all(isinstance(d, int) for d in days)
+
+    def test_strips_asterisk_from_min_temp(self):
+        rows = parse_weather(WEATHER_SAMPLE)
+        day9 = next(r for r in rows if r[0] == 9)
+        assert day9[2] == 32.0
