@@ -97,3 +97,7 @@ class TestParseWeather:
         rows = parse_weather(WEATHER_SAMPLE)
         day26 = next(r for r in rows if r[0] == 26)
         assert day26[1] == 97.0
+
+    def test_day_numbers_are_ints(self):
+        rows = parse_weather(WEATHER_SAMPLE)
+        assert all(isinstance(r[0], int) for r in rows)
