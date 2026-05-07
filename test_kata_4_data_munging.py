@@ -175,3 +175,11 @@ class TestWeatherFile:
         rows = parse_weather(WEATHER_FILE.read_text())
         day14 = next(r for r in rows if r[0] == 14)
         assert abs(day14[1] - day14[2]) == 2
+
+    def test_winning_day_has_minimum_spread(self):
+        text = WEATHER_FILE.read_text()
+        rows = parse_weather(text)
+        winner = weather_min_spread(text)
+        winning_row = next(r for r in rows if r[0] == winner)
+        min_spread = min(abs(r[1] - r[2]) for r in rows)
+        assert abs(winning_row[1] - winning_row[2]) == min_spread
