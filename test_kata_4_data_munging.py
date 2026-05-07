@@ -122,3 +122,13 @@ class TestParseWeather:
     def test_row_count_matches_data_lines(self):
         # Sample has 4 data lines (days 1, 2, 9, 26); header and summary skipped
         assert len(parse_weather(WEATHER_SAMPLE)) == 4
+
+
+# ---------------------------------------------------------------------------
+# Part 1: Weather — weather_min_spread
+# ---------------------------------------------------------------------------
+
+
+class TestWeatherMinSpread:
+    def test_returns_an_int(self):
+        assert isinstance(weather_min_spread(WEATHER_SAMPLE), int)
