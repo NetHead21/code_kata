@@ -136,3 +136,8 @@ class TestWeatherMinSpread:
     def test_simple_two_day_data(self):
         text = "  1  80  70\n  2  80  79\n"
         assert weather_min_spread(text) == 2  # spread 1 < 10
+
+    def test_handles_asterisk_temperatures(self):
+        text = "  1  90  50\n  2  86  32*\n  3  61  59\n"
+        # spreads: 40, 54, 2 → day 3
+        assert weather_min_spread(text) == 3
