@@ -82,3 +82,8 @@ class TestParseWeather:
         rows = parse_weather(WEATHER_SAMPLE)
         days = [r[0] for r in rows]
         assert "Dy" not in days
+
+    def test_skips_monthly_summary(self):
+        rows = parse_weather(WEATHER_SAMPLE)
+        days = [r[0] for r in rows]
+        assert all(isinstance(d, int) for d in days)
