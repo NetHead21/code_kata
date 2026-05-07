@@ -170,3 +170,8 @@ class TestWeatherFile:
     def test_all_30_days_parsed(self):
         rows = parse_weather(WEATHER_FILE.read_text())
         assert len(rows) == 30
+
+    def test_day_14_has_spread_of_2(self):
+        rows = parse_weather(WEATHER_FILE.read_text())
+        day14 = next(r for r in rows if r[0] == 14)
+        assert abs(day14[1] - day14[2]) == 2
