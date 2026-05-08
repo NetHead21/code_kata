@@ -230,3 +230,6 @@ class TestParseFootball:
 
     def test_row_count_matches_data_lines(self):
         assert len(parse_football(FOOTBALL_SAMPLE)) == 3
+
+    def test_empty_input_returns_empty_list(self):
+        assert parse_football("") == []
