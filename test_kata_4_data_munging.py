@@ -184,6 +184,7 @@ class TestWeatherFile:
         min_spread = min(abs(r[1] - r[2]) for r in rows)
         assert abs(winning_row[1] - winning_row[2]) == min_spread
 
+
 # ---------------------------------------------------------------------------
 # Part 2: Football — parse_football
 # ---------------------------------------------------------------------------
@@ -194,3 +195,10 @@ FOOTBALL_SAMPLE = """\
    2. Aston_Villa     38    12  14   12    46  -  47     50
    3. Chelsea         38    17  13    8    66  -  38     64
 """
+
+
+class TestParseFootball:
+    def test_returns_list_of_tuples(self):
+        rows = parse_football(FOOTBALL_SAMPLE)
+        assert isinstance(rows, list)
+        assert all(len(r) == 3 for r in rows)
