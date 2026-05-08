@@ -233,3 +233,6 @@ class TestParseFootball:
 
     def test_empty_input_returns_empty_list(self):
         assert parse_football("") == []
+
+    def test_only_header_returns_empty_list(self):
+        assert parse_football("       Team            P     W\n") == []
