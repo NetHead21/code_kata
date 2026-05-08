@@ -236,3 +236,8 @@ class TestParseFootball:
 
     def test_only_header_returns_empty_list(self):
         assert parse_football("       Team            P     W\n") == []
+
+    def test_dash_separator_not_treated_as_a_team(self):
+        rows = parse_football(FOOTBALL_SAMPLE)
+        teams = [r[0] for r in rows]
+        assert "-" not in teams
