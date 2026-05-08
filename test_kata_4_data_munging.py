@@ -211,3 +211,9 @@ class TestParseFootball:
     def test_team_name_is_string(self):
         rows = parse_football(FOOTBALL_SAMPLE)
         assert all(isinstance(r[0], str) for r in rows)
+
+    def test_goals_are_ints(self):
+        rows = parse_football(FOOTBALL_SAMPLE)
+        for _, f, a in rows:
+            assert isinstance(f, int)
+            assert isinstance(a, int)
