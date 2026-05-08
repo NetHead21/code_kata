@@ -241,3 +241,13 @@ class TestParseFootball:
         rows = parse_football(FOOTBALL_SAMPLE)
         teams = [r[0] for r in rows]
         assert "-" not in teams
+
+
+# ---------------------------------------------------------------------------
+# Part 2: Football — football_min_spread
+# ---------------------------------------------------------------------------
+
+
+class TestFootballMinSpread:
+    def test_returns_a_string(self):
+        assert isinstance(football_min_spread(FOOTBALL_SAMPLE), str)
