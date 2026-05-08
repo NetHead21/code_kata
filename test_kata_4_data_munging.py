@@ -251,3 +251,7 @@ class TestParseFootball:
 class TestFootballMinSpread:
     def test_returns_a_string(self):
         assert isinstance(football_min_spread(FOOTBALL_SAMPLE), str)
+
+    def test_simple_two_team_data(self):
+        text = "  1. Alpha  38  10  10  18  50  -  51  30\n  2. Beta   38  10  10  18  40  -  60  30\n"
+        assert football_min_spread(text) == "Alpha"  # |50-51|=1 vs |40-60|=20
