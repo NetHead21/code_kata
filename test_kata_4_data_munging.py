@@ -281,3 +281,8 @@ class TestFootballFile:
     def test_all_20_teams_parsed(self):
         rows = parse_football(FOOTBALL_FILE.read_text())
         assert len(rows) == 20
+
+    def test_aston_villa_goals_are_correct(self):
+        rows = parse_football(FOOTBALL_FILE.read_text())
+        villa = next(r for r in rows if r[0] == "Aston_Villa")
+        assert villa == ("Aston_Villa", 46, 47)
