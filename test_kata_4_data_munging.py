@@ -222,3 +222,8 @@ class TestParseFootball:
         rows = parse_football(FOOTBALL_SAMPLE)
         arsenal = next(r for r in rows if r[0] == "Arsenal")
         assert arsenal == ("Arsenal", 79, 36)
+
+    def test_correct_values_for_aston_villa(self):
+        rows = parse_football(FOOTBALL_SAMPLE)
+        villa = next(r for r in rows if r[0] == "Aston_Villa")
+        assert villa == ("Aston_Villa", 46, 47)
