@@ -277,3 +277,7 @@ class TestFootballFile:
     def test_answer_is_aston_villa(self):
         # Aston Villa: F=46, A=47 → |diff|=1 (unique minimum in the dataset)
         assert football_min_spread_from_file(FOOTBALL_FILE) == "Aston_Villa"
+
+    def test_all_20_teams_parsed(self):
+        rows = parse_football(FOOTBALL_FILE.read_text())
+        assert len(rows) == 20
