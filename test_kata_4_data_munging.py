@@ -273,3 +273,7 @@ class TestFootballMinSpread:
 class TestFootballFile:
     def test_file_exists(self):
         assert FOOTBALL_FILE.exists()
+
+    def test_answer_is_aston_villa(self):
+        # Aston Villa: F=46, A=47 → |diff|=1 (unique minimum in the dataset)
+        assert football_min_spread_from_file(FOOTBALL_FILE) == "Aston_Villa"
