@@ -217,3 +217,8 @@ class TestParseFootball:
         for _, f, a in rows:
             assert isinstance(f, int)
             assert isinstance(a, int)
+
+    def test_correct_values_for_arsenal(self):
+        rows = parse_football(FOOTBALL_SAMPLE)
+        arsenal = next(r for r in rows if r[0] == "Arsenal")
+        assert arsenal == ("Arsenal", 79, 36)
