@@ -207,3 +207,7 @@ class TestParseFootball:
         rows = parse_football(FOOTBALL_SAMPLE)
         teams = [r[0] for r in rows]
         assert "Team" not in teams
+
+    def test_team_name_is_string(self):
+        rows = parse_football(FOOTBALL_SAMPLE)
+        assert all(isinstance(r[0], str) for r in rows)
