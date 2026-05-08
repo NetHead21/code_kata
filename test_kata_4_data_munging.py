@@ -202,3 +202,8 @@ class TestParseFootball:
         rows = parse_football(FOOTBALL_SAMPLE)
         assert isinstance(rows, list)
         assert all(len(r) == 3 for r in rows)
+
+    def test_skips_header_line(self):
+        rows = parse_football(FOOTBALL_SAMPLE)
+        teams = [r[0] for r in rows]
+        assert "Team" not in teams
