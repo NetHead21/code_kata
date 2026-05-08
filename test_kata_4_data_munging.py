@@ -255,3 +255,7 @@ class TestFootballMinSpread:
     def test_simple_two_team_data(self):
         text = "  1. Alpha  38  10  10  18  50  -  51  30\n  2. Beta   38  10  10  18  40  -  60  30\n"
         assert football_min_spread(text) == "Alpha"  # |50-51|=1 vs |40-60|=20
+
+    def test_picks_aston_villa_from_sample(self):
+        # Aston Villa: |46-47|=1, Arsenal: |79-36|=43, Chelsea: |66-38|=28
+        assert football_min_spread(FOOTBALL_SAMPLE) == "Aston_Villa"
