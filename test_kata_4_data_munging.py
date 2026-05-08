@@ -227,3 +227,6 @@ class TestParseFootball:
         rows = parse_football(FOOTBALL_SAMPLE)
         villa = next(r for r in rows if r[0] == "Aston_Villa")
         assert villa == ("Aston_Villa", 46, 47)
+
+    def test_row_count_matches_data_lines(self):
+        assert len(parse_football(FOOTBALL_SAMPLE)) == 3
