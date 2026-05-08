@@ -286,3 +286,11 @@ class TestFootballFile:
         rows = parse_football(FOOTBALL_FILE.read_text())
         villa = next(r for r in rows if r[0] == "Aston_Villa")
         assert villa == ("Aston_Villa", 46, 47)
+
+    def test_winning_team_has_minimum_spread(self):
+        text = FOOTBALL_FILE.read_text()
+        rows = parse_football(text)
+        winner = football_min_spread(text)
+        winning_row = next(r for r in rows if r[0] == winner)
+        min_spread = min(abs(r[1] - r[2]) for r in rows)
+        assert abs(winning_row[1] - winning_row[2]) == min_spread
