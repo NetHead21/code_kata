@@ -263,3 +263,13 @@ class TestFootballMinSpread:
     def test_zero_difference_wins(self):
         text = "  1. TeamA  38  0  0  38  40  -  42  0\n  2. TeamB  38  0  0  38  30  -  30  0\n"
         assert football_min_spread(text) == "TeamB"  # |30-30|=0
+
+
+# ---------------------------------------------------------------------------
+# Part 2: Football — integration test against actual file
+# ---------------------------------------------------------------------------
+
+
+class TestFootballFile:
+    def test_file_exists(self):
+        assert FOOTBALL_FILE.exists()
