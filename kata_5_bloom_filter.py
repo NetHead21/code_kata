@@ -104,3 +104,9 @@ class BloomFilter:
     def hash_count(self) -> int:
         """Number of independent hash functions used."""
         return self.k
+
+    @property
+    def fill_ratio(self) -> float:
+        """Fraction of bits currently set to 1."""
+        bits_set = sum(bin(b).count("1") for b in self._bits)
+        return bits_set / self.m
