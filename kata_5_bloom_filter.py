@@ -120,3 +120,16 @@ class BloomFilter:
         if self._count == 0:
             return 0.0
         return (1.0 - math.exp(-self.k * self._count / self.m)) ** self.k
+
+    # ------------------------------------------------------------------
+    # Private
+    # ------------------------------------------------------------------
+
+    def _hash_indices(self, item: str):
+        """
+        Yield k bit indices using the double-hashing technique.
+        Two independent base hashes (MD5, SHA-1) give:
+            g_i(x) = ( h1(x) + i * h2(x) ) mod m
+        This is proven to be equivalent to k truly independent hash functions
+        for Bloom filter use.
+        """
