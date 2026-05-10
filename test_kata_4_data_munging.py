@@ -319,3 +319,10 @@ class TestDRYFusion:
     def test_shared_core_works_with_football_file_data(self):
         rows = parse_football(FOOTBALL_FILE.read_text())
         assert find_min_spread(rows) == "Aston_Villa"
+
+    def test_find_min_spread_is_domain_agnostic(self):
+        # Identical numeric structure, different domains — same algorithm
+        weather_answer = find_min_spread(parse_weather(WEATHER_FILE.read_text()))
+        football_answer = find_min_spread(parse_football(FOOTBALL_FILE.read_text()))
+        assert isinstance(weather_answer, int)
+        assert isinstance(football_answer, str)
