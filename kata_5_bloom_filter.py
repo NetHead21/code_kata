@@ -18,3 +18,15 @@ import math
 import random
 import string
 from pathlib import Path
+
+# ---------------------------------------------------------------------------
+# Optimal parameter formulae
+# ---------------------------------------------------------------------------
+
+
+def optimal_bit_count(n: int, p: float) -> int:
+    """
+    Optimal bit array size m for n expected items at false positive rate p.
+        m = ceil( -n * ln(p) / ln(2)^2 )
+    """
+    return math.ceil(-n * math.log(p) / (math.log(2) ** 2))
