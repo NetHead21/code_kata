@@ -38,3 +38,21 @@ def optimal_hash_count(m: int, n: int) -> int:
         k = round( (m/n) * ln(2) )
     """
     return max(1, round((m / n) * math.log(2)))
+
+
+# ---------------------------------------------------------------------------
+# BloomFilter
+# ---------------------------------------------------------------------------
+
+
+class BloomFilter:
+    """
+    Probabilistic set-membership filter.
+
+    Parameters
+    ----------
+    capacity : int
+        Expected number of items to be inserted.
+    false_positive_rate : float
+        Desired maximum false positive probability (0 < p < 1).
+    """
