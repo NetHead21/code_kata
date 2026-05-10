@@ -294,3 +294,12 @@ class TestFootballFile:
         winning_row = next(r for r in rows if r[0] == winner)
         min_spread = min(abs(r[1] - r[2]) for r in rows)
         assert abs(winning_row[1] - winning_row[2]) == min_spread
+
+
+# ---------------------------------------------------------------------------
+# Part 3: DRY — both problems use the same find_min_spread core
+# ---------------------------------------------------------------------------
+
+
+class TestDRYFusion:
+    """Verify that both domains reduce cleanly to find_min_spread."""
