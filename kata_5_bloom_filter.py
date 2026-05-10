@@ -229,3 +229,13 @@ def false_positive_experiment(
         total_checked += 1
         if checker.check(word):
             false_positives += 1
+
+    return {
+        "total_random_words": total_checked,
+        "false_positives": false_positives,
+        "false_positive_rate": false_positives / total_checked
+        if total_checked
+        else 0.0,
+        "target_fpr": fpr_target,
+        "dictionary_size": len(dict_set),
+    }
