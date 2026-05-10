@@ -188,6 +188,8 @@ class SpellChecker:
     def filter(self) -> BloomFilter | None:
         """The underlying BloomFilter, or None if no words have been loaded."""
         return self._filter
+
+
 # ---------------------------------------------------------------------------
 # Part 2: False-positive experiment
 # ---------------------------------------------------------------------------
@@ -200,4 +202,15 @@ def false_positive_experiment(
     fpr_target: float = 0.01,
     seed: int = 42,
 ) -> dict:
-    
+    """
+    Generate *num_random* random strings of *word_length* lowercase letters,
+    skip any that happen to be real words, then measure what fraction the
+    Bloom filter incorrectly accepts.
+
+    Returns a dict with:
+        total_random_words  — number of genuine non-words tested
+        false_positives     — count the filter wrongly accepted
+        false_positive_rate — empirical FP rate
+        target_fpr          — the rate the filter was designed for
+        dictionary_size     — number of unique words loaded
+    """
