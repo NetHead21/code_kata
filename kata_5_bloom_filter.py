@@ -249,3 +249,9 @@ if __name__ == "__main__":
     words_file = Path(__file__).parent / "data" / "words.txt"
     checker = SpellChecker(false_positive_rate=0.01).load_file(words_file)
     bf = checker.filter
+
+    print(f"Dictionary size : {bf.count:,} words")
+    print(f"Bit array size  : {bf.bit_count:,} bits  ({bf.bit_count // 8:,} bytes)")
+    print(f"Hash functions  : {bf.hash_count}")
+    print(f"Fill ratio      : {bf.fill_ratio:.3f}")
+    print(f"Estimated FPR   : {bf.estimated_false_positive_rate:.4f}")
