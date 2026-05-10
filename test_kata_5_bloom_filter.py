@@ -30,3 +30,6 @@ class TestOptimalBitCount:
 
     def test_more_items_needs_more_bits(self):
         assert optimal_bit_count(1_000, 0.01) > optimal_bit_count(100, 0.01)
+
+    def test_lower_fpr_needs_more_bits(self):
+        assert optimal_bit_count(1_000, 0.001) > optimal_bit_count(1_000, 0.01)
