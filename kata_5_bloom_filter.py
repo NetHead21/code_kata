@@ -30,3 +30,11 @@ def optimal_bit_count(n: int, p: float) -> int:
         m = ceil( -n * ln(p) / ln(2)^2 )
     """
     return math.ceil(-n * math.log(p) / (math.log(2) ** 2))
+
+
+def optimal_hash_count(m: int, n: int) -> int:
+    """
+    Optimal number of hash functions k for bit array size m and n items.
+        k = round( (m/n) * ln(2) )
+    """
+    return max(1, round((m / n) * math.log(2)))
