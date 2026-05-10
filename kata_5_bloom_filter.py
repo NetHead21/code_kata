@@ -62,3 +62,10 @@ class BloomFilter:
             raise ValueError("capacity must be a positive integer")
         if not (0.0 < false_positive_rate < 1.0):
             raise ValueError("false_positive_rate must be in the open interval (0, 1)")
+
+        self.capacity = capacity
+        self.false_positive_rate = false_positive_rate
+        self.m = optimal_bit_count(capacity, false_positive_rate)
+        self.k = optimal_hash_count(self.m, capacity)
+        self._bits = bytearray(math.ceil(self.m / 8))
+        self._count = 0
