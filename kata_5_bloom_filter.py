@@ -69,3 +69,13 @@ class BloomFilter:
         self.k = optimal_hash_count(self.m, capacity)
         self._bits = bytearray(math.ceil(self.m / 8))
         self._count = 0
+
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
+
+    def add(self, item: str) -> None:
+        """Insert *item* into the filter."""
+        for idx in self._hash_indices(item):
+            self._bits[idx >> 3] |= 1 << (idx & 7)
+        self._count += 1
