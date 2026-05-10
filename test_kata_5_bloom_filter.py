@@ -14,3 +14,11 @@ from kata_5_bloom_filter import (
     optimal_bit_count,
     optimal_hash_count,
 )
+
+WORDS_FILE = Path(__file__).parent / "data" / "words.txt"
+WORDS = [w for w in WORDS_FILE.read_text().splitlines() if w.strip()]
+
+
+# ---------------------------------------------------------------------------
+# Optimal parameter maths
+# ---------------------------------------------------------------------------
