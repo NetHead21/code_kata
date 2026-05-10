@@ -173,3 +173,7 @@ class SpellChecker:
         for word in word_list:
             self._filter.add(word)
         return self
+
+    def load_file(self, path) -> "SpellChecker":
+        """Load words from a file (one word per line)."""
+        return self.load_words(Path(path).read_text().splitlines())
