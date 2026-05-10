@@ -307,3 +307,7 @@ class TestDRYFusion:
     def test_weather_via_find_min_spread_directly(self):
         rows = parse_weather(WEATHER_SAMPLE)
         assert find_min_spread(rows) == weather_min_spread(WEATHER_SAMPLE)
+
+    def test_football_via_find_min_spread_directly(self):
+        rows = parse_football(FOOTBALL_SAMPLE)
+        assert find_min_spread(rows) == football_min_spread(FOOTBALL_SAMPLE)
