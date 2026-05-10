@@ -56,3 +56,9 @@ class BloomFilter:
     false_positive_rate : float
         Desired maximum false positive probability (0 < p < 1).
     """
+
+    def __init__(self, capacity: int, false_positive_rate: float = 0.01):
+        if capacity <= 0:
+            raise ValueError("capacity must be a positive integer")
+        if not (0.0 < false_positive_rate < 1.0):
+            raise ValueError("false_positive_rate must be in the open interval (0, 1)")
