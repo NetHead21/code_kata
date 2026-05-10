@@ -165,3 +165,11 @@ class SpellChecker:
     def __init__(self, false_positive_rate: float = 0.01):
         self._fpr = false_positive_rate
         self._filter: BloomFilter | None = None
+
+    def load_words(self, words) -> "SpellChecker":
+        """Load an iterable of words into the filter."""
+        word_list = [w.strip().lower() for w in words if w.strip()]
+        self._filter = BloomFilter(max(1, len(word_list)), self._fpr)
+        for word in word_list:
+            self._filter.add(word)
+        return self
