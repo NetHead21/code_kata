@@ -214,3 +214,18 @@ def false_positive_experiment(
         target_fpr          — the rate the filter was designed for
         dictionary_size     — number of unique words loaded
     """
+
+    checker = SpellChecker(false_positive_rate=fpr_target).load_words(dictionary_words)
+    dict_set = {w.strip().lower() for w in dictionary_words if w.strip()}
+    rng = random.Random(seed)
+
+    false_positives = 0
+    total_checked = 0
+
+    while total_checked < num_random:
+        word = "".join(rng.choices(string.ascii_lowercase, k=word_length))
+        if word in dict_set:
+            continue  # don't count real words as misses
+        total_checked += 1
+        if checker.check(word):
+            false_positives += 1
