@@ -99,3 +99,8 @@ class BloomFilter:
     def bit_count(self) -> int:
         """Total number of bits in the underlying array."""
         return self.m
+
+    @property
+    def hash_count(self) -> int:
+        """Number of independent hash functions used."""
+        return self.k
