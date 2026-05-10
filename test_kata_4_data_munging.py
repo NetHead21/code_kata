@@ -315,3 +315,7 @@ class TestDRYFusion:
     def test_shared_core_works_with_weather_file_data(self):
         rows = parse_weather(WEATHER_FILE.read_text())
         assert find_min_spread(rows) == 14
+
+    def test_shared_core_works_with_football_file_data(self):
+        rows = parse_football(FOOTBALL_FILE.read_text())
+        assert find_min_spread(rows) == "Aston_Villa"
