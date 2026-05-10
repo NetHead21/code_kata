@@ -177,3 +177,9 @@ class SpellChecker:
     def load_file(self, path) -> "SpellChecker":
         """Load words from a file (one word per line)."""
         return self.load_words(Path(path).read_text().splitlines())
+
+    def check(self, word: str) -> bool:
+        """Return True if the word is probably in the dictionary."""
+        if self._filter is None:
+            return False
+        return word.strip().lower() in self._filter
