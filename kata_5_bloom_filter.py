@@ -239,3 +239,13 @@ def false_positive_experiment(
         "target_fpr": fpr_target,
         "dictionary_size": len(dict_set),
     }
+
+
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    words_file = Path(__file__).parent / "data" / "words.txt"
+    checker = SpellChecker(false_positive_rate=0.01).load_file(words_file)
+    bf = checker.filter
