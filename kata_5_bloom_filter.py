@@ -85,3 +85,12 @@ class BloomFilter:
         return all(
             self._bits[idx >> 3] & (1 << (idx & 7)) for idx in self._hash_indices(item)
         )
+
+    # ------------------------------------------------------------------
+    # Introspection
+    # ------------------------------------------------------------------
+
+    @property
+    def count(self) -> int:
+        """Number of items added (may include duplicates)."""
+        return self._count
