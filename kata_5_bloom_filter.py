@@ -110,3 +110,13 @@ class BloomFilter:
         """Fraction of bits currently set to 1."""
         bits_set = sum(bin(b).count("1") for b in self._bits)
         return bits_set / self.m
+
+    @property
+    def estimated_false_positive_rate(self) -> float:
+        """
+        Theoretical false positive probability given the current fill:
+            (1 - e^(-k*n/m))^k
+        """
+        if self._count == 0:
+            return 0.0
+        return (1.0 - math.exp(-self.k * self._count / self.m)) ** self.k
