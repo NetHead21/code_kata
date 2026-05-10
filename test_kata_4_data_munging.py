@@ -303,3 +303,7 @@ class TestFootballFile:
 
 class TestDRYFusion:
     """Verify that both domains reduce cleanly to find_min_spread."""
+
+    def test_weather_via_find_min_spread_directly(self):
+        rows = parse_weather(WEATHER_SAMPLE)
+        assert find_min_spread(rows) == weather_min_spread(WEATHER_SAMPLE)
