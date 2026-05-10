@@ -142,3 +142,22 @@ class BloomFilter:
             h2 = 1
         for i in range(self.k):
             yield (h1 + i * h2) % self.m
+
+
+# ---------------------------------------------------------------------------
+# SpellChecker
+# ---------------------------------------------------------------------------
+
+
+class SpellChecker:
+    """
+    Bloom-filter-based spell checker.
+
+    Usage
+    -----
+    >>> checker = SpellChecker().load_words(["apple", "banana", "cherry"])
+    >>> checker.check("apple")
+    True
+    >>> checker.check("zqqxv")
+    False  # (probably)
+    """
