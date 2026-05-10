@@ -79,3 +79,9 @@ class BloomFilter:
         for idx in self._hash_indices(item):
             self._bits[idx >> 3] |= 1 << (idx & 7)
         self._count += 1
+
+    def __contains__(self, item: str) -> bool:
+        """Return True if *item* is probably in the set; False means definitely not."""
+        return all(
+            self._bits[idx >> 3] & (1 << (idx & 7)) for idx in self._hash_indices(item)
+        )
