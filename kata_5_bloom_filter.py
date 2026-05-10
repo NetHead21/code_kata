@@ -133,3 +133,12 @@ class BloomFilter:
         This is proven to be equivalent to k truly independent hash functions
         for Bloom filter use.
         """
+
+        encoded = item.encode()
+        h1 = int(hashlib.md5(encoded).hexdigest(), 16) % self.m
+        h2 = int(hashlib.sha1(encoded).hexdigest(), 16) % self.m
+        # Ensure h2 != 0 so all k positions differ
+        if h2 == 0:
+            h2 = 1
+        for i in range(self.k):
+            yield (h1 + i * h2) % self.m
