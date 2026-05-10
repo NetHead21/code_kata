@@ -94,3 +94,8 @@ class BloomFilter:
     def count(self) -> int:
         """Number of items added (may include duplicates)."""
         return self._count
+
+    @property
+    def bit_count(self) -> int:
+        """Total number of bits in the underlying array."""
+        return self.m
