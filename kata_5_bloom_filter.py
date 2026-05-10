@@ -161,3 +161,7 @@ class SpellChecker:
     >>> checker.check("zqqxv")
     False  # (probably)
     """
+
+    def __init__(self, false_positive_rate: float = 0.01):
+        self._fpr = false_positive_rate
+        self._filter: BloomFilter | None = None
