@@ -188,3 +188,16 @@ class SpellChecker:
     def filter(self) -> BloomFilter | None:
         """The underlying BloomFilter, or None if no words have been loaded."""
         return self._filter
+# ---------------------------------------------------------------------------
+# Part 2: False-positive experiment
+# ---------------------------------------------------------------------------
+
+
+def false_positive_experiment(
+    dictionary_words,
+    num_random: int = 1_000,
+    word_length: int = 5,
+    fpr_target: float = 0.01,
+    seed: int = 42,
+) -> dict:
+    
