@@ -183,3 +183,8 @@ class SpellChecker:
         if self._filter is None:
             return False
         return word.strip().lower() in self._filter
+
+    @property
+    def filter(self) -> BloomFilter | None:
+        """The underlying BloomFilter, or None if no words have been loaded."""
+        return self._filter
