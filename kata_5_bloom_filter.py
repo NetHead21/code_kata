@@ -260,3 +260,16 @@ if __name__ == "__main__":
     for word in ["happy", "science", "zxqvw", "flurble", "nation", "xkqjz"]:
         status = "OK" if checker.check(word) else "UNKNOWN"
         print(f"  {word:<12} → {status}")
+
+    print()
+    result = false_positive_experiment(
+        words_file.read_text().splitlines(),
+        num_random=5_000,
+        word_length=5,
+    )
+    print(f"False positive experiment (5-char random words, n=5000):")
+    print(f"  Empirical FPR : {result['false_positive_rate']:.4f}")
+    print(f"  Target FPR    : {result['target_fpr']:.4f}")
+    print(
+        f"  False positives: {result['false_positives']} / {result['total_random_words']}"
+    )
