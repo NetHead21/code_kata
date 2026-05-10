@@ -255,3 +255,8 @@ if __name__ == "__main__":
     print(f"Hash functions  : {bf.hash_count}")
     print(f"Fill ratio      : {bf.fill_ratio:.3f}")
     print(f"Estimated FPR   : {bf.estimated_false_positive_rate:.4f}")
+
+    print()
+    for word in ["happy", "science", "zxqvw", "flurble", "nation", "xkqjz"]:
+        status = "OK" if checker.check(word) else "UNKNOWN"
+        print(f"  {word:<12} → {status}")
