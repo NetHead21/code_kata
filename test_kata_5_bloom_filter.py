@@ -22,3 +22,8 @@ WORDS = [w for w in WORDS_FILE.read_text().splitlines() if w.strip()]
 # ---------------------------------------------------------------------------
 # Optimal parameter maths
 # ---------------------------------------------------------------------------
+
+
+class TestOptimalBitCount:
+    def test_returns_positive_int(self):
+        assert optimal_bit_count(100, 0.01) > 0
