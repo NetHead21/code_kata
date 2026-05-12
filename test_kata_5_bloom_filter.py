@@ -277,3 +277,8 @@ class TestSpellCheckerConstruction:
     def test_filter_is_set_after_loading(self):
         checker = SpellChecker().load_words(["a"])
         assert checker.filter is not None
+
+    def test_empty_lines_are_ignored(self):
+        checker = SpellChecker().load_words(["apple", "", "  ", "banana"])
+        assert checker.check("apple")
+        assert checker.check("banana")
