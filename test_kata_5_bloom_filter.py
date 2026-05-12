@@ -150,3 +150,9 @@ class TestBloomFilterMembership:
         for i in range(5):
             bf.add(f"item{i}")
         assert bf.count == 5
+
+    def test_adding_duplicate_does_not_break_membership(self):
+        bf = BloomFilter(10)
+        bf.add("dup")
+        bf.add("dup")
+        assert "dup" in bf
