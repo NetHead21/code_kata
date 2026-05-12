@@ -191,3 +191,9 @@ class TestBloomFilterIntrospection:
             bf.add(f"word{i}")
             assert bf.fill_ratio >= prev
             prev = bf.fill_ratio
+
+    def test_fill_ratio_bounded_between_0_and_1(self):
+        bf = BloomFilter(20)
+        for i in range(100):
+            bf.add(str(i))
+        assert 0.0 <= bf.fill_ratio <= 1.0
