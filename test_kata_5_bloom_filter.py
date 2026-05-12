@@ -100,3 +100,8 @@ class TestBloomFilterConstruction:
             BloomFilter(100, 1.0)
         with pytest.raises(ValueError):
             BloomFilter(100, -0.1)
+
+    def test_lower_fpr_gives_larger_bit_array(self):
+        loose = BloomFilter(1_000, 0.10)
+        strict = BloomFilter(1_000, 0.001)
+        assert strict.bit_count > loose.bit_count
