@@ -119,3 +119,7 @@ class TestBloomFilterConstruction:
 
 class TestBloomFilterMembership:
     """Core correctness: no false negatives; FP rate bounded."""
+
+    def test_item_not_found_before_add(self):
+        bf = BloomFilter(100)
+        assert "hello" not in bf
