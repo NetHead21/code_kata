@@ -82,3 +82,7 @@ class TestBloomFilterConstruction:
     def test_starts_empty(self):
         bf = BloomFilter(100)
         assert bf.count == 0
+
+    def test_starts_with_zero_fill_ratio(self):
+        bf = BloomFilter(100)
+        assert bf.fill_ratio == 0.0
