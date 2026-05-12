@@ -70,3 +70,7 @@ class TestBloomFilterConstruction:
     def test_default_fpr_is_1_percent(self):
         bf = BloomFilter(100)
         assert bf.false_positive_rate == 0.01
+
+    def test_bit_count_matches_formula(self):
+        bf = BloomFilter(100, 0.01)
+        assert bf.bit_count == optimal_bit_count(100, 0.01)
