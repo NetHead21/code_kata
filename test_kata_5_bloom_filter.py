@@ -55,3 +55,14 @@ class TestOptimalHashCount:
 
     def test_result_is_int(self):
         assert isinstance(optimal_hash_count(1000, 100), int)
+
+
+# ---------------------------------------------------------------------------
+# BloomFilter — construction
+# ---------------------------------------------------------------------------
+
+
+class TestBloomFilterConstruction:
+    def test_creates_with_valid_params(self):
+        bf = BloomFilter(100)
+        assert bf is not None
