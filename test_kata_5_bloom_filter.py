@@ -263,3 +263,8 @@ class TestSpellCheckerConstruction:
 
     def test_filter_is_none_before_loading(self):
         assert SpellChecker().filter is None
+
+    def test_load_words_returns_self(self):
+        checker = SpellChecker()
+        result = checker.load_words(["apple"])
+        assert result is checker
