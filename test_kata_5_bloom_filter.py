@@ -78,3 +78,7 @@ class TestBloomFilterConstruction:
     def test_hash_count_matches_formula(self):
         bf = BloomFilter(100, 0.01)
         assert bf.hash_count == optimal_hash_count(bf.bit_count, 100)
+
+    def test_starts_empty(self):
+        bf = BloomFilter(100)
+        assert bf.count == 0
