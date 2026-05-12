@@ -268,3 +268,8 @@ class TestSpellCheckerConstruction:
         checker = SpellChecker()
         result = checker.load_words(["apple"])
         assert result is checker
+
+    def test_load_file_returns_self(self):
+        checker = SpellChecker()
+        result = checker.load_file(WORDS_FILE)
+        assert result is checker
