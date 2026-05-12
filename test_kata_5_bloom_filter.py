@@ -260,3 +260,6 @@ class TestSpellCheckerConstruction:
     def test_check_returns_false_before_loading(self):
         checker = SpellChecker()
         assert checker.check("hello") is False
+
+    def test_filter_is_none_before_loading(self):
+        assert SpellChecker().filter is None
