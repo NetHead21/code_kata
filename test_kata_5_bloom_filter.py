@@ -167,3 +167,9 @@ class TestBloomFilterMembership:
         bf2.add("alpha")
         assert "beta" not in bf2
         assert "gamma" not in bf2
+
+    def test_case_sensitive(self):
+        bf = BloomFilter(10)
+        bf.add("Hello")
+        assert "Hello" in bf
+        assert "hello" not in bf
