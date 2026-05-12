@@ -249,3 +249,14 @@ class TestHashFunctions:
         idx_b = set(bf._hash_indices("orange"))
         # Not guaranteed, but with 10k bits they should differ
         assert idx_a != idx_b
+
+
+# ---------------------------------------------------------------------------
+# SpellChecker — construction & loading
+# ---------------------------------------------------------------------------
+
+
+class TestSpellCheckerConstruction:
+    def test_check_returns_false_before_loading(self):
+        checker = SpellChecker()
+        assert checker.check("hello") is False
