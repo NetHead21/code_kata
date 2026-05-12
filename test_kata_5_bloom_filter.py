@@ -128,3 +128,11 @@ class TestBloomFilterMembership:
         bf = BloomFilter(100)
         bf.add("hello")
         assert "hello" in bf
+
+    def test_multiple_items_all_found(self):
+        words = ["apple", "banana", "cherry", "date", "elderberry"]
+        bf = BloomFilter(len(words))
+        for w in words:
+            bf.add(w)
+        for w in words:
+            assert w in bf, f"'{w}' should be in filter (no false negatives allowed)"
