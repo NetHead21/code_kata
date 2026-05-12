@@ -231,3 +231,10 @@ class TestHashFunctions:
         ratio_before = bf.fill_ratio
         bf.add("completely_different_word_9x7z")
         assert bf.fill_ratio >= ratio_before
+
+    def test_hash_indices_within_bounds(self):
+        """All generated indices must lie within [0, m)."""
+        bf = BloomFilter(1_000)
+        indices = list(bf._hash_indices("test_word"))
+        assert len(indices) == bf.hash_count
+        assert all(0 <= idx < bf.m for idx in indices)
