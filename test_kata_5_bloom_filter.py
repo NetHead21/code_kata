@@ -216,3 +216,18 @@ class TestBloomFilterIntrospection:
             bf.add(f"item{i}")
         # Theoretical rate should be close to target (within 50% relative error)
         assert bf.estimated_false_positive_rate < fpr * 1.5
+
+
+# ---------------------------------------------------------------------------
+# BloomFilter — hash function properties
+# ---------------------------------------------------------------------------
+
+
+class TestHashFunctions:
+    def test_different_items_usually_set_different_bits(self):
+        """Adding two items should (almost certainly) increase fill ratio."""
+        bf = BloomFilter(10_000)
+        bf.add("word_one")
+        ratio_before = bf.fill_ratio
+        bf.add("completely_different_word_9x7z")
+        assert bf.fill_ratio >= ratio_before
