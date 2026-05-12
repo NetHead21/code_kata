@@ -86,3 +86,9 @@ class TestBloomFilterConstruction:
     def test_starts_with_zero_fill_ratio(self):
         bf = BloomFilter(100)
         assert bf.fill_ratio == 0.0
+
+    def test_invalid_capacity_raises(self):
+        with pytest.raises(ValueError):
+            BloomFilter(0)
+        with pytest.raises(ValueError):
+            BloomFilter(-1)
