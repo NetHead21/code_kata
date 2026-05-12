@@ -207,3 +207,12 @@ class TestBloomFilterIntrospection:
         for i in range(20):
             bf.add(f"x{i}")
         assert bf.estimated_false_positive_rate > r0
+
+    def test_estimated_fpr_approaches_target_at_capacity(self):
+        n = 500
+        fpr = 0.02
+        bf = BloomFilter(n, fpr)
+        for i in range(n):
+            bf.add(f"item{i}")
+        # Theoretical rate should be close to target (within 50% relative error)
+        assert bf.estimated_false_positive_rate < fpr * 1.5
