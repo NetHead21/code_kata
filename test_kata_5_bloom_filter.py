@@ -92,3 +92,11 @@ class TestBloomFilterConstruction:
             BloomFilter(0)
         with pytest.raises(ValueError):
             BloomFilter(-1)
+
+    def test_invalid_fpr_raises(self):
+        with pytest.raises(ValueError):
+            BloomFilter(100, 0.0)
+        with pytest.raises(ValueError):
+            BloomFilter(100, 1.0)
+        with pytest.raises(ValueError):
+            BloomFilter(100, -0.1)
