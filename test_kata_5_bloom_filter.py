@@ -173,3 +173,13 @@ class TestBloomFilterMembership:
         bf.add("Hello")
         assert "Hello" in bf
         assert "hello" not in bf
+
+
+# ---------------------------------------------------------------------------
+# BloomFilter — fill ratio and estimated FPR
+# ---------------------------------------------------------------------------
+
+
+class TestBloomFilterIntrospection:
+    def test_fill_ratio_zero_on_empty_filter(self):
+        assert BloomFilter(100).fill_ratio == 0.0
