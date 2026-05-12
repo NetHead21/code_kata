@@ -123,3 +123,8 @@ class TestBloomFilterMembership:
     def test_item_not_found_before_add(self):
         bf = BloomFilter(100)
         assert "hello" not in bf
+
+    def test_item_found_after_add(self):
+        bf = BloomFilter(100)
+        bf.add("hello")
+        assert "hello" in bf
