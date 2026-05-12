@@ -197,3 +197,6 @@ class TestBloomFilterIntrospection:
         for i in range(100):
             bf.add(str(i))
         assert 0.0 <= bf.fill_ratio <= 1.0
+
+    def test_estimated_fpr_zero_when_empty(self):
+        assert BloomFilter(100).estimated_false_positive_rate == 0.0
