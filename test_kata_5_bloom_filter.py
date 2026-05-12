@@ -136,3 +136,11 @@ class TestBloomFilterMembership:
             bf.add(w)
         for w in words:
             assert w in bf, f"'{w}' should be in filter (no false negatives allowed)"
+
+    def test_no_false_negatives_with_large_word_list(self):
+        """Critical property: every inserted item MUST be found."""
+        bf = BloomFilter(len(WORDS), 0.01)
+        for word in WORDS:
+            bf.add(word)
+        for word in WORDS:
+            assert word in bf, f"False negative: '{word}' not found after insertion"
