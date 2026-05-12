@@ -40,3 +40,8 @@ class TestOptimalBitCount:
 
     def test_result_is_int(self):
         assert isinstance(optimal_bit_count(500, 0.05), int)
+
+
+class TestOptimalHashCount:
+    def test_returns_at_least_one(self):
+        assert optimal_hash_count(8, 1_000) >= 1
