@@ -273,3 +273,7 @@ class TestSpellCheckerConstruction:
         checker = SpellChecker()
         result = checker.load_file(WORDS_FILE)
         assert result is checker
+
+    def test_filter_is_set_after_loading(self):
+        checker = SpellChecker().load_words(["a"])
+        assert checker.filter is not None
