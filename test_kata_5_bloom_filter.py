@@ -282,3 +282,7 @@ class TestSpellCheckerConstruction:
         checker = SpellChecker().load_words(["apple", "", "  ", "banana"])
         assert checker.check("apple")
         assert checker.check("banana")
+
+    def test_custom_fpr_is_passed_to_filter(self):
+        checker = SpellChecker(false_positive_rate=0.001).load_words(["word"] * 100)
+        assert checker.filter.false_positive_rate == 0.001
