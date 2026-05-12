@@ -105,3 +105,8 @@ class TestBloomFilterConstruction:
         loose = BloomFilter(1_000, 0.10)
         strict = BloomFilter(1_000, 0.001)
         assert strict.bit_count > loose.bit_count
+
+    def test_lower_fpr_gives_more_hash_functions(self):
+        loose = BloomFilter(1_000, 0.10)
+        strict = BloomFilter(1_000, 0.001)
+        assert strict.hash_count >= loose.hash_count
