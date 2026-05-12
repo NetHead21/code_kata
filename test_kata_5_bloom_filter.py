@@ -144,3 +144,9 @@ class TestBloomFilterMembership:
             bf.add(word)
         for word in WORDS:
             assert word in bf, f"False negative: '{word}' not found after insertion"
+
+    def test_count_increments_on_each_add(self):
+        bf = BloomFilter(10)
+        for i in range(5):
+            bf.add(f"item{i}")
+        assert bf.count == 5
