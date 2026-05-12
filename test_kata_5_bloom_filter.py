@@ -242,3 +242,10 @@ class TestHashFunctions:
     def test_hash_indices_deterministic(self):
         bf = BloomFilter(1_000)
         assert list(bf._hash_indices("same")) == list(bf._hash_indices("same"))
+
+    def test_different_items_give_different_index_sets(self):
+        bf = BloomFilter(10_000)
+        idx_a = set(bf._hash_indices("apple"))
+        idx_b = set(bf._hash_indices("orange"))
+        # Not guaranteed, but with 10k bits they should differ
+        assert idx_a != idx_b
