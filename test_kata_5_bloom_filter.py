@@ -49,3 +49,6 @@ class TestOptimalHashCount:
     def test_known_ratio_gives_expected_k(self):
         # k = round((m/n) * ln2); for m=959, n=100 → round(9.59 * 0.693) ≈ round(6.64) = 7
         assert optimal_hash_count(959, 100) == 7
+
+    def test_larger_m_for_same_n_gives_more_hashes(self):
+        assert optimal_hash_count(10_000, 100) > optimal_hash_count(1_000, 100)
