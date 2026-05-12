@@ -66,3 +66,7 @@ class TestBloomFilterConstruction:
     def test_creates_with_valid_params(self):
         bf = BloomFilter(100)
         assert bf is not None
+
+    def test_default_fpr_is_1_percent(self):
+        bf = BloomFilter(100)
+        assert bf.false_positive_rate == 0.01
