@@ -156,3 +156,14 @@ class TestBloomFilterMembership:
         bf.add("dup")
         bf.add("dup")
         assert "dup" in bf
+
+    def test_different_strings_are_independent(self):
+        bf = BloomFilter(100)
+        bf.add("alpha")
+        # "beta" and "gamma" were never added — they *might* be false positives,
+        # but with a generous filter they almost certainly are not.
+        # We can only guarantee this if the filter is sized appropriately.
+        bf2 = BloomFilter(10_000, 0.0001)  # very strict filter
+        bf2.add("alpha")
+        assert "beta" not in bf2
+        assert "gamma" not in bf2
