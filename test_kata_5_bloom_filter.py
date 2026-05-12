@@ -238,3 +238,7 @@ class TestHashFunctions:
         indices = list(bf._hash_indices("test_word"))
         assert len(indices) == bf.hash_count
         assert all(0 <= idx < bf.m for idx in indices)
+
+    def test_hash_indices_deterministic(self):
+        bf = BloomFilter(1_000)
+        assert list(bf._hash_indices("same")) == list(bf._hash_indices("same"))
