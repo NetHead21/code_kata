@@ -37,3 +37,6 @@ class TestOptimalBitCount:
     def test_known_value_100_items_1pct(self):
         # m = ceil(-100 * ln(0.01) / ln(2)^2) = ceil(958.5) = 959
         assert optimal_bit_count(100, 0.01) == 959
+
+    def test_result_is_int(self):
+        assert isinstance(optimal_bit_count(500, 0.05), int)
