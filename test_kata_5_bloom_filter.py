@@ -183,3 +183,11 @@ class TestBloomFilterMembership:
 class TestBloomFilterIntrospection:
     def test_fill_ratio_zero_on_empty_filter(self):
         assert BloomFilter(100).fill_ratio == 0.0
+
+    def test_fill_ratio_increases_as_items_added(self):
+        bf = BloomFilter(100)
+        prev = 0.0
+        for i in range(10):
+            bf.add(f"word{i}")
+            assert bf.fill_ratio >= prev
+            prev = bf.fill_ratio
