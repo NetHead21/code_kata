@@ -52,3 +52,6 @@ class TestOptimalHashCount:
 
     def test_larger_m_for_same_n_gives_more_hashes(self):
         assert optimal_hash_count(10_000, 100) > optimal_hash_count(1_000, 100)
+
+    def test_result_is_int(self):
+        assert isinstance(optimal_hash_count(1000, 100), int)
