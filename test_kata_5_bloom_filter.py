@@ -110,3 +110,12 @@ class TestBloomFilterConstruction:
         loose = BloomFilter(1_000, 0.10)
         strict = BloomFilter(1_000, 0.001)
         assert strict.hash_count >= loose.hash_count
+
+
+# ---------------------------------------------------------------------------
+# BloomFilter — membership (the fundamental guarantees)
+# ---------------------------------------------------------------------------
+
+
+class TestBloomFilterMembership:
+    """Core correctness: no false negatives; FP rate bounded."""
