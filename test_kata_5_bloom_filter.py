@@ -45,3 +45,7 @@ class TestOptimalBitCount:
 class TestOptimalHashCount:
     def test_returns_at_least_one(self):
         assert optimal_hash_count(8, 1_000) >= 1
+
+    def test_known_ratio_gives_expected_k(self):
+        # k = round((m/n) * ln2); for m=959, n=100 → round(9.59 * 0.693) ≈ round(6.64) = 7
+        assert optimal_hash_count(959, 100) == 7
