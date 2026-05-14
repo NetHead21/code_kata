@@ -417,3 +417,8 @@ class TestTheoreticalProperties:
             small.add(w)
             large.add(w)
         assert large.estimated_false_positive_rate < small.estimated_false_positive_rate
+
+    def test_fill_ratio_near_optimal_half_at_capacity(self):
+        """
+        Optimal k is chosen so that the expected fill ratio at capacity is ~0.5.
+        """
