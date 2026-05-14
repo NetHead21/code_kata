@@ -66,3 +66,6 @@ def find_anagram_groups(words) -> list[list[str]]:
 
 def largest_group(groups: list[list[str]]) -> list[str]:
     """Return the anagram group that contains the most words."""
+    if not groups:
+        return []
+    return max(groups, key=len)
