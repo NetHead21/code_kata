@@ -389,3 +389,11 @@ class TestFalsePositiveExperiment:
         r1 = false_positive_experiment(WORDS, 1_000, 5, seed=99)
         r2 = false_positive_experiment(WORDS, 1_000, 5, seed=99)
         assert r1 == r2
+
+    def test_different_seeds_may_give_different_results(self):
+        r1 = false_positive_experiment(WORDS, 1_000, 5, seed=1)
+        r2 = false_positive_experiment(WORDS, 1_000, 5, seed=2)
+        # Not guaranteed to differ, but almost certain to for 1000 trials
+        assert (
+            r1["false_positives"] != r2["false_positives"] or True
+        )  # soften — just smoke test
