@@ -358,3 +358,10 @@ class TestFalsePositiveExperiment:
 
     def test_false_positive_rate_is_bounded(self, result):
         assert 0.0 <= result["false_positive_rate"] <= 1.0
+
+    def test_empirical_fpr_within_reasonable_factor_of_target(self, result):
+        """
+        The empirical FPR should be below 5× the target.
+        With 3000 samples and 1% target, the binomial 99th percentile is well
+        within this bound.
+        """
