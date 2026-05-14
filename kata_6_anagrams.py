@@ -89,3 +89,11 @@ def longest_words(groups: list[list[str]]) -> list[str]:
 
 def load_words(path) -> list[str]:
     """Read a word-per-line file and return a deduplicated list."""
+    seen: set[str] = set()
+    words: list[str] = []
+    for line in Path(path).read_text().splitlines():
+        w = line.strip()
+        if w and w not in seen:
+            seen.add(w)
+            words.append(w)
+    return words
