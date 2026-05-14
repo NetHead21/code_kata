@@ -97,3 +97,8 @@ def load_words(path) -> list[str]:
             seen.add(w)
             words.append(w)
     return words
+
+
+def find_anagrams_from_file(path) -> list[list[str]]:
+    """Load *path* and return all anagram groups."""
+    return find_anagram_groups(load_words(path))
