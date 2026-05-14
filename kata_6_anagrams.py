@@ -80,3 +80,12 @@ def longest_words(groups: list[list[str]]) -> list[str]:
         return []
     max_len = max(len(w) for group in groups for w in group)
     return sorted({w for group in groups for w in group if len(w) == max_len})
+
+
+# ---------------------------------------------------------------------------
+# File I/O helpers
+# ---------------------------------------------------------------------------
+
+
+def load_words(path) -> list[str]:
+    """Read a word-per-line file and return a deduplicated list."""
