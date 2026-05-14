@@ -317,3 +317,7 @@ class TestSpellCheckerCorrectness:
         nonsense = ["zxqvw", "qjkxz", "vwxyz", "bqkzx", "xzqkj"]
         fp_count = sum(1 for w in nonsense if checker.check(w))
         assert fp_count <= 1, f"Too many false positives: {fp_count}/5"
+
+    def test_no_false_negatives_for_all_loaded_words(self, checker):
+        for word in WORDS:
+            assert checker.check(word), f"False negative: '{word}'"
