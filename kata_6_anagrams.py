@@ -126,3 +126,7 @@ if __name__ == "__main__":
     print(f"Words loaded   : {len(words):,}")
     print(f"Anagram groups : {len(groups):,}")
     print(f"Time           : {elapsed * 1000:.1f} ms")
+
+    print()
+    big = largest_group(groups)
+    print(f"Largest group ({len(big)} words): {' '.join(big)}")
