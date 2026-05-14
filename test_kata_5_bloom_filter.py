@@ -307,3 +307,10 @@ class TestSpellCheckerCorrectness:
         assert checker.check("Happy")
         assert checker.check("NATION")
         assert checker.check("Study")
+
+    def test_clearly_invalid_words_are_rejected(self, checker):
+        """
+        These strings are not in the word list and are highly unlikely to be
+        false positives given a 1% FPR filter loaded with ~600 words.
+        All 5 being false positives has probability < 0.01^5 = 10^-10.
+        """
