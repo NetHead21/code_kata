@@ -51,3 +51,9 @@ def find_anagram_groups(words) -> list[list[str]]:
 
     Case is preserved in the output but ignored for matching.
     """
+    buckets: dict[str, list[str]] = defaultdict(list)
+    for word in words:
+        w = word.strip()
+        if w:
+            buckets[signature(w)].append(w)
+    return [group for group in buckets.values() if len(group) > 1]
