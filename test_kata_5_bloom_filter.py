@@ -366,3 +366,6 @@ class TestFalsePositiveExperiment:
         within this bound.
         """
         assert result["false_positive_rate"] <= result["target_fpr"] * 5
+
+    def test_false_positives_are_non_negative(self, result):
+        assert result["false_positives"] >= 0
