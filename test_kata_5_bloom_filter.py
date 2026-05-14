@@ -369,3 +369,7 @@ class TestFalsePositiveExperiment:
 
     def test_false_positives_are_non_negative(self, result):
         assert result["false_positives"] >= 0
+
+    def test_dictionary_size_reflects_unique_words(self, result):
+        unique_words = len({w.strip().lower() for w in WORDS if w.strip()})
+        assert result["dictionary_size"] == unique_words
