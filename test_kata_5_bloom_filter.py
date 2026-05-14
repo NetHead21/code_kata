@@ -355,3 +355,6 @@ class TestFalsePositiveExperiment:
 
     def test_false_positive_rate_is_float(self, result):
         assert isinstance(result["false_positive_rate"], float)
+
+    def test_false_positive_rate_is_bounded(self, result):
+        assert 0.0 <= result["false_positive_rate"] <= 1.0
