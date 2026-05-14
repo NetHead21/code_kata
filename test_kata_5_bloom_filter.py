@@ -373,3 +373,14 @@ class TestFalsePositiveExperiment:
     def test_dictionary_size_reflects_unique_words(self, result):
         unique_words = len({w.strip().lower() for w in WORDS if w.strip()})
         assert result["dictionary_size"] == unique_words
+
+    def test_stricter_filter_has_fewer_false_positives(self):
+        result_loose = false_positive_experiment(
+            WORDS, 2_000, 5, fpr_target=0.20, seed=42
+        )
+        result_strict = false_positive_experiment(
+            WORDS, 2_000, 5, fpr_target=0.001, seed=42
+        )
+        assert (
+            result_strict["false_positive_rate"] <= result_loose["false_positive_rate"]
+        )
