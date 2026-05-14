@@ -117,3 +117,8 @@ if __name__ == "__main__":
         if len(sys.argv) > 1
         else Path(__file__).parent / "data" / "wordlist.txt"
     )
+
+    start = time.perf_counter()
+    words = load_words(path)
+    groups = find_anagram_groups(words)
+    elapsed = time.perf_counter() - start
