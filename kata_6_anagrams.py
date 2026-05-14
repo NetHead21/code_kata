@@ -111,3 +111,9 @@ def find_anagrams_from_file(path) -> list[list[str]]:
 if __name__ == "__main__":
     import sys
     import time
+
+    path = (
+        sys.argv[1]
+        if len(sys.argv) > 1
+        else Path(__file__).parent / "data" / "wordlist.txt"
+    )
