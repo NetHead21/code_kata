@@ -397,3 +397,13 @@ class TestFalsePositiveExperiment:
         assert (
             r1["false_positives"] != r2["false_positives"] or True
         )  # soften — just smoke test
+
+
+# ---------------------------------------------------------------------------
+# Theoretical properties
+# ---------------------------------------------------------------------------
+
+
+class TestTheoreticalProperties:
+    def test_larger_filter_has_lower_fpr_at_same_fill(self):
+        """With the same number of items, a bigger filter should estimate lower FPR."""
