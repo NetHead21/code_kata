@@ -365,3 +365,4 @@ class TestFalsePositiveExperiment:
         With 3000 samples and 1% target, the binomial 99th percentile is well
         within this bound.
         """
+        assert result["false_positive_rate"] <= result["target_fpr"] * 5
