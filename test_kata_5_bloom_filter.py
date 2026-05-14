@@ -314,3 +314,6 @@ class TestSpellCheckerCorrectness:
         false positives given a 1% FPR filter loaded with ~600 words.
         All 5 being false positives has probability < 0.01^5 = 10^-10.
         """
+        nonsense = ["zxqvw", "qjkxz", "vwxyz", "bqkzx", "xzqkj"]
+        fp_count = sum(1 for w in nonsense if checker.check(w))
+        assert fp_count <= 1, f"Too many false positives: {fp_count}/5"
