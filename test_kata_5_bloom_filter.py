@@ -352,3 +352,6 @@ class TestFalsePositiveExperiment:
 
     def test_total_words_matches_requested(self, result):
         assert result["total_random_words"] == 3_000
+
+    def test_false_positive_rate_is_float(self, result):
+        assert isinstance(result["false_positive_rate"], float)
