@@ -302,3 +302,8 @@ class TestSpellCheckerCorrectness:
         known = ["happy", "nation", "study", "water", "build"]
         for word in known:
             assert checker.check(word), f"'{word}' should be in dictionary"
+
+    def test_known_words_case_insensitive(self, checker):
+        assert checker.check("Happy")
+        assert checker.check("NATION")
+        assert checker.check("Study")
