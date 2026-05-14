@@ -327,3 +327,16 @@ class TestSpellCheckerCorrectness:
         checker = SpellChecker(false_positive_rate=0.0001).load_words(["alpha", "beta"])
         assert checker.check("alpha")
         assert not checker.check("zzzzz")
+
+
+# ---------------------------------------------------------------------------
+# Part 2: False-positive experiment
+# ---------------------------------------------------------------------------
+
+
+class TestFalsePositiveExperiment:
+    @pytest.fixture(scope="class")
+    def result(self):
+        return false_positive_experiment(
+            WORDS, num_random=3_000, word_length=5, fpr_target=0.01, seed=42
+        )
