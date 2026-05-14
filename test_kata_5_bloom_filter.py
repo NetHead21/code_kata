@@ -340,3 +340,12 @@ class TestFalsePositiveExperiment:
         return false_positive_experiment(
             WORDS, num_random=3_000, word_length=5, fpr_target=0.01, seed=42
         )
+
+    def test_returns_expected_keys(self, result):
+        assert {
+            "total_random_words",
+            "false_positives",
+            "false_positive_rate",
+            "target_fpr",
+            "dictionary_size",
+        } == result.keys()
