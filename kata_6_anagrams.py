@@ -76,3 +76,7 @@ def longest_words(groups: list[list[str]]) -> list[str]:
     Return all words whose length equals the maximum word length found
     across all anagram groups.
     """
+    if not groups:
+        return []
+    max_len = max(len(w) for group in groups for w in group)
+    return sorted({w for group in groups for w in group if len(w) == max_len})
