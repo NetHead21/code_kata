@@ -321,3 +321,9 @@ class TestSpellCheckerCorrectness:
     def test_no_false_negatives_for_all_loaded_words(self, checker):
         for word in WORDS:
             assert checker.check(word), f"False negative: '{word}'"
+
+    def test_words_not_in_dictionary_not_found_with_strict_filter(self):
+        """A strict 0.0001 FPR filter on a small set should reject obvious non-words."""
+        checker = SpellChecker(false_positive_rate=0.0001).load_words(["alpha", "beta"])
+        assert checker.check("alpha")
+        assert not checker.check("zzzzz")
