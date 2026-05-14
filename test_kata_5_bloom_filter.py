@@ -384,3 +384,8 @@ class TestFalsePositiveExperiment:
         assert (
             result_strict["false_positive_rate"] <= result_loose["false_positive_rate"]
         )
+
+    def test_deterministic_with_same_seed(self):
+        r1 = false_positive_experiment(WORDS, 1_000, 5, seed=99)
+        r2 = false_positive_experiment(WORDS, 1_000, 5, seed=99)
+        assert r1 == r2
