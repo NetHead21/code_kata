@@ -407,3 +407,13 @@ class TestFalsePositiveExperiment:
 class TestTheoreticalProperties:
     def test_larger_filter_has_lower_fpr_at_same_fill(self):
         """With the same number of items, a bigger filter should estimate lower FPR."""
+        n = 100
+        for word in [f"word{i}" for i in range(n)]:
+            pass
+        small = BloomFilter(n, 0.10)
+        large = BloomFilter(n, 0.001)
+        words = [f"w{i}" for i in range(n)]
+        for w in words:
+            small.add(w)
+            large.add(w)
+        assert large.estimated_false_positive_rate < small.estimated_false_positive_rate
