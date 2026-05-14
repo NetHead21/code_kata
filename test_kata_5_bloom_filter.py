@@ -422,3 +422,9 @@ class TestTheoreticalProperties:
         """
         Optimal k is chosen so that the expected fill ratio at capacity is ~0.5.
         """
+
+        n = 1_000
+        bf = BloomFilter(n, 0.01)
+        for i in range(n):
+            bf.add(f"unique_item_{i}")
+        assert 0.35 <= bf.fill_ratio <= 0.65
