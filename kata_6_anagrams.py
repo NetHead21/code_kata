@@ -38,3 +38,16 @@ def signature(word: str) -> str:
     'eilnst'
     """
     return "".join(sorted(word.lower()))
+
+
+def find_anagram_groups(words) -> list[list[str]]:
+    """
+    Group an iterable of words by their anagram signature.
+
+    Returns a list of groups; each group is a list of two or more words
+    that are anagrams of each other. Words within a group are returned in
+    the order they were first encountered. Singleton words (no anagram
+    partners in the input) are omitted.
+
+    Case is preserved in the output but ignored for matching.
+    """
