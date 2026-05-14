@@ -428,3 +428,11 @@ class TestTheoreticalProperties:
         for i in range(n):
             bf.add(f"unique_item_{i}")
         assert 0.35 <= bf.fill_ratio <= 0.65
+
+    def test_memory_savings_over_naive_set(self):
+        """Bloom filter should use far fewer bytes than storing words as strings."""
+        n = 1_000
+        avg_word = 7  # average English word length in bytes
+        naive_bytes = n * avg_word
+        bf_bytes = math.ceil(optimal_bit_count(n, 0.01) / 8)
+        assert bf_bytes < naive_bytes
