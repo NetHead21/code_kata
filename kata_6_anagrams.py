@@ -57,3 +57,12 @@ def find_anagram_groups(words) -> list[list[str]]:
         if w:
             buckets[signature(w)].append(w)
     return [group for group in buckets.values() if len(group) > 1]
+
+
+# ---------------------------------------------------------------------------
+# Bonus queries
+# ---------------------------------------------------------------------------
+
+
+def largest_group(groups: list[list[str]]) -> list[str]:
+    """Return the anagram group that contains the most words."""
