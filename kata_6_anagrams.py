@@ -130,3 +130,8 @@ if __name__ == "__main__":
     print()
     big = largest_group(groups)
     print(f"Largest group ({len(big)} words): {' '.join(big)}")
+
+    long_words = longest_words(groups)
+    print(
+        f"Longest anagram words ({len(long_words[0])} letters): {' '.join(long_words)}"
+    )
