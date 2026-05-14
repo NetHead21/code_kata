@@ -37,3 +37,4 @@ def signature(word: str) -> str:
     >>> signature("Listen")
     'eilnst'
     """
+    return "".join(sorted(word.lower()))
