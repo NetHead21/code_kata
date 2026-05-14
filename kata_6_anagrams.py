@@ -102,3 +102,12 @@ def load_words(path) -> list[str]:
 def find_anagrams_from_file(path) -> list[list[str]]:
     """Load *path* and return all anagram groups."""
     return find_anagram_groups(load_words(path))
+
+
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    import sys
+    import time
