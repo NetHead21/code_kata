@@ -16,3 +16,6 @@ The efficient approach is O(n · k·log k) where k is the average word length:
 
 This runs in well under a second on dictionaries of hundreds of thousands of words.
 """
+
+from collections import defaultdict
+from pathlib import Path
