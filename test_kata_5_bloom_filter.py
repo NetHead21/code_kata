@@ -297,3 +297,8 @@ class TestSpellCheckerCorrectness:
     @pytest.fixture(scope="class")
     def checker(self):
         return SpellChecker().load_file(WORDS_FILE)
+
+    def test_known_words_are_accepted(self, checker):
+        known = ["happy", "nation", "study", "water", "build"]
+        for word in known:
+            assert checker.check(word), f"'{word}' should be in dictionary"
