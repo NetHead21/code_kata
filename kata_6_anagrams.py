@@ -135,3 +135,8 @@ if __name__ == "__main__":
     print(
         f"Longest anagram words ({len(long_words[0])} letters): {' '.join(long_words)}"
     )
+
+    print()
+    print("Sample groups:")
+    for group in sorted(groups, key=lambda g: (-len(g), g[0]))[:10]:
+        print(" ", " ".join(sorted(group)))
