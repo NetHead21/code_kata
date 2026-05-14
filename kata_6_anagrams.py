@@ -122,3 +122,7 @@ if __name__ == "__main__":
     words = load_words(path)
     groups = find_anagram_groups(words)
     elapsed = time.perf_counter() - start
+
+    print(f"Words loaded   : {len(words):,}")
+    print(f"Anagram groups : {len(groups):,}")
+    print(f"Time           : {elapsed * 1000:.1f} ms")
