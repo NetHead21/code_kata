@@ -19,3 +19,21 @@ This runs in well under a second on dictionaries of hundreds of thousands of wor
 
 from collections import defaultdict
 from pathlib import Path
+
+# ---------------------------------------------------------------------------
+# Core
+# ---------------------------------------------------------------------------
+
+
+def signature(word: str) -> str:
+    """
+    Return the canonical anagram key for *word*: its letters sorted
+    alphabetically (case-insensitive).
+
+    >>> signature("listen")
+    'eilnst'
+    >>> signature("silent")
+    'eilnst'
+    >>> signature("Listen")
+    'eilnst'
+    """
