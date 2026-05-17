@@ -146,3 +146,9 @@ class TestFindAnagramGroups:
         # Two identical words share a signature → they form a group
         groups = find_anagram_groups(["cat", "cat"])
         assert len(groups) == 1
+
+    def test_kata_example_arrest_group(self):
+        words = ["arrest", "rarest", "raster", "raters", "starer", "unrelated"]
+        groups = find_anagram_groups(words)
+        assert len(groups) == 1
+        assert set(groups[0]) == {"arrest", "rarest", "raster", "raters", "starer"}
