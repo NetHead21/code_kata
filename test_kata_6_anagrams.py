@@ -121,3 +121,8 @@ class TestFindAnagramGroups:
         groups = find_anagram_groups(["Listen", "Silent"])
         assert len(groups) == 1
         assert set(groups[0]) == {"Listen", "Silent"}
+
+    def test_mixed_case_groups_correctly(self):
+        # "Listen" and "silent" are anagrams even with mixed case
+        groups = find_anagram_groups(["Listen", "silent"])
+        assert len(groups) == 1
