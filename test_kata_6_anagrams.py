@@ -12,3 +12,10 @@ from kata_6_anagrams import (
     longest_words,
     signature,
 )
+
+WORDLIST = Path(__file__).parent / "data" / "wordlist.txt"
+
+
+# ---------------------------------------------------------------------------
+# signature()
+# ---------------------------------------------------------------------------
