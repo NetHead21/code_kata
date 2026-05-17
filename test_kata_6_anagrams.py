@@ -48,3 +48,11 @@ class TestSignature:
 
     def test_preserves_duplicate_letters(self):
         assert signature("aab") != signature("abc")
+
+    def test_known_kata_examples(self):
+        # arrest / rarest / raster / raters / starer
+        key = signature("arrest")
+        for word in ["rarest", "raster", "raters", "starer"]:
+            assert signature(word) == key, (
+                f"'{word}' should share signature with 'arrest'"
+            )
