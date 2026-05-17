@@ -141,3 +141,8 @@ class TestFindAnagramGroups:
         # Words that look similar but are not anagrams
         groups = find_anagram_groups(["cat", "car", "bat", "bad"])
         assert groups == []
+
+    def test_duplicate_words_grouped_together(self):
+        # Two identical words share a signature → they form a group
+        groups = find_anagram_groups(["cat", "cat"])
+        assert len(groups) == 1
