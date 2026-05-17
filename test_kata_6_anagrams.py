@@ -152,3 +152,17 @@ class TestFindAnagramGroups:
         groups = find_anagram_groups(words)
         assert len(groups) == 1
         assert set(groups[0]) == {"arrest", "rarest", "raster", "raters", "starer"}
+
+    def test_kata_example_paste_group(self):
+        words = ["paste", "pates", "peats", "septa", "spate", "tapes", "tepas", "other"]
+        groups = find_anagram_groups(words)
+        assert len(groups) == 1
+        assert set(groups[0]) == {
+            "paste",
+            "pates",
+            "peats",
+            "septa",
+            "spate",
+            "tapes",
+            "tepas",
+        }
