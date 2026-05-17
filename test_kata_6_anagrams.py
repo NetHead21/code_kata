@@ -136,3 +136,8 @@ class TestFindAnagramGroups:
         groups = find_anagram_groups(words)
         assert len(groups) == 1
         assert set(groups[0]) == set(words)
+
+    def test_no_false_groupings(self):
+        # Words that look similar but are not anagrams
+        groups = find_anagram_groups(["cat", "car", "bat", "bad"])
+        assert groups == []
