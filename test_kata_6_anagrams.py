@@ -75,3 +75,13 @@ class TestSignature:
     )
     def test_known_pairs(self, a, b):
         assert signature(a) == signature(b)
+
+
+# ---------------------------------------------------------------------------
+# find_anagram_groups()
+# ---------------------------------------------------------------------------
+
+
+class TestFindAnagramGroups:
+    def test_empty_input(self):
+        assert find_anagram_groups([]) == []
