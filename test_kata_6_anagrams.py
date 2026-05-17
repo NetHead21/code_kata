@@ -102,3 +102,11 @@ class TestFindAnagramGroups:
         groups = find_anagram_groups(words)
         assert len(groups) == 1
         assert set(groups[0]) == set(words)
+
+    def test_two_independent_groups(self):
+        words = ["sinks", "skins", "knits", "stink"]
+        groups = find_anagram_groups(words)
+        assert len(groups) == 2
+        group_sets = [set(g) for g in groups]
+        assert {"sinks", "skins"} in group_sets
+        assert {"knits", "stink"} in group_sets
