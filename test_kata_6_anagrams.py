@@ -116,3 +116,8 @@ class TestFindAnagramGroups:
         groups = find_anagram_groups(words)
         assert len(groups) == 1
         assert set(groups[0]) == {"cat", "act"}
+
+    def test_preserves_original_case(self):
+        groups = find_anagram_groups(["Listen", "Silent"])
+        assert len(groups) == 1
+        assert set(groups[0]) == {"Listen", "Silent"}
