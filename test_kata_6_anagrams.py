@@ -177,3 +177,8 @@ class TestFindAnagramGroups:
         groups = find_anagram_groups(["punctilio", "unpolitic", "filler"])
         assert len(groups) == 1
         assert set(groups[0]) == {"punctilio", "unpolitic"}
+
+    def test_returns_list_of_lists(self):
+        groups = find_anagram_groups(["cat", "act"])
+        assert isinstance(groups, list)
+        assert isinstance(groups[0], list)
