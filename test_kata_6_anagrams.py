@@ -172,3 +172,8 @@ class TestFindAnagramGroups:
         groups = find_anagram_groups(words)
         assert len(groups) == 1
         assert set(groups[0]) == {"boaster", "boaters", "borates"}
+
+    def test_long_word_anagram_pair(self):
+        groups = find_anagram_groups(["punctilio", "unpolitic", "filler"])
+        assert len(groups) == 1
+        assert set(groups[0]) == {"punctilio", "unpolitic"}
