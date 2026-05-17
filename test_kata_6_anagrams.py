@@ -88,3 +88,6 @@ class TestFindAnagramGroups:
 
     def test_single_word_gives_no_groups(self):
         assert find_anagram_groups(["hello"]) == []
+
+    def test_two_non_anagrams_gives_no_groups(self):
+        assert find_anagram_groups(["hello", "world"]) == []
