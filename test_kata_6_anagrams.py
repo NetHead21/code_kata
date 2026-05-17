@@ -42,3 +42,6 @@ class TestSignature:
 
     def test_non_anagrams_differ(self):
         assert signature("hello") != signature("world")
+
+    def test_different_lengths_differ(self):
+        assert signature("cat") != signature("cats")
