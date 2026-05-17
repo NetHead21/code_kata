@@ -130,3 +130,9 @@ class TestFindAnagramGroups:
     def test_blank_lines_skipped(self):
         groups = find_anagram_groups(["cat", "", "  ", "act"])
         assert len(groups) == 1
+
+    def test_all_words_in_one_group(self):
+        words = ["rots", "sort", "tors"]
+        groups = find_anagram_groups(words)
+        assert len(groups) == 1
+        assert set(groups[0]) == set(words)
