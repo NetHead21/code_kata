@@ -35,3 +35,7 @@ class TestSignature:
         assert signature("listen") == signature("silent")
         assert signature("silent") == signature("inlets")
         assert signature("inlets") == signature("enlist")
+
+    def test_case_insensitive(self):
+        assert signature("Listen") == signature("listen")
+        assert signature("SILENT") == signature("silent")
