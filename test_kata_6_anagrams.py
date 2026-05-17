@@ -213,3 +213,18 @@ class TestLargestGroup:
     def test_picks_biggest(self):
         groups = [["a", "b"], ["c", "d", "e"], ["f", "g"]]
         assert set(largest_group(groups)) == {"c", "d", "e"}
+
+    def test_kata_example_paste_is_large(self):
+        words = [
+            "paste",
+            "pates",
+            "peats",
+            "septa",
+            "spate",
+            "tapes",
+            "tepas",
+            "sinks",
+            "skins",
+            "knits",
+            "stink",
+        ]
