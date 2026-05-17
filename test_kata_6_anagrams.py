@@ -206,3 +206,6 @@ class TestFindAnagramGroups:
 class TestLargestGroup:
     def test_empty_groups(self):
         assert largest_group([]) == []
+
+    def test_single_group(self):
+        assert largest_group([["a", "b"]]) == ["a", "b"]
