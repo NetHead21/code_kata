@@ -39,3 +39,6 @@ class TestSignature:
     def test_case_insensitive(self):
         assert signature("Listen") == signature("listen")
         assert signature("SILENT") == signature("silent")
+
+    def test_non_anagrams_differ(self):
+        assert signature("hello") != signature("world")
