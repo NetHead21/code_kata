@@ -27,3 +27,6 @@ class TestSignature:
 
     def test_single_letter(self):
         assert signature("a") == "a"
+
+    def test_sorts_letters(self):
+        assert signature("listen") == "eilnst"
