@@ -91,3 +91,8 @@ class TestFindAnagramGroups:
 
     def test_two_non_anagrams_gives_no_groups(self):
         assert find_anagram_groups(["hello", "world"]) == []
+
+    def test_simple_pair(self):
+        groups = find_anagram_groups(["listen", "silent"])
+        assert len(groups) == 1
+        assert set(groups[0]) == {"listen", "silent"}
