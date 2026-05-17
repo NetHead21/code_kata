@@ -182,3 +182,17 @@ class TestFindAnagramGroups:
         groups = find_anagram_groups(["cat", "act"])
         assert isinstance(groups, list)
         assert isinstance(groups[0], list)
+
+    def test_large_group_from_kata(self):
+        words = [
+            "retains",
+            "nastier",
+            "retinas",
+            "stainer",
+            "stearin",
+            "unrelated1",
+            "unrelated2",
+        ]
+        groups = find_anagram_groups(words)
+        assert len(groups) == 1
+        assert len(groups[0]) == 5
