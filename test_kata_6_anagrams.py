@@ -45,3 +45,6 @@ class TestSignature:
 
     def test_different_lengths_differ(self):
         assert signature("cat") != signature("cats")
+
+    def test_preserves_duplicate_letters(self):
+        assert signature("aab") != signature("abc")
