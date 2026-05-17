@@ -30,3 +30,8 @@ class TestSignature:
 
     def test_sorts_letters(self):
         assert signature("listen") == "eilnst"
+
+    def test_anagrams_share_signature(self):
+        assert signature("listen") == signature("silent")
+        assert signature("silent") == signature("inlets")
+        assert signature("inlets") == signature("enlist")
