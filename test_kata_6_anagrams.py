@@ -228,3 +228,16 @@ class TestLargestGroup:
             "knits",
             "stink",
         ]
+
+        groups = find_anagram_groups(words)
+        big = largest_group(groups)
+        assert len(big) == 7
+        assert set(big) == {
+            "paste",
+            "pates",
+            "peats",
+            "septa",
+            "spate",
+            "tapes",
+            "tepas",
+        }
