@@ -209,3 +209,7 @@ class TestLargestGroup:
 
     def test_single_group(self):
         assert largest_group([["a", "b"]]) == ["a", "b"]
+
+    def test_picks_biggest(self):
+        groups = [["a", "b"], ["c", "d", "e"], ["f", "g"]]
+        assert set(largest_group(groups)) == {"c", "d", "e"}
