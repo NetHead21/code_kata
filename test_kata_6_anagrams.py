@@ -196,3 +196,13 @@ class TestFindAnagramGroups:
         groups = find_anagram_groups(words)
         assert len(groups) == 1
         assert len(groups[0]) == 5
+
+
+# ---------------------------------------------------------------------------
+# largest_group()
+# ---------------------------------------------------------------------------
+
+
+class TestLargestGroup:
+    def test_empty_groups(self):
+        assert largest_group([]) == []
