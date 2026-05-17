@@ -96,3 +96,9 @@ class TestFindAnagramGroups:
         groups = find_anagram_groups(["listen", "silent"])
         assert len(groups) == 1
         assert set(groups[0]) == {"listen", "silent"}
+
+    def test_group_of_four(self):
+        words = ["enlist", "inlets", "listen", "silent"]
+        groups = find_anagram_groups(words)
+        assert len(groups) == 1
+        assert set(groups[0]) == set(words)
