@@ -85,3 +85,6 @@ class TestSignature:
 class TestFindAnagramGroups:
     def test_empty_input(self):
         assert find_anagram_groups([]) == []
+
+    def test_single_word_gives_no_groups(self):
+        assert find_anagram_groups(["hello"]) == []
