@@ -56,3 +56,22 @@ class TestSignature:
             assert signature(word) == key, (
                 f"'{word}' should share signature with 'arrest'"
             )
+
+    @pytest.mark.parametrize(
+        "a, b",
+        [
+            ("kinship", "pinkish"),
+            ("fresher", "refresh"),
+            ("below", "elbow"),
+            ("lemon", "melon"),
+            ("inch", "chin"),
+            ("evil", "vile"),
+            ("evil", "live"),
+            ("evil", "veil"),
+            ("sinks", "skins"),
+            ("knits", "stink"),
+            ("rots", "sort"),
+        ],
+    )
+    def test_known_pairs(self, a, b):
+        assert signature(a) == signature(b)
