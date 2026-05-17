@@ -166,3 +166,9 @@ class TestFindAnagramGroups:
             "tapes",
             "tepas",
         }
+
+    def test_kata_example_boaster_group(self):
+        words = ["boaster", "boaters", "borates", "nothing"]
+        groups = find_anagram_groups(words)
+        assert len(groups) == 1
+        assert set(groups[0]) == {"boaster", "boaters", "borates"}
