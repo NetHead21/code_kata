@@ -126,3 +126,7 @@ class TestFindAnagramGroups:
         # "Listen" and "silent" are anagrams even with mixed case
         groups = find_anagram_groups(["Listen", "silent"])
         assert len(groups) == 1
+
+    def test_blank_lines_skipped(self):
+        groups = find_anagram_groups(["cat", "", "  ", "act"])
+        assert len(groups) == 1
