@@ -24,3 +24,6 @@ WORDLIST = Path(__file__).parent / "data" / "wordlist.txt"
 class TestSignature:
     def test_empty_string(self):
         assert signature("") == ""
+
+    def test_single_letter(self):
+        assert signature("a") == "a"
