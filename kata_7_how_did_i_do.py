@@ -125,3 +125,7 @@ class CodeReview:
         location: Optional[str] = None,
     ) -> "CodeReview":
         """Append a finding and return self for chaining."""
+        self._findings.append(
+            Finding(review_pass, category, description, severity, location)
+        )
+        return self
