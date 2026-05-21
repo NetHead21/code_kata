@@ -320,3 +320,6 @@ class TestIntegration:
 
     def test_finds_some_groups(self, groups):
         assert len(groups) > 10
+
+    def test_every_group_has_at_least_two_words(self, groups):
+        assert all(len(g) >= 2 for g in groups)
