@@ -328,3 +328,10 @@ class TestIntegration:
         for group in groups:
             sigs = {signature(w) for w in group}
             assert len(sigs) == 1, f"Non-anagram words in group: {group}"
+
+    def test_kata_pair_kinship_pinkish(self, groups):
+        flat = {w for g in groups for w in g}
+        assert "kinship" in flat
+        assert "pinkish" in flat
+        kin_group = next(g for g in groups if "kinship" in g)
+        assert "pinkish" in kin_group
