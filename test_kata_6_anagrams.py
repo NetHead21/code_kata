@@ -274,3 +274,15 @@ class TestLongestWords:
         result = longest_words(groups)
         assert set(result) == {"crepitus", "cuprites", "pictures", "piecrust"}
         assert all(len(w) == 8 for w in result)
+
+
+# ---------------------------------------------------------------------------
+# load_words()
+# ---------------------------------------------------------------------------
+
+
+class TestLoadWords:
+    def test_loads_file(self, tmp_path):
+        f = tmp_path / "words.txt"
+        f.write_text("apple\nbanana\ncherry\n")
+        assert load_words(f) == ["apple", "banana", "cherry"]
