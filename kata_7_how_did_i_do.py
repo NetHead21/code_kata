@@ -19,3 +19,9 @@ This module turns that reflective process into a small structured tool:
   - CodeReview   — collects findings, produces a summary report
   - Checklist    — pre-built questions to prompt each pass
 """
+
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from enum import Enum
+from typing import Optional
