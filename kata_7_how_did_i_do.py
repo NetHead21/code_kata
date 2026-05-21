@@ -37,3 +37,11 @@ class Pass(str, Enum):
     POSITIVE = "positive"  # best-programmer lens
     CRITICAL = "critical"  # worst-programmer lens
     BUG_HUNT = "bug_hunt"  # bug-hunter lens
+
+
+class Severity(str, Enum):
+    """How urgently the finding should be addressed."""
+
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
