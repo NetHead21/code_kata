@@ -296,3 +296,8 @@ class TestLoadWords:
         f = tmp_path / "words.txt"
         f.write_text("apple\n\nbanana\n\n")
         assert load_words(f) == ["apple", "banana"]
+
+    def test_deduplicates_words(self, tmp_path):
+        f = tmp_path / "words.txt"
+        f.write_text("apple\napple\nbanana\n")
+        assert load_words(f) == ["apple", "banana"]
