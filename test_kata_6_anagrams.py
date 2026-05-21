@@ -376,3 +376,11 @@ class TestIntegration:
         # crepitus/cuprites/pictures/piecrust are all 8 letters
         result = longest_words(groups)
         assert all(len(w) >= 8 for w in result)
+
+    def test_performance_under_1_second(self):
+        import time
+
+        start = time.perf_counter()
+        find_anagrams_from_file(WORDLIST)
+        elapsed = time.perf_counter() - start
+        assert elapsed < 1.0, f"Took {elapsed:.3f}s — algorithm may be too slow"
