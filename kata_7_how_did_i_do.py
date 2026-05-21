@@ -142,3 +142,7 @@ class CodeReview:
     def by_pass(self, review_pass: Pass) -> list[Finding]:
         """All findings from a specific review pass."""
         return [f for f in self._findings if f.review_pass == review_pass]
+
+    def by_severity(self, severity: Severity) -> list[Finding]:
+        """All findings with a specific severity level."""
+        return [f for f in self._findings if f.severity == severity]
