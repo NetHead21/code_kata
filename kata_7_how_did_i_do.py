@@ -45,3 +45,16 @@ class Severity(str, Enum):
     LOW = "low"
     MEDIUM = "medium"
     HIGH = "high"
+
+
+class Category(str, Enum):
+    """The aspect of code quality the finding relates to."""
+
+    DESIGN = "design"
+    NAMING = "naming"
+    READABILITY = "readability"
+    PERFORMANCE = "performance"
+    CORRECTNESS = "correctness"
+    TESTING = "testing"
+    SECURITY = "security"
+    OTHER = "other"
