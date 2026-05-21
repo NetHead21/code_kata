@@ -301,3 +301,8 @@ class TestLoadWords:
         f = tmp_path / "words.txt"
         f.write_text("apple\napple\nbanana\n")
         assert load_words(f) == ["apple", "banana"]
+
+    def test_preserves_order(self, tmp_path):
+        f = tmp_path / "words.txt"
+        f.write_text("zebra\napple\nmango\n")
+        assert load_words(f) == ["zebra", "apple", "mango"]
