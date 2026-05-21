@@ -351,3 +351,9 @@ class TestIntegration:
         found = next((g for g in groups if "rots" in g), None)
         assert found is not None
         assert "sort" in found
+
+    def test_kata_group_paste(self, groups):
+        target = {"paste", "pates", "peats", "septa", "spate", "tapes", "tepas"}
+        found = next((g for g in groups if "paste" in g), None)
+        assert found is not None
+        assert target.issubset(set(found))
