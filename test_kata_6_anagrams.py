@@ -256,3 +256,8 @@ class TestLongestWords:
         groups = [["cat", "act"], ["listen", "silent"]]
         result = longest_words(groups)
         assert result == sorted(result)
+
+    def test_picks_longest(self):
+        groups = [["cat", "act"], ["listen", "silent"]]
+        result = longest_words(groups)
+        assert set(result) == {"listen", "silent"}
