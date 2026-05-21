@@ -129,3 +129,12 @@ class CodeReview:
             Finding(review_pass, category, description, severity, location)
         )
         return self
+
+    # ------------------------------------------------------------------
+    # Queries
+    # ------------------------------------------------------------------
+
+    @property
+    def findings(self) -> list[Finding]:
+        """A snapshot copy of all findings in insertion order."""
+        return list(self._findings)
