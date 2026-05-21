@@ -74,3 +74,8 @@ class Finding:
     description: str
     severity: Severity = Severity.MEDIUM
     location: Optional[str] = None  # e.g. "module.py:42" or "function foo()"
+
+    def __post_init__(self):
+        """Validate that description is non-empty after stripping whitespace."""
+        if not self.description.strip():
+            raise ValueError("description must not be empty")
