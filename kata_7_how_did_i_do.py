@@ -111,3 +111,17 @@ class CodeReview:
     def __init__(self, target: str = ""):
         self.target: str = target
         self._findings: list[Finding] = []
+
+    # ------------------------------------------------------------------
+    # Mutation
+    # ------------------------------------------------------------------
+
+    def add(
+        self,
+        review_pass: Pass,
+        category: Category,
+        description: str,
+        severity: Severity = Severity.MEDIUM,
+        location: Optional[str] = None,
+    ) -> "CodeReview":
+        """Append a finding and return self for chaining."""
