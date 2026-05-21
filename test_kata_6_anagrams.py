@@ -241,3 +241,13 @@ class TestLargestGroup:
             "tapes",
             "tepas",
         }
+
+
+# ---------------------------------------------------------------------------
+# longest_words()
+# ---------------------------------------------------------------------------
+
+
+class TestLongestWords:
+    def test_empty_groups(self):
+        assert longest_words([]) == []
