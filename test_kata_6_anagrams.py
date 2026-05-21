@@ -335,3 +335,9 @@ class TestIntegration:
         assert "pinkish" in flat
         kin_group = next(g for g in groups if "kinship" in g)
         assert "pinkish" in kin_group
+
+    def test_kata_group_enlist(self, groups):
+        target = {"enlist", "inlets", "listen", "silent"}
+        found = next((g for g in groups if "listen" in g), None)
+        assert found is not None
+        assert target.issubset(set(found))
