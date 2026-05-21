@@ -68,3 +68,9 @@ class Category(str, Enum):
 @dataclass
 class Finding:
     """A single observation made during a code review pass."""
+
+    review_pass: Pass
+    category: Category
+    description: str
+    severity: Severity = Severity.MEDIUM
+    location: Optional[str] = None  # e.g. "module.py:42" or "function foo()"
