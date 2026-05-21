@@ -367,3 +367,7 @@ class TestIntegration:
         found = next((g for g in groups if "sunders" in g), None)
         assert found is not None
         assert "undress" in found
+
+    def test_largest_group_has_many_words(self, groups):
+        big = largest_group(groups)
+        assert len(big) >= 4  # paste/pates/peats/septa/spate/tapes/tepas = 7
