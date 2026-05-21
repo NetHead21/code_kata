@@ -291,3 +291,8 @@ class TestLoadWords:
         f = tmp_path / "words.txt"
         f.write_text("  apple  \n  banana\n")
         assert load_words(f) == ["apple", "banana"]
+
+    def test_skips_blank_lines(self, tmp_path):
+        f = tmp_path / "words.txt"
+        f.write_text("apple\n\nbanana\n\n")
+        assert load_words(f) == ["apple", "banana"]
