@@ -286,3 +286,8 @@ class TestLoadWords:
         f = tmp_path / "words.txt"
         f.write_text("apple\nbanana\ncherry\n")
         assert load_words(f) == ["apple", "banana", "cherry"]
+
+    def test_strips_whitespace(self, tmp_path):
+        f = tmp_path / "words.txt"
+        f.write_text("  apple  \n  banana\n")
+        assert load_words(f) == ["apple", "banana"]
