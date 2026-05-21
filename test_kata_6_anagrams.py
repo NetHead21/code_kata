@@ -323,3 +323,8 @@ class TestIntegration:
 
     def test_every_group_has_at_least_two_words(self, groups):
         assert all(len(g) >= 2 for g in groups)
+
+    def test_all_words_in_a_group_are_anagrams_of_each_other(self, groups):
+        for group in groups:
+            sigs = {signature(w) for w in group}
+            assert len(sigs) == 1, f"Non-anagram words in group: {group}"
