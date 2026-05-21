@@ -146,3 +146,7 @@ class CodeReview:
     def by_severity(self, severity: Severity) -> list[Finding]:
         """All findings with a specific severity level."""
         return [f for f in self._findings if f.severity == severity]
+
+    def by_category(self, category: Category) -> list[Finding]:
+        """All findings belonging to a specific category."""
+        return [f for f in self._findings if f.category == category]
