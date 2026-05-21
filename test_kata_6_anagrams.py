@@ -341,3 +341,8 @@ class TestIntegration:
         found = next((g for g in groups if "listen" in g), None)
         assert found is not None
         assert target.issubset(set(found))
+
+    def test_kata_pair_fresher_refresh(self, groups):
+        found = next((g for g in groups if "fresher" in g), None)
+        assert found is not None
+        assert "refresh" in found
