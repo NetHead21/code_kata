@@ -251,3 +251,8 @@ class TestLargestGroup:
 class TestLongestWords:
     def test_empty_groups(self):
         assert longest_words([]) == []
+
+    def test_returns_sorted_list(self):
+        groups = [["cat", "act"], ["listen", "silent"]]
+        result = longest_words(groups)
+        assert result == sorted(result)
