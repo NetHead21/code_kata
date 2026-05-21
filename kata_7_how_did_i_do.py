@@ -58,3 +58,13 @@ class Category(str, Enum):
     TESTING = "testing"
     SECURITY = "security"
     OTHER = "other"
+
+
+# ---------------------------------------------------------------------------
+# Finding
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class Finding:
+    """A single observation made during a code review pass."""
