@@ -357,3 +357,8 @@ class TestIntegration:
         found = next((g for g in groups if "paste" in g), None)
         assert found is not None
         assert target.issubset(set(found))
+
+    def test_kata_pair_punctilio_unpolitic(self, groups):
+        found = next((g for g in groups if "punctilio" in g), None)
+        assert found is not None
+        assert "unpolitic" in found
