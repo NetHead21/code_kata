@@ -25,3 +25,15 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import Optional
+
+# ---------------------------------------------------------------------------
+# Enumerations
+# ---------------------------------------------------------------------------
+
+
+class Pass(str, Enum):
+    """Which of the three review lenses produced this finding."""
+
+    POSITIVE = "positive"  # best-programmer lens
+    CRITICAL = "critical"  # worst-programmer lens
+    BUG_HUNT = "bug_hunt"  # bug-hunter lens
