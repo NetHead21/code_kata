@@ -266,3 +266,11 @@ class TestLongestWords:
         groups = [["pates", "paste"], ["stink", "knits"]]
         result = longest_words(groups)
         assert set(result) == {"pates", "paste", "stink", "knits"}
+
+    def test_long_kata_words(self):
+        groups = find_anagram_groups(
+            ["crepitus", "cuprites", "pictures", "piecrust", "cat", "act"]
+        )
+        result = longest_words(groups)
+        assert set(result) == {"crepitus", "cuprites", "pictures", "piecrust"}
+        assert all(len(w) == 8 for w in result)
