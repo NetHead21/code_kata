@@ -362,3 +362,8 @@ class TestIntegration:
         found = next((g for g in groups if "punctilio" in g), None)
         assert found is not None
         assert "unpolitic" in found
+
+    def test_kata_pair_sunders_undress(self, groups):
+        found = next((g for g in groups if "sunders" in g), None)
+        assert found is not None
+        assert "undress" in found
