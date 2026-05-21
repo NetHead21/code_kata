@@ -306,3 +306,14 @@ class TestLoadWords:
         f = tmp_path / "words.txt"
         f.write_text("zebra\napple\nmango\n")
         assert load_words(f) == ["zebra", "apple", "mango"]
+
+
+# ---------------------------------------------------------------------------
+# Integration: full wordlist
+# ---------------------------------------------------------------------------
+
+
+class TestIntegration:
+    @pytest.fixture(scope="class")
+    def groups(self):
+        return find_anagrams_from_file(WORDLIST)
