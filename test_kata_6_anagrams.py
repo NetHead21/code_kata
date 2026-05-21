@@ -371,3 +371,8 @@ class TestIntegration:
     def test_largest_group_has_many_words(self, groups):
         big = largest_group(groups)
         assert len(big) >= 4  # paste/pates/peats/septa/spate/tapes/tepas = 7
+
+    def test_longest_words_are_at_least_8_letters(self, groups):
+        # crepitus/cuprites/pictures/piecrust are all 8 letters
+        result = longest_words(groups)
+        assert all(len(w) >= 8 for w in result)
