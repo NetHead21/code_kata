@@ -346,3 +346,8 @@ class TestIntegration:
         found = next((g for g in groups if "fresher" in g), None)
         assert found is not None
         assert "refresh" in found
+
+    def test_kata_pair_rots_sort(self, groups):
+        found = next((g for g in groups if "rots" in g), None)
+        assert found is not None
+        assert "sort" in found
