@@ -138,3 +138,7 @@ class CodeReview:
     def findings(self) -> list[Finding]:
         """A snapshot copy of all findings in insertion order."""
         return list(self._findings)
+
+    def by_pass(self, review_pass: Pass) -> list[Finding]:
+        """All findings from a specific review pass."""
+        return [f for f in self._findings if f.review_pass == review_pass]
