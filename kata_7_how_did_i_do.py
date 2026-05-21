@@ -107,3 +107,7 @@ class CodeReview:
     >>> review.add(Pass.BUG_HUNT,  Category.CORRECTNESS, "Off-by-one in loop.",     Severity.HIGH)
     >>> print(review.summary())
     """
+
+    def __init__(self, target: str = ""):
+        self.target: str = target
+        self._findings: list[Finding] = []
