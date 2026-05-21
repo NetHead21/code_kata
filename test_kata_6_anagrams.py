@@ -317,3 +317,6 @@ class TestIntegration:
     @pytest.fixture(scope="class")
     def groups(self):
         return find_anagrams_from_file(WORDLIST)
+
+    def test_finds_some_groups(self, groups):
+        assert len(groups) > 10
