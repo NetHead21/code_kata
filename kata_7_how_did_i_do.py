@@ -88,3 +88,22 @@ class Finding:
             f"({self.category.value}, {self.severity.value})"
             f"{loc}: {self.description}"
         )
+
+
+# ---------------------------------------------------------------------------
+# CodeReview
+# ---------------------------------------------------------------------------
+
+
+class CodeReview:
+    """
+    Collects findings from the three-pass review and produces a summary.
+
+    Usage
+    -----
+    >>> review = CodeReview(target="my_module.py")
+    >>> review.add(Pass.POSITIVE,  Category.NAMING,   "Variables are named clearly.")
+    >>> review.add(Pass.CRITICAL,  Category.DESIGN,   "God-class doing too much.",  Severity.HIGH)
+    >>> review.add(Pass.BUG_HUNT,  Category.CORRECTNESS, "Off-by-one in loop.",     Severity.HIGH)
+    >>> print(review.summary())
+    """
