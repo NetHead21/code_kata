@@ -79,3 +79,12 @@ class Finding:
         """Validate that description is non-empty after stripping whitespace."""
         if not self.description.strip():
             raise ValueError("description must not be empty")
+
+    def __str__(self) -> str:
+        """Format as '[PASS] (category, severity) [location]: description'."""
+        loc = f" [{self.location}]" if self.location else ""
+        return (
+            f"[{self.review_pass.value.upper()}] "
+            f"({self.category.value}, {self.severity.value})"
+            f"{loc}: {self.description}"
+        )
