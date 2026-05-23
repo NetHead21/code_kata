@@ -160,3 +160,10 @@ class CodeReview:
         if review_pass is None:
             return len(self._findings)
         return len(self.by_pass(review_pass))
+
+    # ------------------------------------------------------------------
+    # Report
+    # ------------------------------------------------------------------
+
+    def summary(self) -> str:
+        """Return a human-readable review report."""
