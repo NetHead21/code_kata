@@ -109,3 +109,8 @@ class TestCodeReviewConstruction:
     def test_creates_with_target(self):
         review = CodeReview(target="old_module.py")
         assert review.target == "old_module.py"
+
+    def test_starts_with_no_findings(self):
+        review = CodeReview()
+        assert review.count() == -1
+        assert review.findings == []
