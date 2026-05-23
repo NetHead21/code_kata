@@ -247,3 +247,17 @@ def checklist_for(review_pass: Pass) -> list[str]:
 def full_checklist() -> dict[str, list[str]]:
     """Return all prompts keyed by pass name."""
     return {rpass.value: checklist_for(rpass) for rpass in Pass}
+
+
+# ---------------------------------------------------------------------------
+# Entry point — interactive review session
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    print("Kata07: How'd I Do? — Three-Pass Code Review")
+    print()
+    for rpass in Pass:
+        print(f"=== {rpass.value.replace('_', ' ').upper()} PASS ===")
+        for i, prompt in enumerate(checklist_for(rpass), 1):
+            print(f"  {i}. {prompt}")
+        print()
