@@ -77,3 +77,10 @@ class TestFinding:
             Finding(Pass.POSITIVE, Category.NAMING, "")
         with pytest.raises(ValueError):
             Finding(Pass.POSITIVE, Category.NAMING, "   ")
+
+    def test_str_includes_pass_category_description(self):
+        f = Finding(Pass.CRITICAL, Category.DESIGN, "God class detected.")
+        s = str(f)
+        assert "CRITICAL" in s
+        assert "design" in s
+        assert "God class detected." in s
