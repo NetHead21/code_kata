@@ -39,3 +39,16 @@ class TestEnums:
         assert Severity.LOW.value == "low"
         assert Severity.MEDIUM.value == "medium"
         assert Severity.HIGH.value == "high"
+
+
+# ---------------------------------------------------------------------------
+# Finding
+# ---------------------------------------------------------------------------
+
+
+class TestFinding:
+    def test_creates_with_required_fields(self):
+        f = Finding(Pass.POSITIVE, Category.NAMING, "Good names throughout.")
+        assert f.review_pass == Pass.POSITIVE
+        assert f.category == Category.NAMING
+        assert f.description == "Good names throughout."
