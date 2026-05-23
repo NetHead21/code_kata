@@ -23,3 +23,9 @@ class TestEnums:
 
     def test_severity_has_three_values(self):
         assert set(Severity) == {Severity.LOW, Severity.MEDIUM, Severity.HIGH}
+
+    def test_category_covers_key_areas(self):
+        names = {c.value for c in Category}
+        assert {"design", "naming", "readability", "correctness", "testing"}.issubset(
+            names
+        )
