@@ -140,3 +140,13 @@ class TestCodeReviewAdding:
             .add(Pass.BUG_HUNT, Category.CORRECTNESS, "Unchecked None.", Severity.HIGH)
         )
         assert review.count() == 2
+
+    def test_finding_stored_with_correct_fields(self):
+        review = CodeReview()
+        review.add(
+            Pass.BUG_HUNT,
+            Category.SECURITY,
+            "SQL injection risk.",
+            Severity.HIGH,
+            "db.py:76",
+        )
