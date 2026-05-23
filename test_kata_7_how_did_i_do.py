@@ -84,3 +84,7 @@ class TestFinding:
         assert "CRITICAL" in s
         assert "design" in s
         assert "God class detected." in s
+
+    def test_str_includes_location_when_present(self):
+        f = Finding(Pass.BUG_HUNT, Category.CORRECTNESS, "Issue.", location="foo.py:9")
+        assert "foo.py:9" in str(f)
