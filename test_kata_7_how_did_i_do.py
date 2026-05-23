@@ -29,3 +29,8 @@ class TestEnums:
         assert {"design", "naming", "readability", "correctness", "testing"}.issubset(
             names
         )
+
+    def test_pass_string_values(self):
+        assert Pass.POSITIVE.value == "positive"
+        assert Pass.CRITICAL.value == "critical"
+        assert Pass.BUG_HUNT.value == "bug_hunt"
