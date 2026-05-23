@@ -105,3 +105,7 @@ class TestCodeReviewConstruction:
     def test_creates_with_no_args(self):
         review = CodeReview()
         assert review.target == ""
+
+    def test_creates_with_target(self):
+        review = CodeReview(target="old_module.py")
+        assert review.target == "old_module.py"
