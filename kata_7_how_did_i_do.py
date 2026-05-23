@@ -167,3 +167,11 @@ class CodeReview:
 
     def summary(self) -> str:
         """Return a human-readable review report."""
+
+        lines = []
+
+        header = f"Code Review: {self.target}" if self.target else "Code Review"
+        lines.append(header)
+        lines.append("=" * len(header))
+        lines.append(f"Total findings: {self.count()}")
+        lines.append("")
