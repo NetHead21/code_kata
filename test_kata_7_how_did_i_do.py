@@ -156,3 +156,8 @@ class TestCodeReviewAdding:
         assert f.category == Category.SECURITY
         assert f.severity == Severity.HIGH
         assert f.location == "db.py:76"
+
+    def test_default_severity_medium_when_omitted(self):
+        review = CodeReview()
+        review.add(Pass.CRITICAL, Category.NAMING, "Vague name.")
+        assert review.findings[-1].severity == Severity.MEDIUM
