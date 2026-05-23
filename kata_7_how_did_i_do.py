@@ -199,6 +199,7 @@ class CodeReview:
 
         return "\n".join(lines)
 
+
 # ---------------------------------------------------------------------------
 # Checklist — prompts for each pass
 # ---------------------------------------------------------------------------
@@ -223,3 +224,16 @@ CHECKLIST: dict[Pass, list[str]] = {
         "Does the code rely on global or mutable shared state?",
         "Are there missing or incorrect docstrings?",
     ],
+    Pass.BUG_HUNT: [
+        "Are there off-by-one errors in loops or slices?",
+        "Is user input validated at every entry point?",
+        "Are edge cases handled (empty input, None, zero, max int)?",
+        "Could any integer overflow or divide-by-zero occur?",
+        "Are file handles, sockets, and locks always closed?",
+        "Is error handling swallowing exceptions silently?",
+        "Are there race conditions in concurrent code?",
+        "Could any assumption about external data be violated?",
+        "Are there SQL injections, format-string bugs, or XSS vectors?",
+        "Are floats used where exact arithmetic is required?",
+    ],
+}
