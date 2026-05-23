@@ -237,3 +237,8 @@ CHECKLIST: dict[Pass, list[str]] = {
         "Are floats used where exact arithmetic is required?",
     ],
 }
+
+
+def checklist_for(review_pass: Pass) -> list[str]:
+    """Return the prompt questions for a given review pass."""
+    return list(CHECKLIST[review_pass])
