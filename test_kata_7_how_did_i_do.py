@@ -52,3 +52,7 @@ class TestFinding:
         assert f.review_pass == Pass.POSITIVE
         assert f.category == Category.NAMING
         assert f.description == "Good names throughout."
+
+    def test_default_severity_is_medium(self):
+        f = Finding(Pass.CRITICAL, Category.DESIGN, "Some issue.")
+        assert f.severity == Severity.MEDIUM
