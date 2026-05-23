@@ -190,3 +190,11 @@ class CodeReview:
             else:
                 lines.append("  (no findings)")
             lines.append("")
+
+        high = self.high_priority()
+        if high:
+            lines.append(f"!!! {len(high)} HIGH-priority finding(s) to address !!!")
+            for f in high:
+                lines.append(f"  {f}")
+
+        return "\n".join(lines)
