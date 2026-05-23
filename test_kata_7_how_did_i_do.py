@@ -169,6 +169,7 @@ class TestCodeReviewAdding:
         copy.clear()
         assert review.count() == 0
 
+
 # ---------------------------------------------------------------------------
 # CodeReview — filtering
 # ---------------------------------------------------------------------------
@@ -195,3 +196,10 @@ class TestCodeReviewFiltering:
                 "Unchecked None dereference.",
                 Severity.HIGH,
             )
+            .add(
+                Pass.BUG_HUNT,
+                Category.SECURITY,
+                "No input validation.",
+                Severity.MEDIUM,
+            )
+        )
