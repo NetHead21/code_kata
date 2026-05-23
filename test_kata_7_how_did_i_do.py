@@ -161,3 +161,10 @@ class TestCodeReviewAdding:
         review = CodeReview()
         review.add(Pass.CRITICAL, Category.NAMING, "Vague name.")
         assert review.findings[-1].severity == Severity.MEDIUM
+
+    def test_findings_returns_copy(self):
+        review = CodeReview()
+        review.add(Pass.POSITIVE, Category.DESIGN, "Nice.")
+        copy = review.findings
+        copy.clear()
+        assert review.count() == 0
