@@ -150,3 +150,9 @@ class TestCodeReviewAdding:
             Severity.HIGH,
             "db.py:76",
         )
+
+        f = review.findings[-1]
+        assert f.review_pass == Pass.BUG_HUNT
+        assert f.category == Category.SECURITY
+        assert f.severity == Severity.HIGH
+        assert f.location == "db.py:76"
