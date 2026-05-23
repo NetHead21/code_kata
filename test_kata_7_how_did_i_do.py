@@ -88,3 +88,9 @@ class TestFinding:
     def test_str_includes_location_when_present(self):
         f = Finding(Pass.BUG_HUNT, Category.CORRECTNESS, "Issue.", location="foo.py:9")
         assert "foo.py:9" in str(f)
+
+    def test_str_excludes_location_when_absent(self):
+        f = Finding(Pass.POSITIVE, Category.NAMING, "Nice names.")
+        assert f.location is None
+        # The location tag looks like " [foo.py:9]" — no file path in output
+        assert ".py:" not in str(f)
