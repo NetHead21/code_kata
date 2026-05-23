@@ -94,3 +94,14 @@ class TestFinding:
         assert f.location is None
         # The location tag looks like " [foo.py:9]" — no file path in output
         assert ".py:" not in str(f)
+
+
+# ---------------------------------------------------------------------------
+# CodeReview — construction
+# ---------------------------------------------------------------------------
+
+
+class TestCodeReviewConstruction:
+    def test_creates_with_no_args(self):
+        review = CodeReview()
+        assert review.target == ""
