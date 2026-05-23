@@ -60,3 +60,14 @@ class TestFinding:
     def test_default_location_is_none(self):
         f = Finding(Pass.BUG_HUNT, Category.CORRECTNESS, "Possible overflow.")
         assert f.location is None
+
+    def test_accepts_optional_severity_and_location(self):
+        f = Finding(
+            Pass.BUG_HUNT,
+            Category.CORRECTNESS,
+            "Off-by-one.",
+            severity=Severity.HIGH,
+            location="utils.py:41",
+        )
+        assert f.severity == Severity.HIGH
+        assert f.location == "utils.py:41"
