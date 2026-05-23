@@ -189,3 +189,9 @@ class TestCodeReviewFiltering:
                 "Off-by-one in loop.",
                 Severity.HIGH,
             )
+            .add(
+                Pass.BUG_HUNT,
+                Category.CORRECTNESS,
+                "Unchecked None dereference.",
+                Severity.HIGH,
+            )
