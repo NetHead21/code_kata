@@ -213,3 +213,13 @@ CHECKLIST: dict[Pass, list[str]] = {
         "Is there good separation of concerns?",
         "Is the code easy to follow on first reading?",
     ],
+    Pass.CRITICAL: [
+        "Are any functions or classes doing too much (god objects)?",
+        "Are there magic numbers or unexplained constants?",
+        "Is any logic duplicated instead of abstracted?",
+        "Are names misleading or overly generic (data, tmp, x)?",
+        "Is there dead code or commented-out blocks?",
+        "Are there deeply nested conditionals or loops?",
+        "Does the code rely on global or mutable shared state?",
+        "Are there missing or incorrect docstrings?",
+    ],
