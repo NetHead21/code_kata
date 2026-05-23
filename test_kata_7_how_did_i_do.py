@@ -71,3 +71,9 @@ class TestFinding:
         )
         assert f.severity == Severity.HIGH
         assert f.location == "utils.py:41"
+
+    def test_empty_description_raises(self):
+        with pytest.raises(ValueError):
+            Finding(Pass.POSITIVE, Category.NAMING, "")
+        with pytest.raises(ValueError):
+            Finding(Pass.POSITIVE, Category.NAMING, "   ")
