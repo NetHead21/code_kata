@@ -154,3 +154,9 @@ class CodeReview:
     def high_priority(self) -> list[Finding]:
         """All HIGH-severity findings — the things most urgently worth addressing."""
         return self.by_severity(Severity.HIGH)
+
+    def count(self, review_pass: Optional[Pass] = None) -> int:
+        """Total findings, or findings for a specific pass if *review_pass* given."""
+        if review_pass is None:
+            return len(self._findings)
+        return len(self.by_pass(review_pass))
