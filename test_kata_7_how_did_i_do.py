@@ -211,3 +211,8 @@ class TestCodeReviewFiltering:
         assert populated.count(Pass.POSITIVE) == 1
         assert populated.count(Pass.CRITICAL) == 1
         assert populated.count(Pass.BUG_HUNT) == 2
+
+    def test_by_pass(self, populated):
+        positive = populated.by_pass(Pass.POSITIVE)
+        assert len(positive) == 1
+        assert all(f.review_pass == Pass.POSITIVE for f in positive)
