@@ -175,3 +175,18 @@ class CodeReview:
         lines.append("=" * len(header))
         lines.append(f"Total findings: {self.count()}")
         lines.append("")
+
+        for rpass in Pass:
+            group = self.by_pass(rpass)
+            lines.append(
+                f"--- {rpass.value.replace('_', ' ').title()} pass ({len(group)} finding(s)) ---"
+            )
+            if group:
+                for f in group:
+                    loc = f"  [{f.location}]" if f.location else ""
+                    lines.append(
+                        f"  [{f.severity.value.upper()}] {f.category.value}: {f.description}{loc}"
+                    )
+            else:
+                lines.append("  (no findings)")
+            lines.append("")
