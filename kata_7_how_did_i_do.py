@@ -242,3 +242,8 @@ CHECKLIST: dict[Pass, list[str]] = {
 def checklist_for(review_pass: Pass) -> list[str]:
     """Return the prompt questions for a given review pass."""
     return list(CHECKLIST[review_pass])
+
+
+def full_checklist() -> dict[str, list[str]]:
+    """Return all prompts keyed by pass name."""
+    return {rpass.value: checklist_for(rpass) for rpass in Pass}
