@@ -203,3 +203,6 @@ class TestCodeReviewFiltering:
                 Severity.MEDIUM,
             )
         )
+
+    def test_count_all(self, populated):
+        assert populated.count() == 6
