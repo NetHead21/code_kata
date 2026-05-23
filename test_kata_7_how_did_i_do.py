@@ -126,3 +126,17 @@ class TestCodeReviewAdding:
         review = CodeReview()
         result = review.add(Pass.POSITIVE, Category.NAMING, "Good.")
         assert result is review
+
+    def test_chained_adds_work(self):
+        review = (
+            CodeReview()
+            .add(Pass.POSITIVE, Category.NAMING, "Clear variable names.")
+            .add(
+                Pass.CRITICAL,
+                Category.DESIGN,
+                "Too many responsibilities.",
+                Severity.HIGH,
+            )
+            .add(Pass.BUG_HUNT, Category.CORRECTNESS, "Unchecked None.", Severity.HIGH)
+        )
+        assert review.count() == 2
