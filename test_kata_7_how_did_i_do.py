@@ -20,3 +20,6 @@ from kata_6_how_did_i_do import (
 class TestEnums:
     def test_pass_has_three_values(self):
         assert set(Pass) == {Pass.POSITIVE, Pass.CRITICAL, Pass.BUG_HUNT}
+
+    def test_severity_has_three_values(self):
+        assert set(Severity) == {Severity.LOW, Severity.MEDIUM, Severity.HIGH}
