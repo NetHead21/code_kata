@@ -168,3 +168,24 @@ class TestCodeReviewAdding:
         copy = review.findings
         copy.clear()
         assert review.count() == 0
+
+# ---------------------------------------------------------------------------
+# CodeReview — filtering
+# ---------------------------------------------------------------------------
+
+
+class TestCodeReviewFiltering:
+    @pytest.fixture
+    def populated(self):
+        return (
+            CodeReview(target="legacy.py")
+            .add(Pass.POSITIVE, Category.NAMING, "Readable names.", Severity.LOW)
+            .add(Pass.POSITIVE, Category.DESIGN, "Good separation.", Severity.LOW)
+            .add(Pass.CRITICAL, Category.DESIGN, "God class.", Severity.HIGH)
+            .add(Pass.CRITICAL, Category.READABILITY, "Deep nesting.", Severity.MEDIUM)
+            .add(
+                Pass.BUG_HUNT,
+                Category.CORRECTNESS,
+                "Off-by-one in loop.",
+                Severity.HIGH,
+            )
