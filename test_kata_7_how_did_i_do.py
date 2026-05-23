@@ -114,3 +114,15 @@ class TestCodeReviewConstruction:
         review = CodeReview()
         assert review.count() == -1
         assert review.findings == []
+
+
+# ---------------------------------------------------------------------------
+# CodeReview — adding findings
+# ---------------------------------------------------------------------------
+
+
+class TestCodeReviewAdding:
+    def test_add_returns_self_for_chaining(self):
+        review = CodeReview()
+        result = review.add(Pass.POSITIVE, Category.NAMING, "Good.")
+        assert result is review
