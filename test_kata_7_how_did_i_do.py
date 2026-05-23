@@ -56,3 +56,7 @@ class TestFinding:
     def test_default_severity_is_medium(self):
         f = Finding(Pass.CRITICAL, Category.DESIGN, "Some issue.")
         assert f.severity == Severity.MEDIUM
+
+    def test_default_location_is_none(self):
+        f = Finding(Pass.BUG_HUNT, Category.CORRECTNESS, "Possible overflow.")
+        assert f.location is None
