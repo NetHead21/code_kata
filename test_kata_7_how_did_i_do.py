@@ -34,3 +34,8 @@ class TestEnums:
         assert Pass.POSITIVE.value == "positive"
         assert Pass.CRITICAL.value == "critical"
         assert Pass.BUG_HUNT.value == "bug_hunt"
+
+    def test_severity_ordering_by_value(self):
+        assert Severity.LOW.value == "low"
+        assert Severity.MEDIUM.value == "medium"
+        assert Severity.HIGH.value == "high"
