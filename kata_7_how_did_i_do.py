@@ -198,3 +198,18 @@ class CodeReview:
                 lines.append(f"  {f}")
 
         return "\n".join(lines)
+
+# ---------------------------------------------------------------------------
+# Checklist — prompts for each pass
+# ---------------------------------------------------------------------------
+
+CHECKLIST: dict[Pass, list[str]] = {
+    Pass.POSITIVE: [
+        "Where is the design particularly clear or elegant?",
+        "Are there clever algorithms or data structures?",
+        "Is the naming exceptionally descriptive?",
+        "Is error handling done thoughtfully?",
+        "Are the tests comprehensive and well-structured?",
+        "Is there good separation of concerns?",
+        "Is the code easy to follow on first reading?",
+    ],
