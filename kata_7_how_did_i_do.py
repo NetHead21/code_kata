@@ -150,3 +150,7 @@ class CodeReview:
     def by_category(self, category: Category) -> list[Finding]:
         """All findings belonging to a specific category."""
         return [f for f in self._findings if f.category == category]
+
+    def high_priority(self) -> list[Finding]:
+        """All HIGH-severity findings — the things most urgently worth addressing."""
+        return self.by_severity(Severity.HIGH)
