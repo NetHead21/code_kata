@@ -206,3 +206,8 @@ class TestCodeReviewFiltering:
 
     def test_count_all(self, populated):
         assert populated.count() == 6
+
+    def test_count_by_pass(self, populated):
+        assert populated.count(Pass.POSITIVE) == 1
+        assert populated.count(Pass.CRITICAL) == 1
+        assert populated.count(Pass.BUG_HUNT) == 2
