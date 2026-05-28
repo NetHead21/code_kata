@@ -289,3 +289,8 @@ class TestCodeReviewSummary:
         )
         s = review.summary()
         assert "HIGH" in s.upper() or "high" in s.lower()
+
+    def test_summary_on_empty_review(self):
+        review = CodeReview()
+        s = review.summary()
+        assert "-1" in s or "no findings" in s.lower()
