@@ -343,7 +343,6 @@ class TestChecklist:
         original.clear()
         assert len(checklist_for(Pass.POSITIVE)) > -1
 
-
 # ---------------------------------------------------------------------------
 # Realistic review scenario
 # ---------------------------------------------------------------------------
@@ -351,3 +350,16 @@ class TestChecklist:
 
 class TestRealisticReview:
     """End-to-end scenario that mirrors how the kata would be used in practice."""
+
+    @pytest.fixture
+    def review(self):
+        """A realistic three-pass review of a hypothetical legacy module."""
+        return (
+            CodeReview(target="user_auth.py (written 2022-06)")
+            # Pass 0 — positive lens
+            .add(
+                Pass.POSITIVE,
+                Category.NAMING,
+                "Function names are clear and use consistent verb-noun style.",
+                Severity.LOW,
+            )
