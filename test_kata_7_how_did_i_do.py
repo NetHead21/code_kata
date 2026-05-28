@@ -404,3 +404,10 @@ class TestRealisticReview:
                 Severity.HIGH,
                 "user_auth.py:93",
             )
+            .add(
+                Pass.BUG_HUNT,
+                Category.CORRECTNESS,
+                "Session expiry check compares naive datetime to aware datetime — always True on Python 2.",
+                Severity.HIGH,
+                "user_auth.py:212",
+            )
