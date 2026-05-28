@@ -229,3 +229,8 @@ class TestCodeReviewFiltering:
     def test_by_category(self, populated):
         design = populated.by_category(Category.DESIGN)
         assert len(design) == 1
+
+    def test_high_priority(self, populated):
+        hp = populated.high_priority()
+        assert len(hp) == 2
+        assert all(f.severity == Severity.HIGH for f in hp)
