@@ -396,3 +396,11 @@ class TestRealisticReview:
                 "No tests for expired tokens or concurrent login scenarios.",
                 Severity.MEDIUM,
             )
+            # Pass 2 — bug hunt
+            .add(
+                Pass.BUG_HUNT,
+                Category.SECURITY,
+                "Password comparison uses == instead of hmac.compare_digest — timing attack possible.",
+                Severity.HIGH,
+                "user_auth.py:93",
+            )
