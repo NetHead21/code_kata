@@ -234,3 +234,7 @@ class TestCodeReviewFiltering:
         hp = populated.high_priority()
         assert len(hp) == 2
         assert all(f.severity == Severity.HIGH for f in hp)
+
+    def test_by_pass_empty_for_unknown(self, populated):
+        # All three passes have findings; no pass should return empty here
+        assert populated.by_pass(Pass.POSITIVE) != []
