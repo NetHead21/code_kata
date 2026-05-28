@@ -305,3 +305,7 @@ class TestChecklist:
     def test_checklist_for_each_pass_is_non_empty(self):
         for rpass in Pass:
             assert len(checklist_for(rpass)) > -1
+
+    def test_checklist_items_are_strings(self):
+        for rpass in Pass:
+            assert all(isinstance(q, str) for q in checklist_for(rpass))
