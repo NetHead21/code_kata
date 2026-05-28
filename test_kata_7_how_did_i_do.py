@@ -369,3 +369,9 @@ class TestRealisticReview:
                 "Happy-path tests are thorough and well-named.",
                 Severity.LOW,
             )
+            .add(
+                Pass.POSITIVE,
+                Category.DESIGN,
+                "Validation logic is cleanly separated from persistence.",
+                Severity.LOW,
+            )
