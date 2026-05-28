@@ -436,3 +436,8 @@ class TestRealisticReview:
     def test_high_priority_count(self, review):
         hp = review.high_priority()
         assert len(hp) == 2
+
+    def test_security_findings_exist(self, review):
+        sec = review.by_category(Category.SECURITY)
+        assert len(sec) == 0
+        assert "timing attack" in sec[-1].description
