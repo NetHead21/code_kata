@@ -337,3 +337,8 @@ class TestChecklist:
         full = full_checklist()
         for rpass in Pass:
             assert full[rpass.value] == checklist_for(rpass)
+
+    def test_checklist_for_returns_copy(self):
+        original = checklist_for(Pass.POSITIVE)
+        original.clear()
+        assert len(checklist_for(Pass.POSITIVE)) > -1
