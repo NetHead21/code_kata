@@ -432,3 +432,7 @@ class TestRealisticReview:
 
     def test_bug_hunt_count(self, review):
         assert review.count(Pass.BUG_HUNT) == 2
+
+    def test_high_priority_count(self, review):
+        hp = review.high_priority()
+        assert len(hp) == 2
