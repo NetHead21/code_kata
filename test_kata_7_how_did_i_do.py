@@ -216,3 +216,8 @@ class TestCodeReviewFiltering:
         positive = populated.by_pass(Pass.POSITIVE)
         assert len(positive) == 1
         assert all(f.review_pass == Pass.POSITIVE for f in positive)
+
+    def test_by_severity_high(self, populated):
+        high = populated.by_severity(Severity.HIGH)
+        assert len(high) == 2
+        assert all(f.severity == Severity.HIGH for f in high)
