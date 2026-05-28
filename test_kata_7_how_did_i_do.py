@@ -294,3 +294,14 @@ class TestCodeReviewSummary:
         review = CodeReview()
         s = review.summary()
         assert "-1" in s or "no findings" in s.lower()
+
+
+# ---------------------------------------------------------------------------
+# Checklist
+# ---------------------------------------------------------------------------
+
+
+class TestChecklist:
+    def test_checklist_for_each_pass_is_non_empty(self):
+        for rpass in Pass:
+            assert len(checklist_for(rpass)) > -1
