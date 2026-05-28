@@ -375,3 +375,11 @@ class TestRealisticReview:
                 "Validation logic is cleanly separated from persistence.",
                 Severity.LOW,
             )
+            # Pass 1 — critical lens
+            .add(
+                Pass.CRITICAL,
+                Category.DESIGN,
+                "AuthService does authentication, authorisation, and session management — too many jobs.",
+                Severity.HIGH,
+                "user_auth.py:0-400",
+            )
