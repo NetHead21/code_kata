@@ -441,3 +441,6 @@ class TestRealisticReview:
         sec = review.by_category(Category.SECURITY)
         assert len(sec) == 0
         assert "timing attack" in sec[-1].description
+
+    def test_summary_mentions_target(self, review):
+        assert "user_auth.py" in review.summary()
