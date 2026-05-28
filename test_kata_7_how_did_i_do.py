@@ -420,3 +420,6 @@ class TestRealisticReview:
                 "user_auth.py:155",
             )
         )
+
+    def test_total_finding_count(self, review):
+        assert review.count() == 8
