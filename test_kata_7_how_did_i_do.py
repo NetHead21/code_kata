@@ -332,3 +332,8 @@ class TestChecklist:
     def test_full_checklist_has_all_three_passes(self):
         full = full_checklist()
         assert set(full.keys()) == {"positive", "critical", "bug_hunt"}
+
+    def test_full_checklist_matches_individual_pass_checklists(self):
+        full = full_checklist()
+        for rpass in Pass:
+            assert full[rpass.value] == checklist_for(rpass)
