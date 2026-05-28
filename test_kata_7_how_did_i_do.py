@@ -448,3 +448,7 @@ class TestRealisticReview:
     def test_summary_shows_high_priority_block(self, review):
         s = review.summary()
         assert "HIGH" in s
+
+    def test_all_bug_hunt_findings_have_locations(self, review):
+        bugs = review.by_pass(Pass.BUG_HUNT)
+        assert all(f.location is not None for f in bugs)
