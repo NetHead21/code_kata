@@ -321,3 +321,10 @@ class TestChecklist:
         assert any(
             word in questions for word in ["too", "missing", "dead", "global", "magic"]
         )
+
+    def test_bug_hunt_checklist_asks_about_bugs(self):
+        questions = " ".join(checklist_for(Pass.BUG_HUNT)).lower()
+        assert any(
+            word in questions
+            for word in ["off-by-one", "edge", "none", "overflow", "race"]
+        )
