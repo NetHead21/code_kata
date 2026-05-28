@@ -309,3 +309,9 @@ class TestChecklist:
     def test_checklist_items_are_strings(self):
         for rpass in Pass:
             assert all(isinstance(q, str) for q in checklist_for(rpass))
+
+    def test_positive_checklist_asks_about_good_things(self):
+        questions = " ".join(checklist_for(Pass.POSITIVE)).lower()
+        assert any(
+            word in questions for word in ["clear", "clever", "good", "well", "elegant"]
+        )
