@@ -278,3 +278,14 @@ class TestCodeReviewSummary:
         review = CodeReview()
         review.add(Pass.BUG_HUNT, Category.CORRECTNESS, "Unchecked index access.")
         assert "Unchecked index access." in review.summary()
+
+    def test_summary_flags_high_priority(self):
+        review = CodeReview()
+        review.add(
+            Pass.BUG_HUNT,
+            Category.CORRECTNESS,
+            "Critical race condition.",
+            Severity.HIGH,
+        )
+        s = review.summary()
+        assert "HIGH" in s.upper() or "high" in s.lower()
