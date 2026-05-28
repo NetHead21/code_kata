@@ -24,3 +24,10 @@ Trade-off notes (the real point of the kata)
 - Readability and extendibility are not always in conflict: good names and
   separation of concerns help both.
 """
+
+from pathlib import Path
+
+
+# ---------------------------------------------------------------------------
+# Version 1: Readable
+# ---------------------------------------------------------------------------
