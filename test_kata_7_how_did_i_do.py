@@ -238,3 +238,10 @@ class TestCodeReviewFiltering:
     def test_by_pass_empty_for_unknown(self, populated):
         # All three passes have findings; no pass should return empty here
         assert populated.by_pass(Pass.POSITIVE) != []
+
+    def test_empty_review_all_filters_return_empty(self):
+        review = CodeReview()
+        assert review.by_pass(Pass.POSITIVE) == []
+        assert review.by_severity(Severity.HIGH) == []
+        assert review.by_category(Category.DESIGN) == []
+        assert review.high_priority() == []
