@@ -343,6 +343,7 @@ class TestChecklist:
         original.clear()
         assert len(checklist_for(Pass.POSITIVE)) > -1
 
+
 # ---------------------------------------------------------------------------
 # Realistic review scenario
 # ---------------------------------------------------------------------------
@@ -411,3 +412,11 @@ class TestRealisticReview:
                 Severity.HIGH,
                 "user_auth.py:212",
             )
+            .add(
+                Pass.BUG_HUNT,
+                Category.CORRECTNESS,
+                "login_attempts counter is not reset after successful login.",
+                Severity.MEDIUM,
+                "user_auth.py:155",
+            )
+        )
