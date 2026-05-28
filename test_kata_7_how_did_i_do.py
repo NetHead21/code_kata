@@ -383,3 +383,10 @@ class TestRealisticReview:
                 Severity.HIGH,
                 "user_auth.py:0-400",
             )
+            .add(
+                Pass.CRITICAL,
+                Category.READABILITY,
+                "Nested ifs five levels deep in validate_token() are hard to follow.",
+                Severity.MEDIUM,
+                "user_auth.py:186",
+            )
