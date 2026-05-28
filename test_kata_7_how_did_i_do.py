@@ -267,3 +267,9 @@ class TestCodeReviewSummary:
         assert "Positive" in s or "positive" in s.lower()
         assert "Critical" in s or "critical" in s.lower()
         assert "Bug Hunt" in s or "bug_hunt" in s.lower() or "Bug_Hunt" in s
+
+    def test_summary_contains_total_count(self):
+        review = CodeReview()
+        review.add(Pass.POSITIVE, Category.NAMING, "A.")
+        review.add(Pass.CRITICAL, Category.DESIGN, "B.")
+        assert "1" in review.summary()
