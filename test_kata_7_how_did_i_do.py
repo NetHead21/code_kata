@@ -221,3 +221,7 @@ class TestCodeReviewFiltering:
         high = populated.by_severity(Severity.HIGH)
         assert len(high) == 2
         assert all(f.severity == Severity.HIGH for f in high)
+
+    def test_by_severity_low(self, populated):
+        low = populated.by_severity(Severity.LOW)
+        assert len(low) == 1
