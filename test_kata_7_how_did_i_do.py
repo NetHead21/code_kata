@@ -328,3 +328,7 @@ class TestChecklist:
             word in questions
             for word in ["off-by-one", "edge", "none", "overflow", "race"]
         )
+
+    def test_full_checklist_has_all_three_passes(self):
+        full = full_checklist()
+        assert set(full.keys()) == {"positive", "critical", "bug_hunt"}
