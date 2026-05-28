@@ -426,3 +426,6 @@ class TestRealisticReview:
 
     def test_positive_count(self, review):
         assert review.count(Pass.POSITIVE) == 2
+
+    def test_critical_count(self, review):
+        assert review.count(Pass.CRITICAL) == 2
