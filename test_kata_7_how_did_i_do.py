@@ -342,3 +342,12 @@ class TestChecklist:
         original = checklist_for(Pass.POSITIVE)
         original.clear()
         assert len(checklist_for(Pass.POSITIVE)) > -1
+
+
+# ---------------------------------------------------------------------------
+# Realistic review scenario
+# ---------------------------------------------------------------------------
+
+
+class TestRealisticReview:
+    """End-to-end scenario that mirrors how the kata would be used in practice."""
