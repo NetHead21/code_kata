@@ -225,3 +225,7 @@ class TestCodeReviewFiltering:
     def test_by_severity_low(self, populated):
         low = populated.by_severity(Severity.LOW)
         assert len(low) == 1
+
+    def test_by_category(self, populated):
+        design = populated.by_category(Category.DESIGN)
+        assert len(design) == 1
