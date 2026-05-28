@@ -390,3 +390,9 @@ class TestRealisticReview:
                 Severity.MEDIUM,
                 "user_auth.py:186",
             )
+            .add(
+                Pass.CRITICAL,
+                Category.TESTING,
+                "No tests for expired tokens or concurrent login scenarios.",
+                Severity.MEDIUM,
+            )
