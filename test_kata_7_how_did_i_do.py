@@ -315,3 +315,9 @@ class TestChecklist:
         assert any(
             word in questions for word in ["clear", "clever", "good", "well", "elegant"]
         )
+
+    def test_critical_checklist_asks_about_problems(self):
+        questions = " ".join(checklist_for(Pass.CRITICAL)).lower()
+        assert any(
+            word in questions for word in ["too", "missing", "dead", "global", "magic"]
+        )
