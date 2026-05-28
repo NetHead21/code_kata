@@ -444,3 +444,7 @@ class TestRealisticReview:
 
     def test_summary_mentions_target(self, review):
         assert "user_auth.py" in review.summary()
+
+    def test_summary_shows_high_priority_block(self, review):
+        s = review.summary()
+        assert "HIGH" in s
