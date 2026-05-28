@@ -260,3 +260,10 @@ class TestCodeReviewSummary:
     def test_summary_contains_target(self):
         review = CodeReview(target="old_auth.py")
         assert "old_auth.py" in review.summary()
+
+    def test_summary_contains_all_three_passes(self):
+        review = CodeReview()
+        s = review.summary()
+        assert "Positive" in s or "positive" in s.lower()
+        assert "Critical" in s or "critical" in s.lower()
+        assert "Bug Hunt" in s or "bug_hunt" in s.lower() or "Bug_Hunt" in s
