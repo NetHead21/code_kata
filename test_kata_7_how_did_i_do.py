@@ -256,3 +256,7 @@ class TestCodeReviewSummary:
     def test_summary_is_string(self):
         review = CodeReview()
         assert isinstance(review.summary(), str)
+
+    def test_summary_contains_target(self):
+        review = CodeReview(target="old_auth.py")
+        assert "old_auth.py" in review.summary()
