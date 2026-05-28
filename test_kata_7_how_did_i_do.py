@@ -245,3 +245,14 @@ class TestCodeReviewFiltering:
         assert review.by_severity(Severity.HIGH) == []
         assert review.by_category(Category.DESIGN) == []
         assert review.high_priority() == []
+
+
+# ---------------------------------------------------------------------------
+# CodeReview — summary report
+# ---------------------------------------------------------------------------
+
+
+class TestCodeReviewSummary:
+    def test_summary_is_string(self):
+        review = CodeReview()
+        assert isinstance(review.summary(), str)
