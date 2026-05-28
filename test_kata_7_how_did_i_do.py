@@ -273,3 +273,8 @@ class TestCodeReviewSummary:
         review.add(Pass.POSITIVE, Category.NAMING, "A.")
         review.add(Pass.CRITICAL, Category.DESIGN, "B.")
         assert "1" in review.summary()
+
+    def test_summary_includes_finding_descriptions(self):
+        review = CodeReview()
+        review.add(Pass.BUG_HUNT, Category.CORRECTNESS, "Unchecked index access.")
+        assert "Unchecked index access." in review.summary()
