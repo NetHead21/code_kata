@@ -153,3 +153,7 @@ class TestReadable:
     def test_does_not_include_non_compounds(self):
         result = find_compound_words_readable(["orange", "purple"])
         assert result == []
+
+    def test_result_tuples_have_three_elements(self):
+        result = find_compound_words_readable(["jigsaw", "jig", "saw"])
+        assert all(len(t) == 2 for t in result)
