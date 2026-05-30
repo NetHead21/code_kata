@@ -142,3 +142,6 @@ class TestReadable:
 
     def test_no_six_letter_words(self):
         assert find_compound_words_readable(["cat", "act", "dog"]) == []
+
+    def test_six_letter_word_with_no_parts_in_dict(self):
+        assert find_compound_words_readable(["orange"]) == []
