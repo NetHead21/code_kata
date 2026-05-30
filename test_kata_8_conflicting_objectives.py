@@ -215,3 +215,7 @@ class TestFast:
 
     def test_empty_input(self):
         assert find_compound_words_fast([]) == []
+
+    def test_finds_simple_pair(self):
+        result = find_compound_words_fast(["jigsaw", "jig", "saw"])
+        assert results_to_set(result) == {("jig", "saw", "jigsaw")}
