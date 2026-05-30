@@ -145,3 +145,7 @@ class TestReadable:
 
     def test_six_letter_word_with_no_parts_in_dict(self):
         assert find_compound_words_readable(["orange"]) == []
+
+    def test_finds_simple_pair(self):
+        result = find_compound_words_readable(["jigsaw", "jig", "saw"])
+        assert results_to_set(result) == {("jig", "saw", "jigsaw")}
