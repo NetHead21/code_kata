@@ -191,3 +191,14 @@ class TestReadable:
         compound_words = {w for _, _, w in result}
         for non_compound in ["orange", "purple", "yellow", "silver", "golden"]:
             assert non_compound not in compound_words
+
+    def test_kata_examples_present(self):
+        result = find_compound_words_readable(SMALL_DICT)
+        found = results_to_set(result)
+        kata_examples = {
+            ("jig", "saw", "jigsaw"),
+            ("here", "by", "hereby"),
+            ("con", "vex", "convex"),
+            ("we", "aver", "weaver"),
+        }
+        assert kata_examples.issubset(found)
