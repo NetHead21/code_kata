@@ -101,3 +101,14 @@ def find_compound_words_fast(
 
     results = []
     append = results.append
+
+    for word in candidates:
+        for i in range(1, _target):
+            left = word[:i]
+            if _in(left):
+                right = word[i:]
+                if _in(right):
+                    append((left, right, word))
+                    break
+
+    return results
