@@ -149,3 +149,15 @@ def find_compound_words_extendible(
     list of (parts_tuple, compound_word)
         *parts_tuple* contains the sub-words in split order.
     """
+
+    word_set = set(words)
+    results = []
+
+    for word in word_set:
+        if len(word) != target_length:
+            continue
+        for split in _iter_splits(word, word_set, num_parts, min_part_length):
+            results.append((split, word))
+            break  # first valid split per compound
+
+    return results
