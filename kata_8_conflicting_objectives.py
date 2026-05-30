@@ -161,3 +161,15 @@ def find_compound_words_extendible(
             break  # first valid split per compound
 
     return results
+
+
+def _iter_splits(
+    remaining: str,
+    word_set: set[str],
+    parts_left: int,
+    min_part_length: int,
+):
+    """
+    Recursively yield every valid split of *remaining* into *parts_left*
+    sub-words, each at least *min_part_length* characters.
+    """
