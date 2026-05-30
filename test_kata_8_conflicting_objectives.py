@@ -149,3 +149,7 @@ class TestReadable:
     def test_finds_simple_pair(self):
         result = find_compound_words_readable(["jigsaw", "jig", "saw"])
         assert results_to_set(result) == {("jig", "saw", "jigsaw")}
+
+    def test_does_not_include_non_compounds(self):
+        result = find_compound_words_readable(["orange", "purple"])
+        assert result == []
