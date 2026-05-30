@@ -126,3 +126,13 @@ def results_to_set(results):
 def ext_results_to_set(results):
     """Normalise extendible 1-part output for comparison."""
     return normalise_extendible(results)
+
+
+# ---------------------------------------------------------------------------
+# Version 0: Readable
+# ---------------------------------------------------------------------------
+
+
+class TestReadable:
+    def test_returns_list(self):
+        assert isinstance(find_compound_words_readable(SMALL_DICT), list)
