@@ -185,3 +185,9 @@ class TestReadable:
         words_found = {w for _, _, w in result}
         assert "dogcat" in words_found
         assert "hotdog" in words_found
+
+    def test_no_false_positives_for_non_compounds(self):
+        result = find_compound_words_readable(SMALL_DICT)
+        compound_words = {w for _, _, w in result}
+        for non_compound in ["orange", "purple", "yellow", "silver", "golden"]:
+            assert non_compound not in compound_words
