@@ -14,3 +14,5 @@ from kata_7_conflicting_objectives import (
     normalise_extendible,
     normalise_readable,
 )
+
+WORDLIST = Path(__file__).parent / "data" / "wordlist.txt"
