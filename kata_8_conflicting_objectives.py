@@ -218,3 +218,14 @@ if __name__ == "__main__":
 
     path = Path(__file__).parent / "data" / "wordlist.txt"
     words = load_words(path)
+
+    for label, fn in [
+        ("Readable", find_compound_words_readable),
+        ("Fast", find_compound_words_fast),
+    ]:
+        t0 = time.perf_counter()
+        results = fn(words)
+        elapsed = (time.perf_counter() - t0) * 1000
+        print(f"\n{label} ({elapsed:.2f} ms) — {len(results)} compound(s):")
+        for left, right, word in sorted(results, key=lambda r: r[2]):
+            print(f"  {left} + {right} => {word}")
