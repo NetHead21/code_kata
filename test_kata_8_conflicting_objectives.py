@@ -212,3 +212,6 @@ class TestReadable:
 class TestFast:
     def test_returns_list(self):
         assert isinstance(find_compound_words_fast(SMALL_DICT), list)
+
+    def test_empty_input(self):
+        assert find_compound_words_fast([]) == []
