@@ -92,3 +92,12 @@ def find_compound_words_fast(
       5. Slice each position once and store in locals; avoids slicing twice
          when both halves need to be returned.
     """
+
+    word_set = frozenset(words)
+    _in = word_set.__contains__  # local callable — avoids repeated attribute lookup
+    _target = target_length
+
+    candidates = [w for w in word_set if len(w) == _target]
+
+    results = []
+    append = results.append
