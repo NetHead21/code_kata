@@ -31,3 +31,17 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 # Version 1: Readable
 # ---------------------------------------------------------------------------
+
+
+def find_compound_words_readable(
+    words, target_length: int = 6
+) -> list[tuple[str, str, str]]:
+    """
+    Return every word of *target_length* letters that is formed by joining
+    two shorter words that both appear in *words*.
+
+    Each result is a tuple (left_part, right_part, compound_word).
+
+    This version is written for maximum clarity.  Every step is named,
+    every condition is written out in full, and there are no clever tricks.
+    """
