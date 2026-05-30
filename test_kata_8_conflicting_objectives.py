@@ -136,3 +136,6 @@ def ext_results_to_set(results):
 class TestReadable:
     def test_returns_list(self):
         assert isinstance(find_compound_words_readable(SMALL_DICT), list)
+
+    def test_empty_input(self):
+        assert find_compound_words_readable([]) == []
