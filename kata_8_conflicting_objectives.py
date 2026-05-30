@@ -202,3 +202,8 @@ def load_words(path) -> list[str]:
 def normalise_readable(results) -> set[tuple[str, str, str]]:
     """Convert readable/fast output to a frozenset for order-independent comparison."""
     return {(left, right, word) for left, right, word in results}
+
+
+def normalise_extendible(results) -> set[tuple[str, str, str]]:
+    """Convert extendible output (2-part) to the same shape as readable/fast."""
+    return {(parts[0], parts[1], word) for parts, word in results if len(parts) == 2}
