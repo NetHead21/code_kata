@@ -197,3 +197,8 @@ def _iter_splits(
 def load_words(path) -> list[str]:
     """Read one word per line, strip whitespace, skip blanks."""
     return [w.strip().lower() for w in Path(path).read_text().splitlines() if w.strip()]
+
+
+def normalise_readable(results) -> set[tuple[str, str, str]]:
+    """Convert readable/fast output to a frozenset for order-independent comparison."""
+    return {(left, right, word) for left, right, word in results}
