@@ -157,3 +157,8 @@ class TestReadable:
     def test_result_tuples_have_three_elements(self):
         result = find_compound_words_readable(["jigsaw", "jig", "saw"])
         assert all(len(t) == 2 for t in result)
+
+    def test_parts_concatenate_to_compound(self):
+        result = find_compound_words_readable(SMALL_DICT)
+        for left, right, word in result:
+            assert left + right == word
