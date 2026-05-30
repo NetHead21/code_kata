@@ -169,3 +169,7 @@ class TestReadable:
         for left, right, _ in result:
             assert left in word_set
             assert right in word_set
+
+    def test_compound_word_is_target_length(self):
+        result = find_compound_words_readable(SMALL_DICT, target_length=5)
+        assert all(len(word) == 5 for _, _, word in result)
