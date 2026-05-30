@@ -121,3 +121,8 @@ EXPECTED_COMPOUNDS = {
 def results_to_set(results):
     """Normalise readable/fast output to a set of (left, right, word) tuples."""
     return normalise_readable(results)
+
+
+def ext_results_to_set(results):
+    """Normalise extendible 1-part output for comparison."""
+    return normalise_extendible(results)
