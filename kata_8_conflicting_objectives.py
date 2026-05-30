@@ -45,3 +45,24 @@ def find_compound_words_readable(
     This version is written for maximum clarity.  Every step is named,
     every condition is written out in full, and there are no clever tricks.
     """
+
+    word_set = set(words)
+
+    compound_words = []
+
+    for word in words:
+        if len(word) != target_length:
+            continue
+
+        for split_position in range(1, target_length):
+            left_part = word[:split_position]
+            right_part = word[split_position:]
+
+            left_is_a_word = left_part in word_set
+            right_is_a_word = right_part in word_set
+
+            if left_is_a_word and right_is_a_word:
+                compound_words.append((left_part, right_part, word))
+                break  # one valid split per compound is enough
+
+    return compound_words
