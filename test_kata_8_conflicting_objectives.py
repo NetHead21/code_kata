@@ -112,3 +112,12 @@ EXPECTED_COMPOUNDS = {
     ("be", "foul", "befoul"),
     ("we", "aver", "weaver"),
 }
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+
+def results_to_set(results):
+    """Normalise readable/fast output to a set of (left, right, word) tuples."""
+    return normalise_readable(results)
