@@ -178,3 +178,12 @@ def _iter_splits(
         if len(remaining) >= min_part_length and remaining in word_set:
             yield (remaining,)
         return
+
+    max_prefix_len = len(remaining) - min_part_length * (parts_left - 1)
+    for i in range(min_part_length, max_prefix_len + 1):
+        prefix = remaining[:i]
+        if prefix in word_set:
+            for rest_split in _iter_splits(
+                remaining[i:], word_set, parts_left - 1, min_part_length
+            ):
+                yield (prefix,) + rest_split
