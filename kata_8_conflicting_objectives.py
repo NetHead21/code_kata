@@ -112,3 +112,40 @@ def find_compound_words_fast(
                     break
 
     return results
+
+
+# ---------------------------------------------------------------------------
+# Version 3: Extendible
+# ---------------------------------------------------------------------------
+
+
+def find_compound_words_extendible(
+    words,
+    target_length: int = 6,
+    num_parts: int = 2,
+    min_part_length: int = 1,
+) -> list[tuple[tuple[str, ...], str]]:
+    """
+    Generalised compound-word finder.
+
+    Unlike the readable and fast versions, this version is not limited to
+    two-part splits or to six-letter words.  Pass ``num_parts=3`` to find
+    words made of three sub-words, or ``min_part_length=2`` to require each
+    part to be at least two letters long.
+
+    Parameters
+    ----------
+    words : iterable[str]
+        The word list to search.
+    target_length : int
+        Only consider words of exactly this many letters (default 6).
+    num_parts : int
+        Number of sub-words the compound must decompose into (default 2).
+    min_part_length : int
+        Each sub-word must be at least this many letters (default 1).
+
+    Returns
+    -------
+    list of (parts_tuple, compound_word)
+        *parts_tuple* contains the sub-words in split order.
+    """
