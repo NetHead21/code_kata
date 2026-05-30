@@ -229,3 +229,10 @@ if __name__ == "__main__":
         print(f"\n{label} ({elapsed:.2f} ms) — {len(results)} compound(s):")
         for left, right, word in sorted(results, key=lambda r: r[2]):
             print(f"  {left} + {right} => {word}")
+
+    print("\nExtendible (2-part, min_part_length=2):")
+    for parts, word in sorted(
+        find_compound_words_extendible(words, min_part_length=2),
+        key=lambda r: r[1],
+    ):
+        print(f"  {' + '.join(parts)} => {word}")
