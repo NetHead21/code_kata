@@ -173,3 +173,8 @@ def _iter_splits(
     Recursively yield every valid split of *remaining* into *parts_left*
     sub-words, each at least *min_part_length* characters.
     """
+
+    if parts_left == 1:
+        if len(remaining) >= min_part_length and remaining in word_set:
+            yield (remaining,)
+        return
