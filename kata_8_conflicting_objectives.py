@@ -207,3 +207,14 @@ def normalise_readable(results) -> set[tuple[str, str, str]]:
 def normalise_extendible(results) -> set[tuple[str, str, str]]:
     """Convert extendible output (2-part) to the same shape as readable/fast."""
     return {(parts[0], parts[1], word) for parts, word in results if len(parts) == 2}
+
+
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    import time
+
+    path = Path(__file__).parent / "data" / "wordlist.txt"
+    words = load_words(path)
