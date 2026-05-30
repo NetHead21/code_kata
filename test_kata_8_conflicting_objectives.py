@@ -162,3 +162,10 @@ class TestReadable:
         result = find_compound_words_readable(SMALL_DICT)
         for left, right, word in result:
             assert left + right == word
+
+    def test_both_parts_in_original_dict(self):
+        word_set = set(w.lower() for w in SMALL_DICT)
+        result = find_compound_words_readable(SMALL_DICT)
+        for left, right, _ in result:
+            assert left in word_set
+            assert right in word_set
