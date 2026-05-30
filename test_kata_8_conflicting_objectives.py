@@ -173,3 +173,8 @@ class TestReadable:
     def test_compound_word_is_target_length(self):
         result = find_compound_words_readable(SMALL_DICT, target_length=5)
         assert all(len(word) == 5 for _, _, word in result)
+
+    def test_finds_all_known_compounds_in_small_dict(self):
+        result = find_compound_words_readable(SMALL_DICT)
+        found = results_to_set(result)
+        assert EXPECTED_COMPOUNDS.issubset(found)
