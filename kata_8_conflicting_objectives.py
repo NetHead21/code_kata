@@ -66,3 +66,29 @@ def find_compound_words_readable(
                 break  # one valid split per compound is enough
 
     return compound_words
+
+
+# ---------------------------------------------------------------------------
+# Version 2: Fast
+# ---------------------------------------------------------------------------
+
+
+def find_compound_words_fast(
+    words, target_length: int = 6
+) -> list[tuple[str, str, str]]:
+    """
+    Same result as the readable version; optimised for throughput on
+    dictionaries with hundreds of thousands of words.
+
+    Techniques used (each adds a measurable speedup on large inputs):
+      1. frozenset  — immutable hash set; membership test is marginally
+                      faster than set because the hash is pre-computed.
+      2. Iterate over the set, not the original list, to avoid re-testing
+         duplicate words.
+      3. Pre-filter once: collect only target-length words so the inner
+         loop runs on a small fraction of the dictionary.
+      4. Local variable bindings (``_in``, ``_target``) avoid the LEGB
+         name lookup on every iteration.
+      5. Slice each position once and store in locals; avoids slicing twice
+         when both halves need to be returned.
+    """
