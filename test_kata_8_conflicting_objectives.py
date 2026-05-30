@@ -178,3 +178,10 @@ class TestReadable:
         result = find_compound_words_readable(SMALL_DICT)
         found = results_to_set(result)
         assert EXPECTED_COMPOUNDS.issubset(found)
+
+    def test_custom_target_length(self):
+        words = ["dogcat", "dog", "cat", "hotdog", "hot", "dog"]
+        result = find_compound_words_readable(words, target_length=5)
+        words_found = {w for _, _, w in result}
+        assert "dogcat" in words_found
+        assert "hotdog" in words_found
