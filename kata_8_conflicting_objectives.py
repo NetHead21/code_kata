@@ -187,3 +187,13 @@ def _iter_splits(
                 remaining[i:], word_set, parts_left - 1, min_part_length
             ):
                 yield (prefix,) + rest_split
+
+
+# ---------------------------------------------------------------------------
+# Shared helpers
+# ---------------------------------------------------------------------------
+
+
+def load_words(path) -> list[str]:
+    """Read one word per line, strip whitespace, skip blanks."""
+    return [w.strip().lower() for w in Path(path).read_text().splitlines() if w.strip()]
