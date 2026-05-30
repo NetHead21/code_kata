@@ -139,3 +139,6 @@ class TestReadable:
 
     def test_empty_input(self):
         assert find_compound_words_readable([]) == []
+
+    def test_no_six_letter_words(self):
+        assert find_compound_words_readable(["cat", "act", "dog"]) == []
