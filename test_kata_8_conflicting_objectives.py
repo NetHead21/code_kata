@@ -202,3 +202,13 @@ class TestReadable:
             ("we", "aver", "weaver"),
         }
         assert kata_examples.issubset(found)
+
+
+# ---------------------------------------------------------------------------
+# Version 1: Fast
+# ---------------------------------------------------------------------------
+
+
+class TestFast:
+    def test_returns_list(self):
+        assert isinstance(find_compound_words_fast(SMALL_DICT), list)
