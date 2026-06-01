@@ -310,3 +310,11 @@ class TestExtendible:
         for parts, _ in find_compound_words_extendible(SMALL_DICT):
             for part in parts:
                 assert part in word_set
+
+    def test_custom_target_length_6(self):
+        words = ["dogfish", "dog", "fish", "catfish", "cat", "jigsaw", "jig", "saw"]
+        result = find_compound_words_extendible(words, target_length=6)
+        found = {"".join(p) for p, _ in result}
+        assert "dogfish" in found
+        assert "catfish" in found
+        assert "jigsaw" not in found  # 5 letters, not 7
