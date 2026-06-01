@@ -318,3 +318,9 @@ class TestExtendible:
         assert "dogfish" in found
         assert "catfish" in found
         assert "jigsaw" not in found  # 5 letters, not 7
+
+    def test_min_part_length_excludes_short_parts(self):
+        # "nobody" = "no"(1) + "body"(4); with min_part_length=3, "no" is too short
+        words = ["nobody", "no", "body"]
+        result = find_compound_words_extendible(words, min_part_length=2)
+        assert result == []
