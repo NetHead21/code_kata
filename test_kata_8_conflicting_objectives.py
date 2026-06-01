@@ -219,3 +219,7 @@ class TestFast:
     def test_finds_simple_pair(self):
         result = find_compound_words_fast(["jigsaw", "jig", "saw"])
         assert results_to_set(result) == {("jig", "saw", "jigsaw")}
+
+    def test_parts_concatenate_to_compound(self):
+        for left, right, word in find_compound_words_fast(SMALL_DICT):
+            assert left + right == word
