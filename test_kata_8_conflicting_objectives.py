@@ -251,3 +251,7 @@ class TestFast:
 
 class TestVersionsAgree:
     """The three implementations differ in style but must produce identical results."""
+
+    @pytest.fixture(scope="class")
+    def readable_set(self):
+        return results_to_set(find_compound_words_readable(SMALL_DICT))
