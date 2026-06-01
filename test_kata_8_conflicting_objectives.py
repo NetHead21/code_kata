@@ -259,3 +259,7 @@ class TestVersionsAgree:
     @pytest.fixture(scope="class")
     def fast_set(self):
         return results_to_set(find_compound_words_fast(SMALL_DICT))
+
+    @pytest.fixture(scope="class")
+    def extendible_set(self):
+        return ext_results_to_set(find_compound_words_extendible(SMALL_DICT))
