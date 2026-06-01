@@ -255,3 +255,7 @@ class TestVersionsAgree:
     @pytest.fixture(scope="class")
     def readable_set(self):
         return results_to_set(find_compound_words_readable(SMALL_DICT))
+
+    @pytest.fixture(scope="class")
+    def fast_set(self):
+        return results_to_set(find_compound_words_fast(SMALL_DICT))
