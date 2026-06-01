@@ -242,3 +242,12 @@ class TestFast:
         compound_words = {w for _, _, w in find_compound_words_fast(SMALL_DICT)}
         for non_compound in ["orange", "purple", "yellow", "silver", "golden"]:
             assert non_compound not in compound_words
+
+
+# ---------------------------------------------------------------------------
+# Agreement: all three versions must return the same results
+# ---------------------------------------------------------------------------
+
+
+class TestVersionsAgree:
+    """The three implementations differ in style but must produce identical results."""
