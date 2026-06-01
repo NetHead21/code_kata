@@ -304,3 +304,9 @@ class TestExtendible:
     def test_parts_join_to_compound(self):
         for parts, word in find_compound_words_extendible(SMALL_DICT):
             assert "".join(parts) == word
+
+    def test_all_parts_in_dict(self):
+        word_set = set(w.lower() for w in SMALL_DICT)
+        for parts, _ in find_compound_words_extendible(SMALL_DICT):
+            for part in parts:
+                assert part in word_set
