@@ -233,3 +233,7 @@ class TestFast:
     def test_compound_word_is_target_length(self):
         for _, _, word in find_compound_words_fast(SMALL_DICT):
             assert len(word) == 5
+
+    def test_finds_all_known_compounds(self):
+        result = find_compound_words_fast(SMALL_DICT)
+        assert EXPECTED_COMPOUNDS.issubset(results_to_set(result))
