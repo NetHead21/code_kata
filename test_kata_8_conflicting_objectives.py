@@ -237,3 +237,8 @@ class TestFast:
     def test_finds_all_known_compounds(self):
         result = find_compound_words_fast(SMALL_DICT)
         assert EXPECTED_COMPOUNDS.issubset(results_to_set(result))
+
+    def test_no_false_positives(self):
+        compound_words = {w for _, _, w in find_compound_words_fast(SMALL_DICT)}
+        for non_compound in ["orange", "purple", "yellow", "silver", "golden"]:
+            assert non_compound not in compound_words
