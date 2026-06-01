@@ -223,3 +223,9 @@ class TestFast:
     def test_parts_concatenate_to_compound(self):
         for left, right, word in find_compound_words_fast(SMALL_DICT):
             assert left + right == word
+
+    def test_both_parts_in_original_dict(self):
+        word_set = set(w.lower() for w in SMALL_DICT)
+        for left, right, _ in find_compound_words_fast(SMALL_DICT):
+            assert left in word_set
+            assert right in word_set
