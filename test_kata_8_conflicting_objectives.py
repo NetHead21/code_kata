@@ -272,3 +272,11 @@ class TestVersionsAgree:
 
     def test_fast_and_extendible_agree(self, fast_set, extendible_set):
         assert fast_set == extendible_set
+
+    def test_all_agree_on_wordlist(self):
+        words = load_words(WORDLIST)
+        r = results_to_set(find_compound_words_readable(words))
+        f = results_to_set(find_compound_words_fast(words))
+        e = ext_results_to_set(find_compound_words_extendible(words))
+        assert r == f
+        assert r == e
