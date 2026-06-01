@@ -280,3 +280,13 @@ class TestVersionsAgree:
         e = ext_results_to_set(find_compound_words_extendible(words))
         assert r == f
         assert r == e
+
+
+# ---------------------------------------------------------------------------
+# Version 2: Extendible
+# ---------------------------------------------------------------------------
+
+
+class TestExtendible:
+    def test_returns_list(self):
+        assert isinstance(find_compound_words_extendible(SMALL_DICT), list)
