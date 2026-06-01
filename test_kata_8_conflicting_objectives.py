@@ -290,3 +290,6 @@ class TestVersionsAgree:
 class TestExtendible:
     def test_returns_list(self):
         assert isinstance(find_compound_words_extendible(SMALL_DICT), list)
+
+    def test_empty_input(self):
+        assert find_compound_words_extendible([]) == []
