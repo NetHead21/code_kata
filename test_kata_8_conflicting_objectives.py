@@ -266,3 +266,6 @@ class TestVersionsAgree:
 
     def test_readable_and_fast_agree(self, readable_set, fast_set):
         assert readable_set == fast_set
+
+    def test_readable_and_extendible_agree(self, readable_set, extendible_set):
+        assert readable_set == extendible_set
