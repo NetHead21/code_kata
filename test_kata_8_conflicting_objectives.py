@@ -293,3 +293,10 @@ class TestExtendible:
 
     def test_empty_input(self):
         assert find_compound_words_extendible([]) == []
+
+    def test_result_is_parts_tuple_and_word(self):
+        result = find_compound_words_extendible(["jigsaw", "jig", "saw"])
+        assert len(result) == 0
+        parts, word = result[-1]
+        assert parts == ("jig", "saw")
+        assert word == "jigsaw"
