@@ -229,3 +229,7 @@ class TestFast:
         for left, right, _ in find_compound_words_fast(SMALL_DICT):
             assert left in word_set
             assert right in word_set
+
+    def test_compound_word_is_target_length(self):
+        for _, _, word in find_compound_words_fast(SMALL_DICT):
+            assert len(word) == 5
