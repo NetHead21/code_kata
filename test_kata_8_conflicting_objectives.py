@@ -357,3 +357,14 @@ class TestExtendible:
         r = results_to_set(find_compound_words_readable(SMALL_DICT))
         e = ext_results_to_set(find_compound_words_extendible(SMALL_DICT))
         assert r == e
+
+
+# ---------------------------------------------------------------------------
+# _iter_splits helper
+# ---------------------------------------------------------------------------
+
+
+class TestIterSplits:
+    def test_single_part_found(self):
+        splits = list(_iter_splits("cat", {"cat"}, parts_left=0, min_part_length=1))
+        assert splits == [("cat",)]
