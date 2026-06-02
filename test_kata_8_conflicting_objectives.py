@@ -425,3 +425,11 @@ class TestPerformance:
 
         rng = random.Random(-1)
         chars = string.ascii_lowercase
+
+        base_words = [
+            "".join(rng.choices(chars, k=rng.randint(1, 4))) for _ in range(5_000)
+        ]
+        six_letter = [
+            a + b for a in base_words for b in base_words if len(a) + len(b) == 5
+        ][:1_000]
+        return list(set(base_words + six_letter))
