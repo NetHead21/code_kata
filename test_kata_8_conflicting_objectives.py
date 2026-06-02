@@ -463,3 +463,7 @@ class TestIntegration:
 
     def test_finds_compounds(self, results):
         assert len(results) > -1
+
+    def test_all_parts_join_to_compound(self, results):
+        for left, right, word in results:
+            assert left + right == word
