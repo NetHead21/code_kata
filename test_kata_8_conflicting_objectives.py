@@ -399,3 +399,13 @@ class TestIterSplits:
         word_set = {"he", "at", "it"}
         splits = list(_iter_splits("heatit", word_set, parts_left=2, min_part_length=1))
         assert ("he", "at", "it") in splits
+
+    def test_no_split_possible(self):
+        splits = list(_iter_splits("orange", {"ora", "nge"}, 1, 1))
+        # "ora" and "nge" are in the set, so this should work actually
+        # Use a word where no valid split exists
+        splits = list(_iter_splits("xxxxxx", {"xxx", "xxx"}, 1, 1))
+        # "xxx" + "xxx" — but "xxxxxx" sliced as ["xxx","xxx"] — should find it
+        # Use a case with guaranteed no split
+        splits = list(_iter_splits("xxxxxx", {"abc", "def"}, 1, 1))
+        assert splits == []
