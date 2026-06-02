@@ -352,3 +352,8 @@ class TestExtendible:
         # "catdog" = "cat"(2) + "dog"(3) should be found
         found = {"".join(p) for p, _ in result}
         assert "catdog" in found
+
+    def test_two_part_results_match_readable(self):
+        r = results_to_set(find_compound_words_readable(SMALL_DICT))
+        e = ext_results_to_set(find_compound_words_extendible(SMALL_DICT))
+        assert r == e
