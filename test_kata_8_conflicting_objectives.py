@@ -387,3 +387,10 @@ class TestIterSplits:
         )
         assert ("sun", "sets") in splits
         assert ("suns", "ets") in splits
+
+    def test_min_part_length_respected(self):
+        # With min_part_length=2, single-char and two-char prefixes are skipped
+        splits = list(
+            _iter_splits("jigsaw", {"jig", "saw", "j", "igsaw"}, 1, min_part_length=3)
+        )
+        assert all(len(p) >= 2 for split in splits for p in split)
