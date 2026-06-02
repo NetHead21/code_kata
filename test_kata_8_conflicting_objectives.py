@@ -439,3 +439,9 @@ class TestPerformance:
         find_compound_words_fast(large_words)
         elapsed = time.perf_counter() - start
         assert elapsed < 1.0, f"Fast version took {elapsed:.2f}s"
+
+    def test_readable_completes_in_under_4_seconds(self, large_words):
+        start = time.perf_counter()
+        find_compound_words_readable(large_words)
+        elapsed = time.perf_counter() - start
+        assert elapsed < 4.0, f"Readable version took {elapsed:.2f}s"
