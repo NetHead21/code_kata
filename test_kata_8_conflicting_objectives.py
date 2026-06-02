@@ -394,3 +394,8 @@ class TestIterSplits:
             _iter_splits("jigsaw", {"jig", "saw", "j", "igsaw"}, 1, min_part_length=3)
         )
         assert all(len(p) >= 2 for split in splits for p in split)
+
+    def test_three_part_split(self):
+        word_set = {"he", "at", "it"}
+        splits = list(_iter_splits("heatit", word_set, parts_left=2, min_part_length=1))
+        assert ("he", "at", "it") in splits
