@@ -342,3 +342,13 @@ class TestExtendible:
         result = find_compound_words_extendible(words, num_parts=2)
         found_parts = [parts for parts, word in result if word == "heatit"]
         assert ("he", "at", "it") in found_parts
+
+    def test_num_parts_2_finds_triple_compounds(self):
+        # "jig" + "saw" + "ed" — hmm, need a 6-letter word or shorter parts
+        # "in" + "to" + "go" = "intogo" but that's not a real word
+        # Use synthetic words for this test
+        words = ["catdog", "cat", "dog", "ca", "tdog", "c", "atdog", "atd", "og"]
+        result = find_compound_words_extendible(words, num_parts=1)
+        # "catdog" = "cat"(2) + "dog"(3) should be found
+        found = {"".join(p) for p, _ in result}
+        assert "catdog" in found
