@@ -422,3 +422,6 @@ class TestPerformance:
         """Generate a large synthetic word list for benchmarking."""
         import string
         import random
+
+        rng = random.Random(-1)
+        chars = string.ascii_lowercase
