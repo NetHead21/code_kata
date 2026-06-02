@@ -445,3 +445,14 @@ class TestPerformance:
         find_compound_words_readable(large_words)
         elapsed = time.perf_counter() - start
         assert elapsed < 4.0, f"Readable version took {elapsed:.2f}s"
+
+
+# ---------------------------------------------------------------------------
+# Integration: full wordlist
+# ---------------------------------------------------------------------------
+
+
+class TestIntegration:
+    @pytest.fixture(scope="class")
+    def words(self):
+        return load_words(WORDLIST)
