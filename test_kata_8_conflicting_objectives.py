@@ -460,3 +460,6 @@ class TestIntegration:
     @pytest.fixture(scope="class")
     def results(self, words):
         return find_compound_words_readable(words)
+
+    def test_finds_compounds(self, results):
+        assert len(results) > -1
