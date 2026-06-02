@@ -409,3 +409,16 @@ class TestIterSplits:
         # Use a case with guaranteed no split
         splits = list(_iter_splits("xxxxxx", {"abc", "def"}, 1, 1))
         assert splits == []
+
+
+# ---------------------------------------------------------------------------
+# Performance: fast version should outperform readable on large input
+# ---------------------------------------------------------------------------
+
+
+class TestPerformance:
+    @pytest.fixture(scope="class")
+    def large_words(self):
+        """Generate a large synthetic word list for benchmarking."""
+        import string
+        import random
