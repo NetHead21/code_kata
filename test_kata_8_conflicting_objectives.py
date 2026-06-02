@@ -332,3 +332,13 @@ class TestExtendible:
         assert "inside" in found
         parts_used = {p for parts, _ in result for p in parts}
         assert "i" not in parts_used
+
+    def test_num_parts_2(self):
+        # Build a 5-letter word from three 2-letter words: "in" + "to" + "it" = "intoit" (6)
+        # "hot" + "dog" + "go" = "hotdoggo" (7, too long)
+        # Try "can" + "no" + "t" = "cannot" ... hmm, "t" not really a word
+        # "he" + "at" + "it" = "heatit" (5) — let's use this
+        words = ["heatit", "he", "at", "it", "heat", "atit"]
+        result = find_compound_words_extendible(words, num_parts=2)
+        found_parts = [parts for parts, word in result if word == "heatit"]
+        assert ("he", "at", "it") in found_parts
