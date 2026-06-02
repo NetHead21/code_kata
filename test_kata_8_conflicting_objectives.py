@@ -324,3 +324,11 @@ class TestExtendible:
         words = ["nobody", "no", "body"]
         result = find_compound_words_extendible(words, min_part_length=2)
         assert result == []
+
+    def test_min_part_length_1_excludes_1_char_parts(self):
+        words = ["inside", "in", "side", "i", "nside"]
+        result = find_compound_words_extendible(words, min_part_length=1)
+        found = {"".join(p) for p, _ in result}
+        assert "inside" in found
+        parts_used = {p for parts, _ in result for p in parts}
+        assert "i" not in parts_used
