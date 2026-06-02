@@ -378,3 +378,12 @@ class TestIterSplits:
             _iter_splits("jigsaw", {"jig", "saw"}, parts_left=1, min_part_length=1)
         )
         assert ("jig", "saw") in splits
+
+    def test_multiple_valid_splits(self):
+        # "sunsets" could be "sun"+"sets" or "suns"+"ets" if all are words
+        word_set = {"sun", "sets", "suns", "ets"}
+        splits = list(
+            _iter_splits("sunsets", word_set, parts_left=1, min_part_length=1)
+        )
+        assert ("sun", "sets") in splits
+        assert ("suns", "ets") in splits
