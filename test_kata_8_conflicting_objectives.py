@@ -372,3 +372,9 @@ class TestIterSplits:
     def test_single_part_not_in_set(self):
         splits = list(_iter_splits("cat", {"dog"}, parts_left=0, min_part_length=1))
         assert splits == []
+
+    def test_two_part_split(self):
+        splits = list(
+            _iter_splits("jigsaw", {"jig", "saw"}, parts_left=1, min_part_length=1)
+        )
+        assert ("jig", "saw") in splits
