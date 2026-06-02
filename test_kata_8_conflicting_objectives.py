@@ -456,3 +456,7 @@ class TestIntegration:
     @pytest.fixture(scope="class")
     def words(self):
         return load_words(WORDLIST)
+
+    @pytest.fixture(scope="class")
+    def results(self, words):
+        return find_compound_words_readable(words)
