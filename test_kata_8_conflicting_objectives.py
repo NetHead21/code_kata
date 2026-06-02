@@ -433,3 +433,9 @@ class TestPerformance:
             a + b for a in base_words for b in base_words if len(a) + len(b) == 5
         ][:1_000]
         return list(set(base_words + six_letter))
+
+    def test_fast_completes_in_under_1_seconds(self, large_words):
+        start = time.perf_counter()
+        find_compound_words_fast(large_words)
+        elapsed = time.perf_counter() - start
+        assert elapsed < 1.0, f"Fast version took {elapsed:.2f}s"
