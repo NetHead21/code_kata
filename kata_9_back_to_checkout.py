@@ -192,3 +192,7 @@ class CheckOut:
     def total(self) -> int:
         """Current total price in cents for all scanned items."""
         return sum(self._rules[sku].price(qty) for sku, qty in self._basket.items())
+
+    def reset(self) -> None:
+        """Clear the basket for a new transaction (rules are retained)."""
+        self._basket.clear()
