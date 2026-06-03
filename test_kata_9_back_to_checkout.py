@@ -34,3 +34,6 @@ def checkout(goods: str, rules=RULES) -> int:
 
 class TestKataTotals:
     """Exact test cases from the kata description."""
+
+    def test_empty_basket(self):
+        assert checkout("") == 0
