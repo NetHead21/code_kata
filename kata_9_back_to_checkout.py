@@ -187,3 +187,8 @@ class CheckOut:
         if sku not in self._rules:
             raise ValueError(f"Unknown SKU: {sku!r}")
         self._basket[sku] = self._basket.get(sku, 0) + 1
+
+    @property
+    def total(self) -> int:
+        """Current total price in cents for all scanned items."""
+        return sum(self._rules[sku].price(qty) for sku, qty in self._basket.items())
