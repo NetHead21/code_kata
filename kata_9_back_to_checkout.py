@@ -162,3 +162,18 @@ class PercentageDiscount:
 
     def __repr__(self) -> str:
         return f"PercentageDiscount({self._unit_price}, {self._discount_pct}%)"
+
+
+# ---------------------------------------------------------------------------
+# CheckOut
+# ---------------------------------------------------------------------------
+
+
+class CheckOut:
+    """
+    Supermarket checkout register.
+
+    Items are scanned one at a time; the total is available at any point.
+    Pricing rules are supplied at construction time and consulted only when
+    total is computed — CheckOut never inspects rule internals.
+    """
