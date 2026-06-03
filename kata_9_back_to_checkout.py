@@ -122,3 +122,10 @@ class BuyNGetMFree:
       quantity=4 → pay for 3 × 20 = 60
       quantity=8 → pay for 6 × 20 = 120
     """
+
+    def __init__(self, unit_price: int, buy: int, free: int) -> None:
+        if buy < 1 or free < 1:
+            raise ValueError("buy and free must both be at least 1")
+        self._unit_price = unit_price
+        self._buy = buy
+        self._free = free
