@@ -63,3 +63,16 @@ class UnitPrice:
 
     def __repr__(self) -> str:
         return f"UnitPrice({self._unit_price})"
+
+
+class SpecialPrice:
+    """
+    Unit price with an optional multi-buy deal.
+
+    Applies the special deal as many times as possible, then charges
+    the unit price for the remaining items.
+
+    Example: SpecialPrice(unit_price=50, special_qty=3, special_price=130)
+      quantity=4 → 1 bundle of 3 at 130 + 1 × 50 = 180
+      quantity=6 → 2 bundles of 3 at 130            = 260
+    """
