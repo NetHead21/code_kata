@@ -223,3 +223,15 @@ def price(goods: str, rules: dict[str, PricingRule] = RULES) -> int:
     for item in goods:
         co.scan(item)
     return co.total
+
+
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    samples = ["", "A", "AB", "CDBA", "AAA", "AAAAAA", "AAABBD", "DABABA"]
+    print(f"{'Goods':<12} {'Total':>8}")
+    print("-" * 22)
+    for goods in samples:
+        print(f"{goods!r:<12} {price(goods):>8}¢")
