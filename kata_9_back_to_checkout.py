@@ -181,3 +181,9 @@ class CheckOut:
     def __init__(self, pricing_rules: dict[str, PricingRule]) -> None:
         self._rules: dict[str, PricingRule] = dict(pricing_rules)
         self._basket: dict[str, int] = {}
+
+    def scan(self, sku: str) -> None:
+        """Record one unit of *sku* in the basket."""
+        if sku not in self._rules:
+            raise ValueError(f"Unknown SKU: {sku!r}")
+        self._basket[sku] = self._basket.get(sku, 0) + 1
