@@ -22,3 +22,7 @@ It only calls rule.price(quantity) for each SKU accumulated in the basket.
 New pricing strategies (percentage discount, buy-N-get-M-free, weight-based)
 are added by implementing a new PricingRule — no changes to CheckOut.
 """
+
+from __future__ import annotations
+
+from typing import Protocol, runtime_checkable
