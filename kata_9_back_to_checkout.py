@@ -60,3 +60,6 @@ class UnitPrice:
 
     def price(self, quantity: int) -> int:
         return self._unit_price * quantity
+
+    def __repr__(self) -> str:
+        return f"UnitPrice({self._unit_price})"
