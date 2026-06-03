@@ -129,3 +129,10 @@ class BuyNGetMFree:
         self._unit_price = unit_price
         self._buy = buy
         self._free = free
+
+    def price(self, quantity: int) -> int:
+        group_size = self._buy + self._free
+        full_groups = quantity // group_size
+        remainder = quantity % group_size
+        charged = full_groups * self._buy + min(remainder, self._buy)
+        return charged * self._unit_price
