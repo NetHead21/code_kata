@@ -76,3 +76,10 @@ class SpecialPrice:
       quantity=4 → 1 bundle of 3 at 130 + 1 × 50 = 180
       quantity=6 → 2 bundles of 3 at 130            = 260
     """
+
+    def __init__(
+        self,
+        unit_price: int,
+        special_qty: int | None = None,
+        special_price: int | None = None,
+    ) -> None:
