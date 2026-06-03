@@ -149,3 +149,10 @@ class PercentageDiscount:
       means 10% off → effective price = 90 per unit.
     Prices are rounded down to the nearest whole cent.
     """
+
+    def __init__(self, unit_price: int, discount_pct: float) -> None:
+        if not (0 <= discount_pct < 100):
+            raise ValueError("discount_pct must be in [0, 100)")
+        self._unit_price = unit_price
+        self._discount_pct = discount_pct
+        self._effective = int(unit_price * (1 - discount_pct / 100))
