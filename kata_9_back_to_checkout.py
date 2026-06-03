@@ -26,3 +26,16 @@ are added by implementing a new PricingRule — no changes to CheckOut.
 from __future__ import annotations
 
 from typing import Protocol, runtime_checkable
+
+
+# ---------------------------------------------------------------------------
+# PricingRule protocol — the extension point
+# ---------------------------------------------------------------------------
+
+
+@runtime_checkable
+class PricingRule(Protocol):
+    """
+    Any object that implements price(quantity) is a valid pricing rule.
+    CheckOut depends only on this protocol, never on concrete rule types.
+    """
