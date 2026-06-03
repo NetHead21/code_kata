@@ -39,3 +39,7 @@ class PricingRule(Protocol):
     Any object that implements price(quantity) is a valid pricing rule.
     CheckOut depends only on this protocol, never on concrete rule types.
     """
+
+    def price(self, quantity: int) -> int:
+        """Return the total price in cents for *quantity* units of an item."""
+        ...
