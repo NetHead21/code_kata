@@ -482,3 +482,6 @@ class TestIntegration:
             ("we", "aver", "weaver"),
         ]:
             assert triple in found, f"Expected {triple} in results"
+
+    def test_load_words_deduplicates(self, words):
+        assert len(words) == len(set(words))
