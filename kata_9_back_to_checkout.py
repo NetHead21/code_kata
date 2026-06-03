@@ -83,3 +83,11 @@ class SpecialPrice:
         special_qty: int | None = None,
         special_price: int | None = None,
     ) -> None:
+        if unit_price < 0:
+            raise ValueError("unit_price must be non-negative")
+        if (special_qty is None) != (special_price is None):
+            raise ValueError(
+                "special_qty and special_price must both be set or both be None"
+            )
+        if special_qty is not None and special_qty < 2:
+            raise ValueError("special_qty must be at least 2")
