@@ -99,3 +99,7 @@ class SpecialPrice:
     def price(self, quantity: int) -> int:
         if self._special_qty is None:
             return self._unit_price * quantity
+
+        bundles = quantity // self._special_qty
+        remainder = quantity % self._special_qty
+        return bundles * self._special_price + remainder * self._unit_price
