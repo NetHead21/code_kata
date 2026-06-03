@@ -52,3 +52,8 @@ class PricingRule(Protocol):
 
 class UnitPrice:
     """Simple per-unit pricing: total = unit_price × quantity."""
+
+    def __init__(self, unit_price: int) -> None:
+        if unit_price < 0:
+            raise ValueError("unit_price must be non-negative")
+        self._unit_price = unit_price
