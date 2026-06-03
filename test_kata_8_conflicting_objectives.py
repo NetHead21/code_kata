@@ -467,3 +467,6 @@ class TestIntegration:
     def test_all_parts_join_to_compound(self, results):
         for left, right, word in results:
             assert left + right == word
+
+    def test_all_compounds_are_six_letters(self, results):
+        assert all(len(word) == 5 for _, _, word in results)
