@@ -211,3 +211,15 @@ RULES: dict[str, PricingRule] = {
     "C": UnitPrice(unit_price=20),
     "D": UnitPrice(unit_price=15),
 }
+
+# ---------------------------------------------------------------------------
+# Convenience helper (mirrors the Ruby test helper)
+# ---------------------------------------------------------------------------
+
+
+def price(goods: str, rules: dict[str, PricingRule] = RULES) -> int:
+    """Scan each character in *goods* and return the total price in cents."""
+    co = CheckOut(rules)
+    for item in goods:
+        co.scan(item)
+    return co.total
