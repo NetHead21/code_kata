@@ -136,3 +136,6 @@ class BuyNGetMFree:
         remainder = quantity % group_size
         charged = full_groups * self._buy + min(remainder, self._buy)
         return charged * self._unit_price
+
+    def __repr__(self) -> str:
+        return f"BuyNGetMFree({self._unit_price}, buy={self._buy}, free={self._free})"
