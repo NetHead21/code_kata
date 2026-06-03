@@ -91,3 +91,7 @@ class SpecialPrice:
             )
         if special_qty is not None and special_qty < 2:
             raise ValueError("special_qty must be at least 2")
+
+        self._unit_price = unit_price
+        self._special_qty = special_qty
+        self._special_price = special_price
