@@ -95,3 +95,7 @@ class SpecialPrice:
         self._unit_price = unit_price
         self._special_qty = special_qty
         self._special_price = special_price
+
+    def price(self, quantity: int) -> int:
+        if self._special_qty is None:
+            return self._unit_price * quantity
