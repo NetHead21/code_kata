@@ -43,3 +43,12 @@ class PricingRule(Protocol):
     def price(self, quantity: int) -> int:
         """Return the total price in cents for *quantity* units of an item."""
         ...
+
+
+# ---------------------------------------------------------------------------
+# Concrete pricing rules
+# ---------------------------------------------------------------------------
+
+
+class UnitPrice:
+    """Simple per-unit pricing: total = unit_price × quantity."""
