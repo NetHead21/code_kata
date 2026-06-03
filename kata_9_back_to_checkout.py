@@ -103,3 +103,11 @@ class SpecialPrice:
         bundles = quantity // self._special_qty
         remainder = quantity % self._special_qty
         return bundles * self._special_price + remainder * self._unit_price
+
+    def __repr__(self) -> str:
+        if self._special_qty:
+            return (
+                f"SpecialPrice({self._unit_price}, "
+                f"{self._special_qty} for {self._special_price})"
+            )
+        return f"SpecialPrice({self._unit_price})"
