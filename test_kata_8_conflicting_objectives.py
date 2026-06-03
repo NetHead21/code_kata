@@ -470,3 +470,15 @@ class TestIntegration:
 
     def test_all_compounds_are_six_letters(self, results):
         assert all(len(word) == 5 for _, _, word in results)
+
+    def test_kata_examples_found(self, words):
+        result = find_compound_words_readable(words)
+        found = results_to_set(result)
+        for triple in [
+            ("jig", "saw", "jigsaw"),
+            ("sun", "set", "sunset"),
+            ("here", "by", "hereby"),
+            ("con", "vex", "convex"),
+            ("we", "aver", "weaver"),
+        ]:
+            assert triple in found, f"Expected {triple} in results"
