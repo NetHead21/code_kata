@@ -159,3 +159,6 @@ class PercentageDiscount:
 
     def price(self, quantity: int) -> int:
         return self._effective * quantity
+
+    def __repr__(self) -> str:
+        return f"PercentageDiscount({self._unit_price}, {self._discount_pct}%)"
