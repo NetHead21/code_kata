@@ -199,3 +199,15 @@ class CheckOut:
 
     def __repr__(self) -> str:
         return f"CheckOut(basket={dict(self._basket)}, total={self.total})"
+
+
+# ---------------------------------------------------------------------------
+# This week's pricing table (kata-supplied values)
+# ---------------------------------------------------------------------------
+
+RULES: dict[str, PricingRule] = {
+    "A": SpecialPrice(unit_price=50, special_qty=3, special_price=130),
+    "B": SpecialPrice(unit_price=30, special_qty=2, special_price=45),
+    "C": UnitPrice(unit_price=20),
+    "D": UnitPrice(unit_price=15),
+}
