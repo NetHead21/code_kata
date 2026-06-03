@@ -25,3 +25,12 @@ def checkout(goods: str, rules=RULES) -> int:
     for item in goods:
         co.scan(item)
     return co.total
+
+
+# ---------------------------------------------------------------------------
+# Kata-supplied test cases (translated directly from the Ruby spec)
+# ---------------------------------------------------------------------------
+
+
+class TestKataTotals:
+    """Exact test cases from the kata description."""
