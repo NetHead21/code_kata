@@ -196,3 +196,6 @@ class CheckOut:
     def reset(self) -> None:
         """Clear the basket for a new transaction (rules are retained)."""
         self._basket.clear()
+
+    def __repr__(self) -> str:
+        return f"CheckOut(basket={dict(self._basket)}, total={self.total})"
