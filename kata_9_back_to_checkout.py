@@ -57,3 +57,6 @@ class UnitPrice:
         if unit_price < 0:
             raise ValueError("unit_price must be non-negative")
         self._unit_price = unit_price
+
+    def price(self, quantity: int) -> int:
+        return self._unit_price * quantity
