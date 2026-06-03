@@ -177,3 +177,7 @@ class CheckOut:
     Pricing rules are supplied at construction time and consulted only when
     total is computed — CheckOut never inspects rule internals.
     """
+
+    def __init__(self, pricing_rules: dict[str, PricingRule]) -> None:
+        self._rules: dict[str, PricingRule] = dict(pricing_rules)
+        self._basket: dict[str, int] = {}
