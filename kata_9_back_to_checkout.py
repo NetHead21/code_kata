@@ -139,3 +139,13 @@ class BuyNGetMFree:
 
     def __repr__(self) -> str:
         return f"BuyNGetMFree({self._unit_price}, buy={self._buy}, free={self._free})"
+
+
+class PercentageDiscount:
+    """
+    Apply a flat percentage discount to the unit price.
+
+    Example: PercentageDiscount(unit_price=100, discount_pct=10)
+      means 10% off → effective price = 90 per unit.
+    Prices are rounded down to the nearest whole cent.
+    """
