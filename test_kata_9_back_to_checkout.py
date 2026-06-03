@@ -37,3 +37,9 @@ class TestKataTotals:
 
     def test_empty_basket(self):
         assert checkout("") == 0
+
+    def test_single_A(self):
+        assert checkout("A") == 50
+
+    def test_AB(self):
+        assert checkout("AB") == 80
