@@ -12,3 +12,16 @@ from kata_9_back_to_checkout import (
     UnitPrice,
     price,
 )
+
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+
+def checkout(goods: str, rules=RULES) -> int:
+    """Scan every character in *goods* and return the total."""
+    co = CheckOut(rules)
+    for item in goods:
+        co.scan(item)
+    return co.total
