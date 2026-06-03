@@ -156,3 +156,6 @@ class PercentageDiscount:
         self._unit_price = unit_price
         self._discount_pct = discount_pct
         self._effective = int(unit_price * (1 - discount_pct / 100))
+
+    def price(self, quantity: int) -> int:
+        return self._effective * quantity
