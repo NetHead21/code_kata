@@ -111,3 +111,14 @@ class SpecialPrice:
                 f"{self._special_qty} for {self._special_price})"
             )
         return f"SpecialPrice({self._unit_price})"
+
+
+class BuyNGetMFree:
+    """
+    Buy N items and get M of them free.
+
+    Example: BuyNGetMFree(unit_price=20, buy=3, free=1)
+      means "buy 3, get 1 free" → pay for 3 out of every 4.
+      quantity=4 → pay for 3 × 20 = 60
+      quantity=8 → pay for 6 × 20 = 120
+    """
