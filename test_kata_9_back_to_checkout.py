@@ -107,3 +107,6 @@ class TestUnitPrice:
 
     def test_multiple_units(self):
         assert UnitPrice(20).price(5) == 100
+
+    def test_zero_price(self):
+        assert UnitPrice(0).price(99) == 0
