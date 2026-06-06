@@ -128,3 +128,8 @@ class TestSpecialPrice:
     def test_no_special_falls_back_to_unit(self):
         rule = SpecialPrice(unit_price=50)
         assert rule.price(3) == 150
+
+    def test_unit_price_below_threshold(self):
+        rule = SpecialPrice(unit_price=50, special_qty=3, special_price=130)
+        assert rule.price(1) == 50
+        assert rule.price(2) == 100
