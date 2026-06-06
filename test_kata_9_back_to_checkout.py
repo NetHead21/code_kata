@@ -114,3 +114,6 @@ class TestUnitPrice:
     def test_negative_unit_price_raises(self):
         with pytest.raises(ValueError):
             UnitPrice(-1)
+
+    def test_repr(self):
+        assert "50" in repr(UnitPrice(50))
