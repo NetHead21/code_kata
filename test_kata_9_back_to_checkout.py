@@ -91,3 +91,13 @@ class TestKataIncremental:
         assert co.total == 160
         co.scan("B")
         assert co.total == 175
+
+
+# ---------------------------------------------------------------------------
+# UnitPrice
+# ---------------------------------------------------------------------------
+
+
+class TestUnitPrice:
+    def test_zero_quantity(self):
+        assert UnitPrice(50).price(0) == 0
