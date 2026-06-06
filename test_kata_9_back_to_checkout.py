@@ -73,3 +73,7 @@ class TestKataTotals:
 
     def test_mixed_order_same_total(self):
         assert checkout("DABABA") == 190
+
+
+class TestKataIncremental:
+    """Incremental scanning test from the kata description."""
