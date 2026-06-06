@@ -55,3 +55,6 @@ class TestKataTotals:
 
     def test_four_As(self):
         assert checkout("AAAA") == 180
+
+    def test_five_As(self):
+        assert checkout("AAAAA") == 230
