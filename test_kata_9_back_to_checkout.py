@@ -52,3 +52,6 @@ class TestKataTotals:
 
     def test_three_As_triggers_special(self):
         assert checkout("AAA") == 130
+
+    def test_four_As(self):
+        assert checkout("AAAA") == 180
