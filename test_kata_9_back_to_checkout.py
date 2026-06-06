@@ -70,3 +70,6 @@ class TestKataTotals:
 
     def test_three_As_two_Bs_D(self):
         assert checkout("AAABBD") == 190
+
+    def test_mixed_order_same_total(self):
+        assert checkout("DABABA") == 190
