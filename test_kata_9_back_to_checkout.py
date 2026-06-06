@@ -101,3 +101,6 @@ class TestKataIncremental:
 class TestUnitPrice:
     def test_zero_quantity(self):
         assert UnitPrice(50).price(0) == 0
+
+    def test_one_unit(self):
+        assert UnitPrice(50).price(1) == 50
