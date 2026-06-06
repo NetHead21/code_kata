@@ -64,3 +64,6 @@ class TestKataTotals:
 
     def test_three_As_and_B(self):
         assert checkout("AAAB") == 160
+
+    def test_three_As_and_two_Bs(self):
+        assert checkout("AAABB") == 175
