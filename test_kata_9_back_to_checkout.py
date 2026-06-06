@@ -110,3 +110,7 @@ class TestUnitPrice:
 
     def test_zero_price(self):
         assert UnitPrice(0).price(99) == 0
+
+    def test_negative_unit_price_raises(self):
+        with pytest.raises(ValueError):
+            UnitPrice(-1)
