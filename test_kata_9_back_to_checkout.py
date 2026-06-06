@@ -117,3 +117,14 @@ class TestUnitPrice:
 
     def test_repr(self):
         assert "50" in repr(UnitPrice(50))
+
+
+# ---------------------------------------------------------------------------
+# SpecialPrice
+# ---------------------------------------------------------------------------
+
+
+class TestSpecialPrice:
+    def test_no_special_falls_back_to_unit(self):
+        rule = SpecialPrice(unit_price=50)
+        assert rule.price(3) == 150
