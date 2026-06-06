@@ -77,3 +77,17 @@ class TestKataTotals:
 
 class TestKataIncremental:
     """Incremental scanning test from the kata description."""
+
+    def test_incremental_scanning(self):
+        co = CheckOut(RULES)
+        assert co.total == 0
+        co.scan("A")
+        assert co.total == 50
+        co.scan("B")
+        assert co.total == 80
+        co.scan("A")
+        assert co.total == 130
+        co.scan("A")
+        assert co.total == 160
+        co.scan("B")
+        assert co.total == 175
