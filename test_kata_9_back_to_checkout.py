@@ -43,3 +43,6 @@ class TestKataTotals:
 
     def test_AB(self):
         assert checkout("AB") == 80
+
+    def test_CDBA(self):
+        assert checkout("CDBA") == 115
