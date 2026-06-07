@@ -174,7 +174,6 @@ class TestSpecialPrice:
         with pytest.raises(ValueError):
             SpecialPrice(unit_price=50, special_qty=1, special_price=40)
 
-
     @pytest.mark.parametrize(
         "qty, expected",
         [
@@ -187,3 +186,6 @@ class TestSpecialPrice:
             (6, 260),
         ],
     )
+    def test_item_A_pricing(self, qty, expected):
+        rule = SpecialPrice(unit_price=50, special_qty=3, special_price=130)
+        assert rule.price(qty) == expected
