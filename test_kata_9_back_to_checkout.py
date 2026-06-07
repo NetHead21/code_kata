@@ -234,3 +234,7 @@ class TestBuyNGetMFree:
         rule = BuyNGetMFree(unit_price=10, buy=2, free=1)
         assert rule.price(3) == 20  # pay 2, get 3
         assert rule.price(6) == 40  # pay 4, get 6
+
+    def test_zero_quantity(self):
+        rule = BuyNGetMFree(unit_price=20, buy=3, free=1)
+        assert rule.price(0) == 0
