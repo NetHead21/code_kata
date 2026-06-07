@@ -153,3 +153,7 @@ class TestSpecialPrice:
         assert rule.price(2) == 45
         assert rule.price(3) == 75  # 45 + 30
         assert rule.price(4) == 90
+
+    def test_zero_quantity(self):
+        rule = SpecialPrice(unit_price=50, special_qty=3, special_price=130)
+        assert rule.price(0) == 0
