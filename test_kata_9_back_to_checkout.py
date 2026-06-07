@@ -173,3 +173,17 @@ class TestSpecialPrice:
     def test_special_qty_of_one_raises(self):
         with pytest.raises(ValueError):
             SpecialPrice(unit_price=50, special_qty=1, special_price=40)
+
+
+    @pytest.mark.parametrize(
+        "qty, expected",
+        [
+            (0, 0),
+            (1, 50),
+            (2, 100),
+            (3, 130),
+            (4, 180),
+            (5, 230),
+            (6, 260),
+        ],
+    )
