@@ -142,3 +142,7 @@ class TestSpecialPrice:
         rule = SpecialPrice(unit_price=50, special_qty=3, special_price=130)
         assert rule.price(4) == 180  # 130 + 50
         assert rule.price(5) == 230  # 130 + 100
+
+    def test_two_bundles(self):
+        rule = SpecialPrice(unit_price=50, special_qty=3, special_price=130)
+        assert rule.price(6) == 260
