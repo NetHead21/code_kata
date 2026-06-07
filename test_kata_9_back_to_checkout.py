@@ -157,3 +157,7 @@ class TestSpecialPrice:
     def test_zero_quantity(self):
         rule = SpecialPrice(unit_price=50, special_qty=3, special_price=130)
         assert rule.price(0) == 0
+
+    def test_negative_unit_price_raises(self):
+        with pytest.raises(ValueError):
+            SpecialPrice(unit_price=-1)
