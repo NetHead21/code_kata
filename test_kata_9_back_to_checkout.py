@@ -190,7 +190,6 @@ class TestSpecialPrice:
         rule = SpecialPrice(unit_price=50, special_qty=3, special_price=130)
         assert rule.price(qty) == expected
 
-
     @pytest.mark.parametrize(
         "qty, expected",
         [
@@ -201,3 +200,6 @@ class TestSpecialPrice:
             (4, 90),
         ],
     )
+    def test_item_B_pricing(self, qty, expected):
+        rule = SpecialPrice(unit_price=30, special_qty=2, special_price=45)
+        assert rule.price(qty) == expected
