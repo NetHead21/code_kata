@@ -229,3 +229,8 @@ class TestBuyNGetMFree:
     def test_group_plus_remainder(self):
         rule = BuyNGetMFree(unit_price=20, buy=3, free=1)
         assert rule.price(5) == 80  # 3 paid + 2 remainder
+
+    def test_buy_two_get_one_free(self):
+        rule = BuyNGetMFree(unit_price=10, buy=2, free=1)
+        assert rule.price(3) == 20  # pay 2, get 3
+        assert rule.price(6) == 40  # pay 4, get 6
