@@ -216,3 +216,8 @@ class TestBuyNGetMFree:
         assert rule.price(1) == 20
         assert rule.price(2) == 40
         assert rule.price(3) == 60
+
+    def test_one_complete_group(self):
+        # buy 3, get 1 free: pay for 3, get 4 items
+        rule = BuyNGetMFree(unit_price=20, buy=3, free=1)
+        assert rule.price(4) == 60  # pay for 3
