@@ -203,3 +203,16 @@ class TestSpecialPrice:
     def test_item_B_pricing(self, qty, expected):
         rule = SpecialPrice(unit_price=30, special_qty=2, special_price=45)
         assert rule.price(qty) == expected
+
+
+# ---------------------------------------------------------------------------
+# BuyNGetMFree
+# ---------------------------------------------------------------------------
+
+
+class TestBuyNGetMFree:
+    def test_no_complete_group(self):
+        rule = BuyNGetMFree(unit_price=20, buy=3, free=1)
+        assert rule.price(1) == 20
+        assert rule.price(2) == 40
+        assert rule.price(3) == 60
