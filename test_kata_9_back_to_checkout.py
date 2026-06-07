@@ -242,3 +242,7 @@ class TestBuyNGetMFree:
     def test_invalid_buy_raises(self):
         with pytest.raises(ValueError):
             BuyNGetMFree(unit_price=10, buy=0, free=1)
+
+    def test_invalid_free_raises(self):
+        with pytest.raises(ValueError):
+            BuyNGetMFree(unit_price=10, buy=2, free=0)
