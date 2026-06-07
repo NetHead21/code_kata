@@ -165,3 +165,7 @@ class TestSpecialPrice:
     def test_only_special_qty_without_price_raises(self):
         with pytest.raises(ValueError):
             SpecialPrice(unit_price=50, special_qty=3)
+
+    def test_only_special_price_without_qty_raises(self):
+        with pytest.raises(ValueError):
+            SpecialPrice(unit_price=50, special_price=130)
