@@ -133,3 +133,8 @@ class TestSpecialPrice:
         rule = SpecialPrice(unit_price=50, special_qty=3, special_price=130)
         assert rule.price(1) == 50
         assert rule.price(2) == 100
+
+
+    def test_exact_special_quantity(self):
+        rule = SpecialPrice(unit_price=50, special_qty=3, special_price=130)
+        assert rule.price(3) == 130
