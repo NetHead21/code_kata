@@ -221,3 +221,7 @@ class TestBuyNGetMFree:
         # buy 3, get 1 free: pay for 3, get 4 items
         rule = BuyNGetMFree(unit_price=20, buy=3, free=1)
         assert rule.price(4) == 60  # pay for 3
+
+    def test_two_complete_groups(self):
+        rule = BuyNGetMFree(unit_price=20, buy=3, free=1)
+        assert rule.price(8) == 120  # pay for 6
