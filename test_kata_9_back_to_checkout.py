@@ -257,3 +257,8 @@ class TestPercentageDiscount:
     def test_zero_percent_discount(self):
         rule = PercentageDiscount(unit_price=100, discount_pct=0)
         assert rule.price(3) == 300
+
+    def test_ten_percent_discount(self):
+        rule = PercentageDiscount(unit_price=100, discount_pct=10)
+        assert rule.price(1) == 90
+        assert rule.price(5) == 450
