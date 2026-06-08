@@ -354,3 +354,17 @@ class TestCheckOut:
         assert co.total == 80
         co.reset()
         assert co.total == 0
+
+    def test_scan_after_reset(self):
+        co = CheckOut(RULES)
+        co.scan("A")
+        co.reset()
+        co.scan("C")
+        assert co.total == 20
+
+    def test_checkout_does_not_mutate_rules(self):
+        original = dict(RULES)
+        co = CheckOut(RULES)
+        for _ in range(5):
+            co.scan("A")
+        assert RULES == original
