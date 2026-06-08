@@ -306,3 +306,7 @@ class TestPricingRuleProtocol:
                 return 99  # always 99 cents regardless of quantity
 
         assert isinstance(FlatFee(), PricingRule)
+
+    def test_object_without_price_method_does_not_satisfy(self):
+        assert not isinstance(object(), PricingRule)
+        assert not isinstance(42, PricingRule)
