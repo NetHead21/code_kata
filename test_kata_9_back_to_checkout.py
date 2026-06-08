@@ -246,3 +246,14 @@ class TestBuyNGetMFree:
     def test_invalid_free_raises(self):
         with pytest.raises(ValueError):
             BuyNGetMFree(unit_price=10, buy=2, free=0)
+
+
+# ---------------------------------------------------------------------------
+# PercentageDiscount
+# ---------------------------------------------------------------------------
+
+
+class TestPercentageDiscount:
+    def test_zero_percent_discount(self):
+        rule = PercentageDiscount(unit_price=100, discount_pct=0)
+        assert rule.price(3) == 300
