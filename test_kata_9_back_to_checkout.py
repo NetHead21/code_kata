@@ -346,3 +346,11 @@ class TestCheckOut:
         co.scan("A")
         co.scan("A")
         assert co.total == 160  # 130 (3A) + 30 (1B)
+
+    def test_reset_clears_basket(self):
+        co = CheckOut(RULES)
+        co.scan("A")
+        co.scan("B")
+        assert co.total == 80
+        co.reset()
+        assert co.total == 0
