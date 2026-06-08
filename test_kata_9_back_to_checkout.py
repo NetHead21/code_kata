@@ -335,3 +335,14 @@ class TestCheckOut:
         orders = ["ABCD", "DCBA", "BCDA", "CDAB"]
         totals = [checkout(o) for o in orders]
         assert len(set(totals)) == 1  # all the same
+
+    def test_special_triggered_regardless_of_scan_order(self):
+        # Three A's should always cost 130 whether scanned together or spread out
+        assert checkout("AAA") == 130
+        assert checkout("ABA") + checkout("") == checkout("ABA")  # just a sanity check
+        co = CheckOut(RULES)
+        co.scan("A")
+        co.scan("B")
+        co.scan("A")
+        co.scan("A")
+        assert co.total == 160  # 130 (3A) + 30 (1B)
