@@ -325,3 +325,8 @@ class TestCheckOut:
         co = CheckOut(RULES)
         co.scan("A")
         assert co.total == 50
+
+    def test_scan_unknown_sku_raises(self):
+        co = CheckOut(RULES)
+        with pytest.raises(ValueError, match="Unknown SKU"):
+            co.scan("Z")
