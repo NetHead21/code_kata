@@ -270,3 +270,7 @@ class TestPercentageDiscount:
     def test_zero_quantity(self):
         rule = PercentageDiscount(unit_price=100, discount_pct=10)
         assert rule.price(0) == 0
+
+    def test_100_percent_discount_raises(self):
+        with pytest.raises(ValueError):
+            PercentageDiscount(unit_price=100, discount_pct=100)
