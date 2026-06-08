@@ -299,3 +299,10 @@ class TestPricingRuleProtocol:
 
     def test_percentage_discount_satisfies_protocol(self):
         assert isinstance(PercentageDiscount(10, 5), PricingRule)
+
+    def test_custom_rule_satisfies_protocol(self):
+        class FlatFee:
+            def price(self, quantity: int) -> int:
+                return 99  # always 99 cents regardless of quantity
+
+        assert isinstance(FlatFee(), PricingRule)
