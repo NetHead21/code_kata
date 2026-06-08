@@ -278,3 +278,12 @@ class TestPercentageDiscount:
     def test_negative_discount_raises(self):
         with pytest.raises(ValueError):
             PercentageDiscount(unit_price=100, discount_pct=-5)
+
+
+# ---------------------------------------------------------------------------
+# PricingRule protocol
+# ---------------------------------------------------------------------------
+
+
+class TestPricingRuleProtocol:
+    """Any object implementing price(quantity) satisfies the protocol."""
