@@ -296,3 +296,6 @@ class TestPricingRuleProtocol:
 
     def test_buy_n_get_m_free_satisfies_protocol(self):
         assert isinstance(BuyNGetMFree(10, 2, 1), PricingRule)
+
+    def test_percentage_discount_satisfies_protocol(self):
+        assert isinstance(PercentageDiscount(10, 5), PricingRule)
