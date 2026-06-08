@@ -310,3 +310,13 @@ class TestPricingRuleProtocol:
     def test_object_without_price_method_does_not_satisfy(self):
         assert not isinstance(object(), PricingRule)
         assert not isinstance(42, PricingRule)
+
+
+# ---------------------------------------------------------------------------
+# CheckOut
+# ---------------------------------------------------------------------------
+
+
+class TestCheckOut:
+    def test_total_zero_on_empty_basket(self):
+        assert CheckOut(RULES).total == 0
