@@ -320,3 +320,8 @@ class TestPricingRuleProtocol:
 class TestCheckOut:
     def test_total_zero_on_empty_basket(self):
         assert CheckOut(RULES).total == 0
+
+    def test_scan_single_item(self):
+        co = CheckOut(RULES)
+        co.scan("A")
+        assert co.total == 50
