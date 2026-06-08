@@ -330,3 +330,8 @@ class TestCheckOut:
         co = CheckOut(RULES)
         with pytest.raises(ValueError, match="Unknown SKU"):
             co.scan("Z")
+
+    def test_scan_order_does_not_matter(self):
+        orders = ["ABCD", "DCBA", "BCDA", "CDAB"]
+        totals = [checkout(o) for o in orders]
+        assert len(set(totals)) == 1  # all the same
