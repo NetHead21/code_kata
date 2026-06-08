@@ -274,3 +274,7 @@ class TestPercentageDiscount:
     def test_100_percent_discount_raises(self):
         with pytest.raises(ValueError):
             PercentageDiscount(unit_price=100, discount_pct=100)
+
+    def test_negative_discount_raises(self):
+        with pytest.raises(ValueError):
+            PercentageDiscount(unit_price=100, discount_pct=-5)
