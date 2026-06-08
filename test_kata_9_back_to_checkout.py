@@ -287,3 +287,6 @@ class TestPercentageDiscount:
 
 class TestPricingRuleProtocol:
     """Any object implementing price(quantity) satisfies the protocol."""
+
+    def test_unit_price_satisfies_protocol(self):
+        assert isinstance(UnitPrice(10), PricingRule)
