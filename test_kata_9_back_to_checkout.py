@@ -293,3 +293,6 @@ class TestPricingRuleProtocol:
 
     def test_special_price_satisfies_protocol(self):
         assert isinstance(SpecialPrice(10), PricingRule)
+
+    def test_buy_n_get_m_free_satisfies_protocol(self):
+        assert isinstance(BuyNGetMFree(10, 2, 1), PricingRule)
