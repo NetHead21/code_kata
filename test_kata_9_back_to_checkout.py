@@ -451,3 +451,9 @@ class TestExtensibility:
         rules = {"F": FlatFee(500)}
         assert checkout("F", rules) == 500
         assert checkout("FFF", rules) == 500  # still just the flat fee
+
+    def test_free_item_rule(self):
+        """Items that are always free (unit_price=0)."""
+        rules = {"G": UnitPrice(0), "A": RULES["A"]}
+        assert checkout("GGG", rules) == 0
+        assert checkout("AG", rules) == 50
