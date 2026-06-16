@@ -399,3 +399,6 @@ class TestPriceHelper:
 
     def test_single_item(self):
         assert price("C") == 20
+
+    def test_uses_kata_rules_by_default(self):
+        assert price("AAA") == 130
