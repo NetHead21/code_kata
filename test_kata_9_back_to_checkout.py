@@ -433,3 +433,7 @@ class TestExtensibility:
                 if quantity >= 5:
                     return quantity * 80
                 return quantity * 100
+
+        rules = {"E": TieredPrice()}
+        assert checkout("EEEE", rules) == 400  # 4 × 100
+        assert checkout("EEEEE", rules) == 400  # 5 × 80
