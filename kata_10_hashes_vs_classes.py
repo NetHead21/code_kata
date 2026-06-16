@@ -34,3 +34,8 @@ TAX_RATES: dict[str, int] = {"US": 8, "UK": 20, "AU": 10}  # percent
 # ---------------------------------------------------------------------------
 # Approach 1: Classes
 # ---------------------------------------------------------------------------
+
+
+@dataclass
+class Customer:
+    """A customer record from the customers table."""
