@@ -447,3 +447,7 @@ class TestExtensibility:
 
             def price(self, quantity: int) -> int:
                 return self._fee
+
+        rules = {"F": FlatFee(500)}
+        assert checkout("F", rules) == 500
+        assert checkout("FFF", rules) == 500  # still just the flat fee
