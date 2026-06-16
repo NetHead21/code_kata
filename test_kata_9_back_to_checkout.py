@@ -437,3 +437,6 @@ class TestExtensibility:
         rules = {"E": TieredPrice()}
         assert checkout("EEEE", rules) == 400  # 4 × 100
         assert checkout("EEEEE", rules) == 400  # 5 × 80
+
+    def test_flat_fee_rule(self):
+        """A rule that charges a flat fee regardless of quantity."""
