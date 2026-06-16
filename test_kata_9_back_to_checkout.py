@@ -444,3 +444,6 @@ class TestExtensibility:
         class FlatFee:
             def __init__(self, fee: int):
                 self._fee = fee
+
+            def price(self, quantity: int) -> int:
+                return self._fee
