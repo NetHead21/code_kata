@@ -381,3 +381,8 @@ class TestCheckOut:
         co.scan("Y")
         # X = 100, Y: buy 2 get 1 free → pay for 2 = 100
         assert co.total == 200
+
+    def test_repr_contains_total(self):
+        co = CheckOut(RULES)
+        co.scan("A")
+        assert "50" in repr(co)
