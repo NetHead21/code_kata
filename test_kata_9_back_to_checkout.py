@@ -368,3 +368,16 @@ class TestCheckOut:
         for _ in range(5):
             co.scan("A")
         assert RULES == original
+
+    def test_custom_pricing_rules(self):
+        custom_rules = {
+            "X": UnitPrice(100),
+            "Y": BuyNGetMFree(unit_price=50, buy=2, free=1),
+        }
+        co = CheckOut(custom_rules)
+        co.scan("X")
+        co.scan("Y")
+        co.scan("Y")
+        co.scan("Y")
+        # X = 100, Y: buy 2 get 1 free → pay for 2 = 100
+        assert co.total == 200
