@@ -440,3 +440,7 @@ class TestExtensibility:
 
     def test_flat_fee_rule(self):
         """A rule that charges a flat fee regardless of quantity."""
+
+        class FlatFee:
+            def __init__(self, fee: int):
+                self._fee = fee
