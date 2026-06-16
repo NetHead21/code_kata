@@ -406,3 +406,6 @@ class TestPriceHelper:
     def test_accepts_custom_rules(self):
         custom = {"X": UnitPrice(999)}
         assert price("X", custom) == 999
+
+    def test_each_character_is_a_separate_scan(self):
+        assert price("AAAB") == price("ABAA") == price("BAAA")
