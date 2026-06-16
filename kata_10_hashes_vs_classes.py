@@ -18,3 +18,8 @@ Both implementations read from the same in-memory "database" and produce
 export rows with identical *values* — demonstrating that the choice is about
 design quality, not correctness.
 """
+
+from __future__ import annotations
+
+from dataclasses import dataclass, field, asdict
+from typing import Any
