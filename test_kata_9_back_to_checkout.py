@@ -386,3 +386,13 @@ class TestCheckOut:
         co = CheckOut(RULES)
         co.scan("A")
         assert "50" in repr(co)
+
+
+# ---------------------------------------------------------------------------
+# price() helper
+# ---------------------------------------------------------------------------
+
+
+class TestPriceHelper:
+    def test_empty_string(self):
+        assert price("") == 0
