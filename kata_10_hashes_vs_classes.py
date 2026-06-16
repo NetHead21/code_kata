@@ -23,3 +23,14 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field, asdict
 from typing import Any
+
+# ---------------------------------------------------------------------------
+# Shared test fixtures — an in-memory "database"
+# ---------------------------------------------------------------------------
+
+TAX_RATES: dict[str, int] = {"US": 8, "UK": 20, "AU": 10}  # percent
+
+
+# ---------------------------------------------------------------------------
+# Approach 1: Classes
+# ---------------------------------------------------------------------------
