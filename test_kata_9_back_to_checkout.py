@@ -409,3 +409,15 @@ class TestPriceHelper:
 
     def test_each_character_is_a_separate_scan(self):
         assert price("AAAB") == price("ABAA") == price("BAAA")
+
+
+# ---------------------------------------------------------------------------
+# Extensibility: new rule plugged in without touching CheckOut
+# ---------------------------------------------------------------------------
+
+
+class TestExtensibility:
+    """
+    Demonstrates the decoupling goal: a new pricing strategy integrates with
+    CheckOut without any modification to CheckOut itself.
+    """
