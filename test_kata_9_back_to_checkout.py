@@ -396,3 +396,6 @@ class TestCheckOut:
 class TestPriceHelper:
     def test_empty_string(self):
         assert price("") == 0
+
+    def test_single_item(self):
+        assert price("C") == 20
