@@ -427,3 +427,9 @@ class TestExtensibility:
         Tiered pricing: different unit prices at different quantity thresholds.
         e.g. 1-4 units at 100¢, 5+ units at 80¢ each.
         """
+
+        class TieredPrice:
+            def price(self, quantity: int) -> int:
+                if quantity >= 5:
+                    return quantity * 80
+                return quantity * 100
