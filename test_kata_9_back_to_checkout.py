@@ -402,3 +402,7 @@ class TestPriceHelper:
 
     def test_uses_kata_rules_by_default(self):
         assert price("AAA") == 130
+
+    def test_accepts_custom_rules(self):
+        custom = {"X": UnitPrice(999)}
+        assert price("X", custom) == 999
