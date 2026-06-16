@@ -421,3 +421,9 @@ class TestExtensibility:
     Demonstrates the decoupling goal: a new pricing strategy integrates with
     CheckOut without any modification to CheckOut itself.
     """
+
+    def test_tiered_pricing_rule(self):
+        """
+        Tiered pricing: different unit prices at different quantity thresholds.
+        e.g. 1-4 units at 100¢, 5+ units at 80¢ each.
+        """
