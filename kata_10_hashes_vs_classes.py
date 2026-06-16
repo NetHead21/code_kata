@@ -39,3 +39,9 @@ TAX_RATES: dict[str, int] = {"US": 8, "UK": 20, "AU": 10}  # percent
 @dataclass
 class Customer:
     """A customer record from the customers table."""
+
+    customer_id: int
+    name: str
+    email: str
+    vip: bool  # VIP customers receive a 10 % discount on large orders
+    country: str  # ISO country code; used to look up the applicable tax rate
