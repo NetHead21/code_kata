@@ -76,3 +76,15 @@ class ExportRecord:
     discoverable.  Adding a new field means changing this class (and every
     place that constructs one).
     """
+
+    customer_id: int
+    customer_name: str
+    customer_email: str
+    order_id: int
+    subtotal: int
+    discount: int
+    tax: int
+    total: int
+    status: str
+    carrier: str | None = None
+    tracking: str | None = None
