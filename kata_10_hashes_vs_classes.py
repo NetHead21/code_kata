@@ -222,3 +222,15 @@ class HashBasedExporter:
             taxable = row["subtotal"] - row["discount"]
             row["tax"] = self._calculate_tax(taxable, customer["country"])
             row["total"] = taxable + row["tax"]
+
+            # Conditional extra data — flag check, then merge
+            if order.get("special_shipping"):
+                detail = self._shipping.get(order["order_id"], {})
+                row["carrier"] = detail.get("carrier")
+                row["tracking"] = detail.get("tracking_number")
+            else:
+                row["carrier"] = None
+                row["tracking"] = None
+
+            rows.append(row)
+        return rows
