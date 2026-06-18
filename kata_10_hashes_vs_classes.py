@@ -115,3 +115,6 @@ class ClassBasedExporter:
         self._customers = {c.customer_id: c for c in customers}
         self._orders = orders
         self._shipping = {s.order_id: s for s in shipping_details}
+
+    def export(self) -> list[ExportRecord]:
+        """Build and return one ExportRecord per order, fully populated."""
