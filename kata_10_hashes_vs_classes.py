@@ -234,3 +234,10 @@ class HashBasedExporter:
 
             rows.append(row)
         return rows
+
+    @staticmethod
+    def _calculate_discount(vip: bool, subtotal: int) -> int:
+        """10 % off for VIP customers spending $100 or more."""
+        if vip and subtotal >= 10_000:
+            return subtotal // 10
+        return 0
