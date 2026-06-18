@@ -50,3 +50,9 @@ class Customer:
 @dataclass
 class Order:
     """A single order record from the orders table."""
+
+    order_id: int
+    customer_id: int
+    subtotal: int  # in cents, before discount and tax
+    status: str
+    special_shipping: bool = False  # True → fetch tracking info from shipping table
