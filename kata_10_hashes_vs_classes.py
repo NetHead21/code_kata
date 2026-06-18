@@ -88,3 +88,19 @@ class ExportRecord:
     status: str
     carrier: str | None = None
     tracking: str | None = None
+
+
+class ClassBasedExporter:
+    """
+    Export pipeline implemented with typed business objects.
+
+    Advantages experienced here:
+    - Field names are checked by the type system / IDE at authoring time.
+    - Calculation methods receive typed arguments; mistakes surface early.
+    - `asdict(record)` gives a clean dict when serialisation is needed.
+
+    Disadvantages experienced here:
+    - Adding a new column to the export requires modifying ExportRecord.
+    - The 100-column scenario means a 100-field dataclass — a lot of boilerplate.
+    - Mapping database column names to class fields is extra indirection.
+    """
