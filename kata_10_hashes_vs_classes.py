@@ -45,3 +45,8 @@ class Customer:
     email: str
     vip: bool  # VIP customers receive a 10 % discount on large orders
     country: str  # ISO country code; used to look up the applicable tax rate
+
+
+@dataclass
+class Order:
+    """A single order record from the orders table."""
