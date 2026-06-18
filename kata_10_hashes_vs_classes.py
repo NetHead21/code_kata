@@ -125,3 +125,15 @@ class ClassBasedExporter:
             discount = self._calculate_discount(customer, order)
             taxable = order.subtotal - discount
             tax = self._calculate_tax(taxable, customer.country)
+
+            record = ExportRecord(
+                customer_id=customer.customer_id,
+                customer_name=customer.name,
+                customer_email=customer.email,
+                order_id=order.order_id,
+                subtotal=order.subtotal,
+                discount=discount,
+                tax=tax,
+                total=taxable + tax,
+                status=order.status,
+            )
