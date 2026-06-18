@@ -146,3 +146,10 @@ class ClassBasedExporter:
 
             rows.append(record)
         return rows
+
+    @staticmethod
+    def _calculate_discount(customer: Customer, order: Order) -> int:
+        """10 % off for VIP customers spending $100 or more."""
+        if customer.vip and order.subtotal >= 10_000:
+            return order.subtotal // 10
+        return 0
