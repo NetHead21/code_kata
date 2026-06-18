@@ -216,3 +216,9 @@ class HashBasedExporter:
                 "subtotal": order["subtotal"],
                 "status": order["status"],
             }
+
+            # Calculated fields — added to the same dict, no class change needed
+            row["discount"] = self._calculate_discount(customer["vip"], row["subtotal"])
+            taxable = row["subtotal"] - row["discount"]
+            row["tax"] = self._calculate_tax(taxable, customer["country"])
+            row["total"] = taxable + row["tax"]
