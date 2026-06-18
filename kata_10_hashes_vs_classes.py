@@ -241,3 +241,9 @@ class HashBasedExporter:
         if vip and subtotal >= 10_000:
             return subtotal // 10
         return 0
+
+    @staticmethod
+    def _calculate_tax(taxable: int, country: str) -> int:
+        """Apply the country's tax rate to *taxable* cents; unknown countries pay 0 %."""
+        rate = TAX_RATES.get(country, 0)
+        return taxable * rate // 100
