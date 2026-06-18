@@ -153,3 +153,9 @@ class ClassBasedExporter:
         if customer.vip and order.subtotal >= 10_000:
             return order.subtotal // 10
         return 0
+
+    @staticmethod
+    def _calculate_tax(taxable: int, country: str) -> int:
+        """Apply the country's tax rate to *taxable* cents; unknown countries pay 0 %."""
+        rate = TAX_RATES.get(country, 0)
+        return taxable * rate // 100
