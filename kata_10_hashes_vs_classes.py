@@ -188,3 +188,14 @@ class HashBasedExporter:
     - The "schema" exists only in the developer's head (or documentation).
     - Merging dicts from different tables can cause silent key collisions.
     """
+
+    def __init__(
+        self,
+        customers: list[dict],
+        orders: list[dict],
+        shipping_details: list[dict],
+    ) -> None:
+        """Index customers and shipping details dicts by their ID for O(1) lookup."""
+        self._customers = {c["customer_id"]: c for c in customers}
+        self._orders = orders
+        self._shipping = {s["order_id"]: s for s in shipping_details}
