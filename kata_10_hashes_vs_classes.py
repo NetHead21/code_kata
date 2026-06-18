@@ -118,3 +118,10 @@ class ClassBasedExporter:
 
     def export(self) -> list[ExportRecord]:
         """Build and return one ExportRecord per order, fully populated."""
+
+        rows = []
+        for order in self._orders:
+            customer = self._customers[order.customer_id]
+            discount = self._calculate_discount(customer, order)
+            taxable = order.subtotal - discount
+            tax = self._calculate_tax(taxable, customer.country)
