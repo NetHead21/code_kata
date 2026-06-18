@@ -137,3 +137,12 @@ class ClassBasedExporter:
                 total=taxable + tax,
                 status=order.status,
             )
+
+            if order.special_shipping:
+                detail = self._shipping.get(order.order_id)
+                if detail:
+                    record.carrier = detail.carrier
+                    record.tracking = detail.tracking_number
+
+            rows.append(record)
+        return rows
