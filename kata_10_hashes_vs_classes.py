@@ -61,3 +61,7 @@ class Order:
 @dataclass
 class ShippingDetail:
     """Carrier and tracking data from the shipping_details table."""
+
+    order_id: int
+    carrier: str
+    tracking_number: str
