@@ -65,3 +65,14 @@ class ShippingDetail:
     order_id: int
     carrier: str
     tracking_number: str
+
+
+@dataclass(slots=True)
+class ExportRecord:
+    """
+    The fully populated export row.
+
+    All fields are declared up front — the schema is explicit and
+    discoverable.  Adding a new field means changing this class (and every
+    place that constructs one).
+    """
