@@ -202,3 +202,17 @@ class HashBasedExporter:
 
     def export(self) -> list[dict]:
         """Build and return one export-row dict per order, fully populated."""
+
+        rows = []
+        for order in self._orders:
+            customer = self._customers[order["customer_id"]]
+
+            # Start with a flat merge of customer + order data using namespaced keys
+            row: dict[str, Any] = {
+                "customer_id": customer["customer_id"],
+                "customer_name": customer["name"],
+                "customer_email": customer["email"],
+                "order_id": order["order_id"],
+                "subtotal": order["subtotal"],
+                "status": order["status"],
+            }
