@@ -159,3 +159,32 @@ class ClassBasedExporter:
         """Apply the country's tax rate to *taxable* cents; unknown countries pay 0 %."""
         rate = TAX_RATES.get(country, 0)
         return taxable * rate // 100
+
+
+# ---------------------------------------------------------------------------
+# Approach 2: Hashes (dicts)
+# ---------------------------------------------------------------------------
+
+
+class HashBasedExporter:
+    """
+    Export pipeline implemented with plain dicts.
+
+    The dict for each row grows incrementally: raw database columns are
+    merged in first, then calculated fields are added with simple assignments,
+    then conditional extra data is merged if flag fields are set.
+
+    Advantages experienced here:
+    - Adding a new export field is a one-liner (no schema change required).
+    - The row is already a dict — trivially serialisable to JSON or CSV.
+    - Different rows can carry different keys (sparse schema), which is useful
+      when some columns apply only to certain record types.
+    - Ad-hoc database queries map naturally: cursor.fetchone() → dict row.
+
+    Disadvantages experienced here:
+    - A typo in a key name (e.g. 'custmer_id') raises KeyError at runtime,
+      not at authoring time.
+    - IDE cannot autocomplete or type-check dict key strings.
+    - The "schema" exists only in the developer's head (or documentation).
+    - Merging dicts from different tables can cause silent key collisions.
+    """
