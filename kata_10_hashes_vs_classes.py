@@ -104,3 +104,14 @@ class ClassBasedExporter:
     - The 100-column scenario means a 100-field dataclass — a lot of boilerplate.
     - Mapping database column names to class fields is extra indirection.
     """
+
+    def __init__(
+        self,
+        customers: list[Customer],
+        orders: list[Order],
+        shipping_details: list[ShippingDetail],
+    ) -> None:
+        """Index customers and shipping details by their ID for O(1) lookup."""
+        self._customers = {c.customer_id: c for c in customers}
+        self._orders = orders
+        self._shipping = {s.order_id: s for s in shipping_details}
