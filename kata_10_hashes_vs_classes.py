@@ -56,3 +56,8 @@ class Order:
     subtotal: int  # in cents, before discount and tax
     status: str
     special_shipping: bool = False  # True → fetch tracking info from shipping table
+
+
+@dataclass
+class ShippingDetail:
+    """Carrier and tracking data from the shipping_details table."""
