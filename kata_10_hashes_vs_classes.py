@@ -306,3 +306,11 @@ if __name__ == "__main__":
         Customer(2, "Bob", "bob@example.com", vip=False, country="UK"),
         Customer(3, "Charlie", "charlie@example.com", vip=True, country="AU"),
     ]
+
+    orders_cls = [
+        Order(
+            101, customer_id=1, subtotal=15_000, status="shipped", special_shipping=True
+        ),
+        Order(102, customer_id=2, subtotal=5_000, status="pending"),
+        Order(103, customer_id=3, subtotal=8_000, status="shipped"),
+    ]
