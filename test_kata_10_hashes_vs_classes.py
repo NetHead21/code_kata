@@ -28,3 +28,17 @@ def customers_cls():
         Customer(3, "Charlie", "charlie@example.com", vip=True, country="AU"),
         Customer(4, "Diana", "diana@example.com", vip=False, country="US"),
     ]
+
+
+@pytest.fixture
+def orders_cls():
+    return [
+        Order(
+            101, customer_id=1, subtotal=15_000, status="shipped", special_shipping=True
+        ),
+        Order(102, customer_id=2, subtotal=5_000, status="pending"),
+        Order(
+            103, customer_id=3, subtotal=8_000, status="shipped", special_shipping=True
+        ),
+        Order(104, customer_id=4, subtotal=20_000, status="shipped"),
+    ]
