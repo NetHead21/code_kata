@@ -314,3 +314,7 @@ if __name__ == "__main__":
         Order(102, customer_id=2, subtotal=5_000, status="pending"),
         Order(103, customer_id=3, subtotal=8_000, status="shipped"),
     ]
+
+    shipping_cls = [
+        ShippingDetail(101, carrier="FedEx", tracking_number="FX123"),
+    ]
