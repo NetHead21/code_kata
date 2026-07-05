@@ -294,3 +294,15 @@ TRADEOFF_ANALYSIS: dict[str, dict[str, list[str]]] = {
         ],
     },
 }
+
+
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    customers_cls = [
+        Customer(1, "Alice", "alice@example.com", vip=True, country="US"),
+        Customer(2, "Bob", "bob@example.com", vip=False, country="UK"),
+        Customer(3, "Charlie", "charlie@example.com", vip=True, country="AU"),
+    ]
