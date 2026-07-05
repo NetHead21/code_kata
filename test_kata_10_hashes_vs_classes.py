@@ -42,3 +42,11 @@ def orders_cls():
         ),
         Order(104, customer_id=4, subtotal=20_000, status="shipped"),
     ]
+
+
+@pytest.fixture
+def shipping_cls():
+    return [
+        ShippingDetail(101, carrier="FedEx", tracking_number="FX123"),
+        ShippingDetail(103, carrier="UPS", tracking_number="UP456"),
+    ]
