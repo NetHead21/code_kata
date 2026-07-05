@@ -247,3 +247,13 @@ class HashBasedExporter:
         """Apply the country's tax rate to *taxable* cents; unknown countries pay 0 %."""
         rate = TAX_RATES.get(country, 0)
         return taxable * rate // 100
+
+
+# ---------------------------------------------------------------------------
+# Normaliser — convert both outputs to dicts for comparison
+# ---------------------------------------------------------------------------
+
+
+def record_to_dict(record: ExportRecord) -> dict:
+    """Convert a class-based ExportRecord to a plain dict."""
+    return asdict(record)
