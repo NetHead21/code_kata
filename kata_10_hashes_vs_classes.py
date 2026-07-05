@@ -327,3 +327,12 @@ if __name__ == "__main__":
             f"subtotal={row.subtotal}¢ discount={row.discount}¢ "
             f"tax={row.tax}¢ total={row.total}¢  [{row.carrier or '—'}]"
         )
+
+    print()
+    print("Trade-off summary:")
+    for approach, analysis in TRADEOFF_ANALYSIS.items():
+        print(f"\n  {approach.upper()}")
+        for label, points in analysis.items():
+            print(f"    {label}:")
+            for p in points:
+                print(f"      • {p}")
