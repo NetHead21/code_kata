@@ -257,3 +257,17 @@ class HashBasedExporter:
 def record_to_dict(record: ExportRecord) -> dict:
     """Convert a class-based ExportRecord to a plain dict."""
     return asdict(record)
+
+# ---------------------------------------------------------------------------
+# Trade-off analysis — structured documentation of the design decision
+# ---------------------------------------------------------------------------
+
+TRADEOFF_ANALYSIS: dict[str, dict[str, list[str]]] = {
+    "classes": {
+        "advantages": [
+            "Type safety: field names are checked at authoring time, not runtime.",
+            "IDE support: attributes are autocompleted and refactorable.",
+            "Encapsulation: calculation methods live next to the data they use.",
+            "Self-documentation: the class definition IS the schema.",
+            "Validation: __post_init__ or property setters can enforce invariants.",
+        ],
