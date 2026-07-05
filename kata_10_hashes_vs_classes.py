@@ -271,3 +271,10 @@ TRADEOFF_ANALYSIS: dict[str, dict[str, list[str]]] = {
             "Self-documentation: the class definition IS the schema.",
             "Validation: __post_init__ or property setters can enforce invariants.",
         ],
+        "disadvantages": [
+            "Rigid schema: adding a new export column requires a class change.",
+            "Boilerplate: a 100-column export needs a 100-field dataclass.",
+            "Coupling: the class couples the export shape to the domain model.",
+            "Mapping overhead: ORM/DB column names must be translated to field names.",
+        ],
+    },
