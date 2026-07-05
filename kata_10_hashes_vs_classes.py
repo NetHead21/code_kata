@@ -258,6 +258,7 @@ def record_to_dict(record: ExportRecord) -> dict:
     """Convert a class-based ExportRecord to a plain dict."""
     return asdict(record)
 
+
 # ---------------------------------------------------------------------------
 # Trade-off analysis — structured documentation of the design decision
 # ---------------------------------------------------------------------------
@@ -285,3 +286,11 @@ TRADEOFF_ANALYSIS: dict[str, dict[str, list[str]]] = {
             "Sparse schema: different rows can carry different keys.",
             "DB proximity: cursor.fetchone() → dict maps naturally without an ORM.",
         ],
+        "disadvantages": [
+            "Silent failures: key typos raise KeyError at runtime, not compile time.",
+            "No IDE support: dict key strings are opaque to autocomplete and refactoring.",
+            "Implicit schema: the 'contract' lives only in documentation or convention.",
+            "Key collisions: merging two dicts can silently overwrite shared key names.",
+        ],
+    },
+}
