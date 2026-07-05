@@ -278,3 +278,10 @@ TRADEOFF_ANALYSIS: dict[str, dict[str, list[str]]] = {
             "Mapping overhead: ORM/DB column names must be translated to field names.",
         ],
     },
+    "hashes": {
+        "advantages": [
+            "Flexibility: new fields are added with a one-line assignment.",
+            "Serialisation: dicts convert directly to JSON/CSV — no serialiser needed.",
+            "Sparse schema: different rows can carry different keys.",
+            "DB proximity: cursor.fetchone() → dict maps naturally without an ORM.",
+        ],
