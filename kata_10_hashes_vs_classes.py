@@ -318,3 +318,12 @@ if __name__ == "__main__":
     shipping_cls = [
         ShippingDetail(101, carrier="FedEx", tracking_number="FX123"),
     ]
+
+    print("=== Class-based export ===")
+    exporter = ClassBasedExporter(customers_cls, orders_cls, shipping_cls)
+    for row in exporter.export():
+        print(
+            f"  Order {row.order_id}: {row.customer_name} — "
+            f"subtotal={row.subtotal}¢ discount={row.discount}¢ "
+            f"tax={row.tax}¢ total={row.total}¢  [{row.carrier or '—'}]"
+        )
